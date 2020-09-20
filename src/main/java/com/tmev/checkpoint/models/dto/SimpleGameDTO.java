@@ -7,7 +7,7 @@ public class SimpleGameDTO {
 
     public SimpleGameDTO(int id, String url) {
         this.id = id;
-        this.url = "https://images.igdb.com/igdb/image/upload/t_cover_big/" + url + ".jpg";
+        this.url = "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/" + url + ".jpg";
     }
 
     public int getId() {
