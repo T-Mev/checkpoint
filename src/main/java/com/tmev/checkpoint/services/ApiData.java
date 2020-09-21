@@ -1,4 +1,4 @@
-package com.tmev.checkpoint.service;
+package com.tmev.checkpoint.services;
 
 import com.tmev.checkpoint.models.dto.SimpleGameDTO;
 import org.json.JSONException;
@@ -14,7 +14,7 @@ public abstract class ApiData {
 
     public static final String IGDB_KEY = System.getenv("IGDB");
 
-//    private CompleteGameDTO getCompleteGame (int id) throws IOException, InterruptedException, JSONException {
+//    private CompleteGameDTO getComplexGame (int id) throws IOException, InterruptedException, JSONException {
 //
 //        HttpClient client = HttpClient.newHttpClient();
 //
@@ -49,7 +49,7 @@ public abstract class ApiData {
                 .uri(URI.create("https://api-v3.igdb.com/games"))
                 .header("user-key", IGDB_KEY)
                 .header("Accept", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString("fields name, cover, platforms; where id = " + id + ";"))
+                .POST(HttpRequest.BodyPublishers.ofString("fields name, cover.image_id; where id = " + id + ";"))
                 .build();
 
         HttpResponse<String> response = client.send(request,
@@ -58,11 +58,14 @@ public abstract class ApiData {
         // removing array brackets
         String formattedResponse = response.body().substring(1, response.body().length() - 1);
 
-        //parse response
+        // parsing general response
         JSONObject jsonSimpleGame = new JSONObject(formattedResponse);
 
-        // get cover url
-        String coverUrl = getCoverURL((int) jsonSimpleGame.get("cover"));
+        // parsing "cover" object
+        JSONObject jsonCover = jsonSimpleGame.getJSONObject("cover");
+
+        // getting cover url
+        String coverUrl = (String) jsonCover.get("image_id");
 
         return new SimpleGameDTO((int) jsonSimpleGame.get("id"), coverUrl);
 
