@@ -1,15 +1,38 @@
-package com.tmev.checkpoint.controllers;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController("/REST/user/")
-public class UserController {
-
-    @GetMapping("{id}")
-    public String user (@PathVariable int userId) {
-        return null;
-    }
-}
-
+//package com.tmev.checkpoint.controllers;
+//
+//import com.tmev.checkpoint.models.User;
+//import com.tmev.checkpoint.models.data.UserRepository;
+//import com.tmev.checkpoint.models.dto.SimpleGameDTO;
+//import com.tmev.checkpoint.models.dto.UserDTO;
+//import com.tmev.checkpoint.services.ApiData;
+//import org.json.JSONException;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RestController;
+//
+//import java.io.IOException;
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//@RestController
+//@RequestMapping("/REST/user/")
+//public class UserController {
+//
+//    @Autowired
+//    UserRepository userRepository;
+//
+//    @GetMapping("{username}")
+//    public UserDTO user (@PathVariable String username) throws InterruptedException, JSONException, IOException {
+//
+//        User user = userRepository.findByUsername(username);
+//
+//        List<SimpleGameDTO> simpleGames = new ArrayList<>();
+//        for (int gameId : user.getGamesList()) {
+//        simpleGames.add(ApiData.getSimpleGame(gameId));
+//        }
+//        return new UserDTO(user.getUsername(), simpleGames);
+//    }
+//}
+//
