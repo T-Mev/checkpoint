@@ -3,6 +3,7 @@ package com.tmev.checkpoint.services;
 import com.tmev.checkpoint.models.dto.SimpleGameDTO;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.URI;
@@ -10,6 +11,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+@Service
 public abstract class ApiData {
 
     public static final String IGDB_KEY = System.getenv("IGDB");
