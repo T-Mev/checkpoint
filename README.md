@@ -1,4 +1,5 @@
-# Checkpoint
+![Logo](https://raw.githubusercontent.com/T-Mev/checkpoint/master/src/main/resources/static/checkpoint-frontend/src/assets/images/Logo1.png)
+
 Capstone project for LaunchCode's LiftOff program.
 
 ### Overview
@@ -29,7 +30,7 @@ Video game library manager used to track a user's collection utilizing an API to
 * MySQL
 
 ### What I'll Have to Learn
-* Connecting the  Angular front-end to the Java back-end
+* Connecting Angular front-end to Java back-end
 * Working with the API to receive game data
 * Managing Users
 * Authentication with OAuth 2.0
