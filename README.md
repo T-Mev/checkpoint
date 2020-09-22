@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/T-Mev/checkpoint/master/src/main/resources/static/checkpoint-frontend/src/assets/images/Logo1.png)
+![Logo](https://raw.githubusercontent.com/T-Mev/checkpoint/master/src/main/resources/static/checkpoint-frontend/src/assets/images/Logo.png)
 
 Capstone project for LaunchCode's LiftOff program.
 
