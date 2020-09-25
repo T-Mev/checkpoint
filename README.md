@@ -19,7 +19,7 @@ Video game library manager used to track a user's collection utilizing an API to
 * Multiple collections
 * Share collections
 * "Buy on Amazon" 
-    * Utilizing Amazon's API to find current price and link user to purchase page.
+    * Utilizing Amazon's API to find current price and link user to purchase page
 
 ### Technologies
 * Angular
@@ -40,4 +40,4 @@ Video game library manager used to track a user's collection utilizing an API to
 * Deployment
 
 ### Project Tracker
-Soon™
+[Trello](https://trello.com/b/YG3RGTYB/checkpoint)
