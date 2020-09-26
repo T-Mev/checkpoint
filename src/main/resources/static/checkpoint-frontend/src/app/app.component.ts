@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { RestService } from './service/rest.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'checkpoint-frontend';
+  test;
+
+
+  constructor(private http: HttpClient) {
+    this.http.get("http://localhost:8080/REST/games/12").subscribe(res => {
+      this.test = res;
+    })
+  }
+
 }
+
+
