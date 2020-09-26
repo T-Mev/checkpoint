@@ -1,100 +1,48 @@
 package com.tmev.checkpoint.services;
 
-import com.tmev.checkpoint.models.dto.SimpleGameDTO;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.api.igdb.apicalypse.APICalypse;
+import com.api.igdb.apicalypse.Sort;
+import com.api.igdb.exceptions.RequestException;
+import com.api.igdb.request.IGDBWrapper;
+import com.api.igdb.request.JsonRequestKt;
+import com.api.igdb.request.ProtoRequestKt;
+import com.api.igdb.request.TwitchAuthenticator;
+import com.api.igdb.utils.TwitchToken;
 import org.springframework.stereotype.Service;
+import proto.Game;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import java.util.List;
 
-@Service
+//@Service
 public abstract class ApiData {
 
-    public static final String IGDB_KEY = System.getenv("IGDB");
+    public static final String CLIENT_ID = System.getenv("CLIENT_ID");
+    public static final String CLIENT_SECRET = System.getenv("CLIENT_SECRET");
 
-//    private CompleteGameDTO getComplexGame (int id) throws IOException, InterruptedException, JSONException {
-//
-//        HttpClient client = HttpClient.newHttpClient();
-//
-//        HttpRequest request = HttpRequest.newBuilder()
-//                .uri(URI.create("https://api-v3.igdb.com/games"))
-//                .header("user-key", IGDB_KEY)
-//                .header("Accept", "application/json")
-//                .POST(HttpRequest.BodyPublishers.ofString("fields name, cover, platform; where id = " + id))
-//                .build();
-//
-//        HttpResponse<String> response = client.send(request,
-//                HttpResponse.BodyHandlers.ofString());
-//
-//        JSONObject jsonGame = new JSONObject(response.body());
-//
-//        String name = (String) jsonGame.get("name");
-//        int cover = (int) jsonGame.get("cover");
-//
-//
-//
-//        String coverUrl = this.getCoverURL(jsonGame.get("cover");
-////        this.getPlatformName();
-//
-//    }
+    // Create a new TwitchToken object
+    public static TwitchAuthenticator tAuth = TwitchAuthenticator.INSTANCE;
+    public static TwitchToken requestToken = tAuth.requestTwitchToken(CLIENT_ID, CLIENT_SECRET);
 
-    public static SimpleGameDTO getSimpleGame (int id) throws IOException, InterruptedException, JSONException {
+    // The instance stores the token in the object until a new one is requested
+    public static TwitchToken getToken = tAuth.getTwitchToken();
 
-        // API call
-        HttpClient client = HttpClient.newHttpClient();
 
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api-v3.igdb.com/games"))
-                .header("user-key", IGDB_KEY)
-                .header("Accept", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString("fields name, cover.image_id; where id = " + id + ";"))
-                .build();
+    public static String getSimpleGame (int id) throws RequestException {
 
-        HttpResponse<String> response = client.send(request,
-                HttpResponse.BodyHandlers.ofString());
+        // Authenticating requests for the IGDB API
+        IGDBWrapper wrapper = IGDBWrapper.INSTANCE;
+        wrapper.setCredentials(CLIENT_ID, getToken.getAccess_token());
 
-        // removing array brackets
-        String formattedResponse = response.body().substring(1, response.body().length() - 1);
+//        APICalypse apicalypse = new APICalypse().fields("*").sort("release_dates.date", Sort.DESCENDING);
+//        try{
+//            List<Game> games = ProtoRequestKt.games(wrapper, apicalypse);
+//            return games.toString();
+//        } catch(RequestException e) {
+//            // Do something or error
+//        } return "null";
 
-        // parsing general response
-        JSONObject jsonSimpleGame = new JSONObject(formattedResponse);
+        return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse().fields("cover.image_id").sort("release_dates.date", Sort.DESCENDING));
 
-        // parsing "cover" object
-        JSONObject jsonCover = jsonSimpleGame.getJSONObject("cover");
-
-        // getting cover url
-        String coverUrl = (String) jsonCover.get("image_id");
-
-        return new SimpleGameDTO((int) jsonSimpleGame.get("id"), coverUrl);
-
-    }
-
-    private static String getCoverURL (int id) throws IOException, InterruptedException, JSONException {
-
-        // API call
-        HttpClient client = HttpClient.newHttpClient();
-
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api-v3.igdb.com/covers"))
-                .header("user-key", IGDB_KEY)
-                .header("Accept", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString("fields image_id; where id = " + id + ";"))
-                .build();
-
-        HttpResponse<String> response = client.send(request,
-                HttpResponse.BodyHandlers.ofString());
-
-        // removing array brackets
-        String formattedResponse = response.body().substring(1, response.body().length() - 1);
-
-        //parse response
-        JSONObject jsonCover = new JSONObject(formattedResponse);
-
-        return (String) jsonCover.get("image_id");
     }
 
 }
