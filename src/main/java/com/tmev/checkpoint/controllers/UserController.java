@@ -23,16 +23,16 @@
 //    @Autowired
 //    UserRepository userRepository;
 //
-//    @GetMapping("{username}")
-//    public UserDTO user (@PathVariable String username) throws InterruptedException, JSONException, IOException {
+//    @GetMapping("{id}")
+//    public UserDTO user (@PathVariable int id) throws InterruptedException, JSONException, IOException {
 //
-//        User user = userRepository.findByUsername(username);
-//
+//        User user = userRepository.findById(id).orElseThrow();
 //        List<SimpleGameDTO> simpleGames = new ArrayList<>();
+//
 //        for (int gameId : user.getGamesList()) {
 //        simpleGames.add(ApiData.getSimpleGame(gameId));
 //        }
 //        return new UserDTO(user.getUsername(), simpleGames);
 //    }
 //}
-//
+
