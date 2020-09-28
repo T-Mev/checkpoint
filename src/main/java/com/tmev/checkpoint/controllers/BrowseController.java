@@ -41,7 +41,7 @@ public class BrowseController {
                 .header("Authorization", getToken.getAccess_token())
                 .header("Accept", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(
-                        "query games \"Playstation 4\" { " +
+                        "query games \"Games\" { " +
                                 "fields name, genres.name, platforms.name, summary, involved_companies.company.name, " +
                                 "cover.image_id, screenshots.url, total_rating, release_dates.date, videos.video_id; " +
                                 "sort total_rating desc; " +
