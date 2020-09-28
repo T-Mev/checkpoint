@@ -41,7 +41,8 @@ public abstract class ApiData {
 //            // Do something or error
 //        } return "null";
 
-        return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse().fields("cover.image_id").sort("release_dates.date", Sort.DESCENDING));
+//        return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse().fields("cover.image_id").sort("release_dates.date", Sort.DESCENDING));
+        return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse().fields("name, cover.image_id").where("id = " + id));
 
     }
 
