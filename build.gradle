@@ -7,7 +7,7 @@ plugins {
 group = 'com.tmev'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '13'
-processResources.enabled = false
+//processResources.enabled = false
 
 configurations {
 	developmentOnly
