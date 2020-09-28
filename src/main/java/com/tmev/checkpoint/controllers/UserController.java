@@ -21,7 +21,7 @@
 //public class UserController {
 //
 //    @Autowired
-//    UserRepository userRepository;
+//    private UserRepository userRepository;
 //
 //    @GetMapping("{id}")
 //    public UserDTO user (@PathVariable int id) throws InterruptedException, JSONException, IOException {
