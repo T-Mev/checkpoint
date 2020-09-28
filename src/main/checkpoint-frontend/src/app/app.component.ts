@@ -11,7 +11,7 @@ export class AppComponent {
   test;
 
   constructor(private http: HttpClient) {
-    this.http.get("http://localhost:8080/REST/games/12").subscribe(res => {
+    this.http.get("http://localhost:8080/REST/games/111").subscribe(res => {
       this.test = res;
     })
   }
