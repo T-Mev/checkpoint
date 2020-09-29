@@ -1,21 +1,13 @@
 package com.tmev.checkpoint.controllers;
 
 import com.api.igdb.apicalypse.APICalypse;
-import com.api.igdb.apicalypse.Sort;
 import com.api.igdb.exceptions.RequestException;
 import com.api.igdb.request.IGDBWrapper;
-import com.api.igdb.request.ProtoRequestKt;
+import com.api.igdb.request.JsonRequestKt;
 import com.api.igdb.request.TwitchAuthenticator;
 import com.api.igdb.utils.TwitchToken;
-import com.tmev.checkpoint.services.ApiData;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import proto.Game;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/REST/games/")
@@ -31,6 +23,7 @@ public class GameController {
     // The instance stores the token in the object until a new one is requested
      public static TwitchToken getToken = tAuth.getTwitchToken();
 
+
     // handles requests at /REST/games/{id}
     @GetMapping("{id}")
     public String testAPI(@PathVariable int id) throws RequestException {
@@ -39,13 +32,11 @@ public class GameController {
         IGDBWrapper wrapper = IGDBWrapper.INSTANCE;
         wrapper.setCredentials(CLIENT_ID, getToken.getAccess_token());
 
-        APICalypse apicalypse = new APICalypse()
-                .fields("name, genres.name, platforms.name, summary, involved_companies.company.name, cover.image_id, " +
-                        "screenshots.image_id, total_rating, release_dates.date, videos.video_id")
-                .where("id = " + id);
         try{
-            List<Game> games = ProtoRequestKt.games(wrapper, apicalypse);
-            return games.toString();
+            return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
+                    .fields("name, genres.name, platforms.name, summary, involved_companies.company.name, cover.image_id, " +
+                            "screenshots.image_id, total_rating, release_dates.date, videos.video_id")
+                    .where("id = " + id));
         } catch(RequestException e) {
             System.out.println(e.getStatusCode());
             throw e;
