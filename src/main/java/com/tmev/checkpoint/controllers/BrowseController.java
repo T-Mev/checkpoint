@@ -1,17 +1,16 @@
 package com.tmev.checkpoint.controllers;
 
+import com.api.igdb.apicalypse.APICalypse;
+import com.api.igdb.apicalypse.Sort;
 import com.api.igdb.exceptions.RequestException;
+import com.api.igdb.request.IGDBWrapper;
+import com.api.igdb.request.ProtoRequestKt;
 import com.api.igdb.request.TwitchAuthenticator;
 import com.api.igdb.utils.TwitchToken;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
+import proto.Game;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import java.util.List;
 
 @RestController
 @RequestMapping("/REST/browse")
@@ -29,39 +28,24 @@ public class BrowseController {
 
     // handles requests at /REST/browse?platform=
     @GetMapping
-    @ResponseBody
-    public JSONObject displayPlatformData(@RequestParam String platform) throws RequestException, IOException, InterruptedException, JSONException {
+    public String displayPlatformData(@RequestParam int platform) throws RequestException {
 
-        // API call
-        HttpClient client = HttpClient.newHttpClient();
+        // Authenticating requests for the IGDB API
+        IGDBWrapper wrapper = IGDBWrapper.INSTANCE;
+        wrapper.setCredentials(CLIENT_ID, getToken.getAccess_token());
 
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api.igdb.com/v4/multiquery"))
-                .header("Client-ID", CLIENT_ID)
-                .header("Authorization", getToken.getAccess_token())
-                .header("Accept", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(
-                        "query games \"Games\" { " +
-                                "fields name, genres.name, platforms.name, summary, involved_companies.company.name, " +
-                                "cover.image_id, screenshots.url, total_rating, release_dates.date, videos.video_id; " +
-                                "sort total_rating desc; " +
-                                "where platforms = " + platform + " & total_rating >= 90 & themes != (42) & category = 0; " +
-                                "limit 10;" +
-                                "};"))
-                .build();
+        APICalypse apicalypse = new APICalypse()
+                .fields("name, summary, cover.image_id")
+                .sort("total_rating", Sort.DESCENDING)
+                .where("platforms = " + platform + " & total_rating >= 90 & themes != 42 & category = 0");
+        try{
+            List<Game> games = ProtoRequestKt.games(wrapper, apicalypse);
+            return games.toString();
+        } catch(RequestException e) {
+            System.out.println(e.getStatusCode());
+            throw e;
+        }
 
-        HttpResponse<String> response = client.send(request,
-                HttpResponse.BodyHandlers.ofString());
-
-        System.out.println(response);
-
-        // removing array brackets
-        String formattedResponse = response.body().substring(1, response.body().length() - 1);
-
-        // parsing general response
-        JSONObject jsonSimpleGame = new JSONObject(formattedResponse);
-
-        return jsonSimpleGame;
     }
 
 }
