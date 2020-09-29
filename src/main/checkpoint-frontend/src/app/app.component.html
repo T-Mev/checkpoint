@@ -1,4 +1,46 @@
-<div *ngIf="test">
-  <div class="covers" *ngFor="let game of test"><img *ngIf="game.cover"
-      src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.jpg"></div>
+
+<div >
+
+  <!-- Grab Data -->
+  <div style="text-align: center;">
+    <h1>API Data</h1>
+    <button (click)="getData()">Fetch Data</button>
+  </div>
+  <hr>
+
+  <div *ngIf="data">
+
+    <!-- Title -->
+    <div class="title" *ngFor="let gameTitle of data">
+      <h1 *ngIf="gameTitle.name">【{{gameTitle.name}}】</h1>
+    </div>
+
+    <!-- Involved Companies -->
+    <div class="companies" *ngFor="let gameCompanies of data">
+      <h3 *ngIf="gameCompanies.involved_companies">Developer: {{gameCompanies.involved_companies[0].company.name}}</h3>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary" *ngFor="let gameSummary of data">
+      <h3 *ngIf="gameSummary.summary">Summary: <p>"{{gameSummary.summary}}"</p></h3>
+    </div>
+
+    <!-- Platforms -->
+    <div class="platforms" *ngFor="let gamePlatforms of data">
+      <div>
+        <h3>Available on: </h3>
+        <div>
+          <ul>
+              <li *ngFor="let individualPlatforms of gamePlatforms.platforms">{{individualPlatforms.name}}</li>
+          </ul>
+      </div>
+      </div>
+    </div>
+
+    <!-- Cover Art -->
+    <div class="covers" *ngFor="let gameCover of data">
+      <img *ngIf="gameCover.cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{gameCover.cover.image_id}}.png">
+    </div>
+
+  </div>
 </div>

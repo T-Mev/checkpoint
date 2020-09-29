@@ -8,11 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'checkpoint-frontend';
-  test;
-
+  private data: any = []
   constructor(private http: HttpClient) {
-    this.http.get("http://localhost:8080/REST/games/111").subscribe(res => {
-      this.test = res;
+
+  }
+
+  getData(){
+    this.http.get("http://localhost:8080/REST/games/427").subscribe(res => {
+      this.data = res;
+      console.log(this.data)
     })
   }
 
