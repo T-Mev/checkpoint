@@ -34,8 +34,9 @@ public class GameController {
 
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
-                    .fields("name, genres.name, platforms.name, summary, involved_companies.company.name, cover.image_id, " +
-                            "screenshots.image_id, total_rating, release_dates.date, videos.video_id")
+                    .fields("name, genres.name, platforms.name, summary, involved_companies.company.name, " +
+                            "involved_companies.developer, involved_companies.publisher, cover.image_id, " +
+                            "screenshots.image_id, total_rating, release_dates.human, release_dates.region, videos.video_id")
                     .where("id = " + id));
         } catch(RequestException e) {
             System.out.println(e.getStatusCode());
