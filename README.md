@@ -16,6 +16,8 @@ Video game library manager used to track a user's collection utilizing an API to
 
 ##### Possible Additional Features
 * Public user pages
+* Advanced Search
+    * Search by platform, developer, etc.
 * Multiple collections
 * Share collections
 * "Buy on Amazon" 
