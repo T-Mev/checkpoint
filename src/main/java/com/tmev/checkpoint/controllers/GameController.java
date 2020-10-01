@@ -9,6 +9,7 @@ import com.api.igdb.utils.TwitchToken;
 
 import org.springframework.web.bind.annotation.*;
 
+//@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/REST/games/")
 public class GameController {
