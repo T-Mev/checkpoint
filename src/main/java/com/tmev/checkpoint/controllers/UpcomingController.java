@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/REST/games/upcoming")
+@RequestMapping("/REST/upcoming")
 public class UpcomingController {
 
     public static final String CLIENT_ID = System.getenv("CLIENT_ID");
@@ -28,8 +28,11 @@ public class UpcomingController {
     // Get current time in unix
     long currentUnixTime = System.currentTimeMillis() / 1000L;
 
+    // Get one month's time in unix
+    long monthAfterUnixTime = currentUnixTime + 1603929600;
 
-    // handles requests at /REST/games/upcoming
+
+    // Handles requests at /REST/upcoming
     @GetMapping
     public String displayUpcomingGameData() throws RequestException {
 
@@ -40,7 +43,7 @@ public class UpcomingController {
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                     .fields("name, cover.image_id, release_dates.human")
-                    .where("first_release_date > " + currentUnixTime + " & first_release_date < 1603929600 " +
+                    .where("first_release_date > " + currentUnixTime + " & first_release_date < " + monthAfterUnixTime +
                             "& hypes >= 1 & category = 0 & themes != 42")
                     .sort("first_release_date", Sort.ASCENDING)
                     .limit(20));

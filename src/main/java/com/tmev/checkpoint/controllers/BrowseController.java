@@ -25,7 +25,7 @@ public class BrowseController {
     public static TwitchToken getToken = tAuth.getTwitchToken();
 
 
-    // handles requests at /REST/browse?platform=
+    // Handles requests at /REST/browse?platform=
     @GetMapping
     public String displayPlatformData(@RequestParam int platform) throws RequestException {
 

@@ -25,7 +25,7 @@ public class GameController {
      public static TwitchToken getToken = tAuth.getTwitchToken();
 
 
-    // handles requests at /REST/games/{id}
+    // Handles requests at /REST/games/{id}
     @GetMapping("{id}")
     public String displaySpecificGameData(@PathVariable int id) throws RequestException {
 

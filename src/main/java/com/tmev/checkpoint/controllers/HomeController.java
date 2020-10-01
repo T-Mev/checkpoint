@@ -26,7 +26,7 @@ public class HomeController {
     public static TwitchToken getToken = tAuth.getTwitchToken();
 
 
-    // handles requests at root
+    // Handles requests at root
     @GetMapping
     public String displayPopularGameData() throws RequestException {
 
