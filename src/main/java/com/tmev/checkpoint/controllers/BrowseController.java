@@ -35,9 +35,9 @@ public class BrowseController {
 
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
-                    .fields("name, summary, cover.image_id")
+                    .fields("name, summary, cover.image_id, total_rating")
                     .sort("total_rating", Sort.DESCENDING)
-                    .where("platforms = " + platform + " & total_rating >= 90 & themes != 42 & category = 0"));
+                    .where("platforms = " + platform + " & total_rating != null & themes != 42 & category = 0"));
         } catch(RequestException e) {
             System.out.println(e.getStatusCode());
             throw e;
