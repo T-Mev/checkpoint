@@ -27,7 +27,7 @@ public class GameController {
 
     // handles requests at /REST/games/{id}
     @GetMapping("{id}")
-    public String testAPI(@PathVariable int id) throws RequestException {
+    public String displaySpecificGameData(@PathVariable int id) throws RequestException {
 
         // Authenticating requests for the IGDB API
         IGDBWrapper wrapper = IGDBWrapper.INSTANCE;

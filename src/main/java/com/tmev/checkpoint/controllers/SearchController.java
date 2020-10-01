@@ -1,6 +1,7 @@
 package com.tmev.checkpoint.controllers;
 
 import com.api.igdb.apicalypse.APICalypse;
+import com.api.igdb.apicalypse.Sort;
 import com.api.igdb.exceptions.RequestException;
 import com.api.igdb.request.IGDBWrapper;
 import com.api.igdb.request.JsonRequestKt;
@@ -26,7 +27,7 @@ public class SearchController {
 
     // handles requests at /REST/search?term=
     @GetMapping
-    public String displayPlatformData(@RequestParam String term) throws RequestException {
+    public String displaySearchData(@RequestParam String term) throws RequestException {
 
         // Authenticating requests for the IGDB API
         IGDBWrapper wrapper = IGDBWrapper.INSTANCE;
@@ -36,7 +37,8 @@ public class SearchController {
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                     .search(term)
                     .fields("name, summary, cover.image_id, platforms.name, aggregated_rating")
-                    .where("themes != 42 & category = 0"));
+                    .where("themes != 42 & category = 0")
+                    .limit(50));
         } catch(RequestException e) {
             System.out.println(e.getStatusCode());
             throw e;

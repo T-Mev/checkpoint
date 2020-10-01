@@ -37,8 +37,8 @@ public class HomeController {
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                     .fields("name, cover.image_id")
-                    .sort("hypes", Sort.DESCENDING)
                     .where("hypes > 100 & platforms.id = 48 & category = 0 & themes != 42")
+                    .sort("hypes", Sort.DESCENDING)
                     .limit(20));
         } catch(RequestException e) {
             System.out.println(e.getStatusCode());
