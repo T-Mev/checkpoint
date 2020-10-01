@@ -35,7 +35,7 @@ public class SearchController {
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                     .search(term)
-                    .fields("name, summary, cover.image_id, platforms.name")
+                    .fields("name, summary, cover.image_id, platforms.name, aggregated_rating")
                     .where("themes != 42 & category = 0"));
         } catch(RequestException e) {
             System.out.println(e.getStatusCode());
