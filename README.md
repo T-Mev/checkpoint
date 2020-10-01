@@ -11,8 +11,9 @@ Video game library manager used to track a user's collection utilizing an API to
 * Edit collection
 * Game page
     * Detailed info on specific game chosen
-* Search
 * Browse popular games
+* Browse upcoming games
+* Search
 
 ##### Possible Additional Features
 * Public user pages
