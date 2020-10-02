@@ -1,0 +1,11 @@
+<div *ngIf="games">
+    <div *ngFor="let game of games">
+        <div class="title">
+            <h1>【{{game.name}}】</h1>
+        </div>
+
+        <div class="covers">
+            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png">
+        </div>
+    </div>
+</div>
