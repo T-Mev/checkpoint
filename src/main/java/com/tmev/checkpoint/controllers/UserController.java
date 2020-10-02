@@ -36,3 +36,10 @@
 //    }
 //}
 
+// grab user
+// get their list of game Ids
+// morph that into a comma separated string
+// pass that into the API call
+// send API data and User data to front end with the use of UserCollectionDTO
+
+// create @PostMapping to handle edits to User's game collection
