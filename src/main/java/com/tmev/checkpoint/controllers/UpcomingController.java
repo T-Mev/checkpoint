@@ -5,8 +5,9 @@ import com.api.igdb.apicalypse.Sort;
 import com.api.igdb.exceptions.RequestException;
 import com.api.igdb.request.IGDBWrapper;
 import com.api.igdb.request.JsonRequestKt;
-import com.api.igdb.request.TwitchAuthenticator;
-import com.api.igdb.utils.TwitchToken;
+
+import com.tmev.checkpoint.services.ApiService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,15 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/REST/upcoming")
 public class UpcomingController {
 
-    public static final String CLIENT_ID = System.getenv("CLIENT_ID");
-    public static final String CLIENT_SECRET = System.getenv("CLIENT_SECRET");
-
-    // Create a new TwitchToken object
-    public static TwitchAuthenticator tAuth = TwitchAuthenticator.INSTANCE;
-    public static TwitchToken requestToken = tAuth.requestTwitchToken(CLIENT_ID, CLIENT_SECRET);
-
-    // The instance stores the token in the object until a new one is requested
-    public static TwitchToken getToken = tAuth.getTwitchToken();
+    @Autowired
+    ApiService apiService;
 
     // Get current time in unix
     long currentUnixTime = System.currentTimeMillis() / 1000L;
@@ -31,14 +25,13 @@ public class UpcomingController {
     // Get one month's time in unix
     long monthAfterUnixTime = currentUnixTime + 1603929600;
 
-
     // Handles requests at /REST/upcoming
     @GetMapping
     public String displayUpcomingGameData() throws RequestException {
 
         // Authenticating requests for the IGDB API
         IGDBWrapper wrapper = IGDBWrapper.INSTANCE;
-        wrapper.setCredentials(CLIENT_ID, getToken.getAccess_token());
+        wrapper.setCredentials(apiService.getClientId(), apiService.getAccessToken());
 
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
