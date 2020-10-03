@@ -17,24 +17,12 @@ public class BrowseController {
     @Autowired
     ApiService apiService;
 
-//    public static final String CLIENT_ID = System.getenv("CLIENT_ID");
-//    public static final String CLIENT_SECRET = System.getenv("CLIENT_SECRET");
-//
-//    // Create a new TwitchToken object
-//    public static TwitchAuthenticator tAuth = TwitchAuthenticator.INSTANCE;
-//    public static TwitchToken requestToken = tAuth.requestTwitchToken(CLIENT_ID, CLIENT_SECRET);
-//
-//    // The instance stores the token in the object until a new one is requested
-//    public static TwitchToken getToken = tAuth.getTwitchToken();
-
-
     // Handles requests at /REST/browse?platform=
     @GetMapping
     public String displayPlatformData(@RequestParam int platform) throws RequestException {
 
         // Authenticating requests for the IGDB API
         IGDBWrapper wrapper = IGDBWrapper.INSTANCE;
-//        wrapper.setCredentials(CLIENT_ID, getToken.getAccess_token());
         wrapper.setCredentials(apiService.getClientId(), apiService.getAccessToken());
 
         try{
