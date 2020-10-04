@@ -2,28 +2,28 @@ package com.tmev.checkpoint.models.dto;
 
 public class SimpleGameDTO {
 
-    private int id;
-    private String url;
+    private String gameData;
+    private String platformName;
 
-    public SimpleGameDTO(int id, String url) {
-        this.id = id;
-        this.url = "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/" + url + ".jpg";
+    public SimpleGameDTO(String gameData, String platformName) {
+        this.gameData = gameData;
+        this.platformName = platformName;
     }
 
-    public int getId() {
-        return id;
+    public String getGameData() {
+        return gameData;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getPlatformName() {
+        return platformName;
     }
 
-    public String getUrl() {
-        return url;
+    public void setGameData(String gameData) {
+        this.gameData = gameData;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setPlatformName(String platformName) {
+        this.platformName = platformName;
     }
 
 }
