@@ -8,10 +8,14 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  constructor(private router: Router) { }
 
-  toBrowse(id : number) {
+  toBrowse(id: number) {
     this.router.navigate(['/browse'], { queryParams: { platform: id } });
+  }
+
+  toSearch(value: string) {
+    this.router.navigate(['/search'], { queryParams: { term: value } });
   }
 
   ngOnInit() {

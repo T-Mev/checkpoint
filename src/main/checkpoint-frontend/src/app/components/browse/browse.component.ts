@@ -21,6 +21,7 @@ export class BrowseComponent implements OnInit {
     this.route.queryParams.subscribe(param => {
       this.rest.getPlatform(param.platform).subscribe(res => {
         this.games = res;
+        console.log(this.games);
       });
     })
   }

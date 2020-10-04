@@ -13,11 +13,4 @@ export class AppComponent {
 
   }
 
-  getData(){
-    this.http.get("http://localhost:8080/REST/games/427").subscribe(res => {
-      this.data = res;
-      console.log(this.data)
-    })
-  }
-
 }

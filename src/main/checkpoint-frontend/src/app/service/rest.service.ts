@@ -22,6 +22,10 @@ export class RestService {
     return this.http.get(`${this.url}/REST`);
   }
 
+  getSearch(value: string) {
+    return this.http.get(`${this.url}/REST/search?term=${value}`);
+  }
+
   getUpcoming() {
     return this.http.get(`${this.url}/REST/upcoming`);
   }

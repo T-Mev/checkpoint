@@ -1,4 +1,6 @@
 <div *ngIf="games">
+    <h1>Upcoming Games:</h1>
+    <hr>
     <div *ngFor="let game of games">
         <div class="title">
             <h1>【{{game.name}}】</h1>
@@ -14,4 +16,3 @@
         </div>
     </div>
 </div>
-
