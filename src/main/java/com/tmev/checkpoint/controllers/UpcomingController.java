@@ -20,10 +20,10 @@ public class UpcomingController {
     ApiService apiService;
 
     // Get current time in unix
-    long currentUnixTime = System.currentTimeMillis() / 1000L;
+    private long currentUnixTime = System.currentTimeMillis() / 1000L;
 
     // Get one month's time in unix
-    long monthAfterUnixTime = currentUnixTime + 1603929600;
+    private long monthAfterUnixTime = currentUnixTime + 1603929600;
 
     // Handles requests at /REST/upcoming
     @GetMapping
