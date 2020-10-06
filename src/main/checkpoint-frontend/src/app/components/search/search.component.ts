@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(param => {
-      this.searchTerm = param.term.toLowerCase().replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase());
+      this.searchTerm = param.term.toLowerCase().replace(/(^\w{1})|(\s{1}\w{1})/g, (match: string) => match.toUpperCase());
       this.rest.getSearch(param.term).subscribe(res => {
         this.games = res;
         console.log(this.games);
