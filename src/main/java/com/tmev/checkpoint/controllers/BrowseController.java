@@ -30,12 +30,11 @@ public class BrowseController {
 
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
-                    .fields("name, summary, cover.image_id, aggregated_rating, platforms.name")
-                    .where("platforms = " + platform + "& hypes >= 1 & aggregated_rating != null & themes != 42 & category = 0")
-                    .sort("aggregated_rating", Sort.DESCENDING)
-                    .sort("hypes", Sort.DESCENDING)
+                    .fields("name, summary, cover.image_id, platforms.name")
+                    .where("platforms = " + platform + " & follows != null & themes != 42 &" +
+                            " hypes >= 1 & category = (0, 3, 4) & id != (120268, 10039, 37419, 18387)")
+                    .sort("follows", Sort.DESCENDING)
                     .limit(20));
-
         } catch(RequestException e) {
             System.out.println(e.getStatusCode());
             throw e;
@@ -44,4 +43,3 @@ public class BrowseController {
     }
 
 }
-
