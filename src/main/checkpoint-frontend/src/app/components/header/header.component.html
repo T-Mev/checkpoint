@@ -6,7 +6,7 @@
 <button (click)="toBrowse(130)">Nintendo Switch</button>
 <button (click)="toBrowse(6)">PC</button>
 
-<input #newSearch (keydown.enter)="toSearch(newSearch.value)" type='text' placeholder="Search..."/>
+<input #newSearch (keydown.enter)="toSearch(newSearch.value)" type='text' placeholder="Search..." spellcheck="false"/>
 <button (click)="toSearch(newSearch.value)">Go!</button>
 
 <hr>
