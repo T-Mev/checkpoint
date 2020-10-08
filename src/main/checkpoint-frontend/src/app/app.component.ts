@@ -8,9 +8,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'checkpoint-frontend';
-  private data: any = []
-  constructor(private http: HttpClient) {
-
-  }
-
 }

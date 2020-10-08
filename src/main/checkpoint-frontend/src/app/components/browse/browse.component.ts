@@ -13,9 +13,7 @@ export class BrowseComponent implements OnInit {
   //Make this a typescript interface
   games;
 
-  constructor(private route: ActivatedRoute, private rest: RestService) {
-
-  }
+  constructor(private route: ActivatedRoute, private rest: RestService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(param => {
