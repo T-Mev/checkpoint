@@ -10,15 +10,15 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  ngOnInit() {
+  }
+
   toBrowse(id: number) {
     this.router.navigate(['/browse'], { queryParams: { platform: id } });
   }
 
   toSearch(value: string) {
     this.router.navigate(['/search'], { queryParams: { term: value } });
-  }
-
-  ngOnInit() {
   }
 
 }
