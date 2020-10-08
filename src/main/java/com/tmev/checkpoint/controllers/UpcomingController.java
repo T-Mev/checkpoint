@@ -37,9 +37,9 @@ public class UpcomingController {
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                     .fields("name, cover.image_id, release_dates.platform.name, release_dates.human, release_dates.region")
                     .where("first_release_date > " + currentUnixTime + " & first_release_date < " + monthAfterUnixTime +
-                            " & category = (0, 1, 2, 4) & cover.image_id != null & version_parent = null & themes != 42")
+                            " & category = (0, 1, 2, 3, 4) & cover.image_id != null & version_parent = null & themes != 42")
                     .sort("first_release_date", Sort.ASCENDING)
-                    .limit(20));
+                    .limit(50));
         } catch(RequestException e) {
             System.out.println(e.getStatusCode());
             throw e;

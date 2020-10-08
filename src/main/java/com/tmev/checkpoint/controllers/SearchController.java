@@ -28,7 +28,7 @@ public class SearchController {
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                     .search(term)
                     .fields("name, summary, cover.image_id, platforms.name")
-                    .where("themes != 42 & category = 0 & version_parent = null & cover.image_id != null & summary != null")
+                    .where("themes != 42 & category = (0, 2, 3, 4) & version_parent = null & cover.image_id != null & summary != null")
                     .limit(50));
         } catch(RequestException e) {
             System.out.println(e.getStatusCode());
