@@ -9,6 +9,7 @@ import { BrowseComponent } from './components/browse/browse.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UpcomingComponent } from './components/upcoming/upcoming.component';
 import { SearchComponent } from './components/search/search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SearchComponent } from './components/search/search.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
