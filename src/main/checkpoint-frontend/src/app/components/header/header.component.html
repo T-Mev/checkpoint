@@ -1,12 +1,41 @@
-<button routerLink="">Home</button>
-<button routerLink="upcoming">Upcoming</button>
+<mat-toolbar class="navbar">
 
-<button (click)="toBrowse(48)">PS4</button>
-<button (click)="toBrowse(49)">Xbox One</button>
-<button (click)="toBrowse(130)">Nintendo Switch</button>
-<button (click)="toBrowse(6)">PC</button>
+    <button mat-icon-button class="menu-icon">
+      <mat-icon>menu</mat-icon>
+    </button>
 
-<input #newSearch (keydown.enter)="toSearch(newSearch.value); newSearch.value = ''" type='text' placeholder="Search..." spellcheck="false"/>
-<button (click)="toSearch(newSearch.value); newSearch.value = ''">Go!</button>
+    <span >Checkpoint</span>
+
+    <button class="button" routerLink="" mat-stroked-button color="primary">Home</button>
+    <button class="button" routerLink="upcoming" mat-stroked-button>Upcoming</button>
+    <button class="button" (click)="toBrowse(48)" mat-stroked-button>PS4</button>
+    <button class="button" (click)="toBrowse(49)" mat-stroked-button>Xbox One</button>
+    <button class="button" (click)="toBrowse(130)" mat-stroked-button>Nintendo Switch</button>
+    <button class="button" (click)="toBrowse(6)" mat-stroked-button>PC</button>
+
+    <span class="example-spacer"></span>
+
+    <mat-form-field appearance="standard" class="search-bar">
+        <mat-label>Search</mat-label>
+        <input matInput #newSearch  (keydown.enter)="toSearch(newSearch.value); newSearch.value = ''" type='search' spellcheck="false">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <span class="example-spacer"></span>
+
+    <button class="button" mat-flat-button>Login</button>
+    <button class="button" mat-flat-button color="primary">Register</button>
+
+</mat-toolbar>
+
+
+
+
+
+
+<!-- <input #newSearch (keydown.enter)="toSearch(newSearch.value); newSearch.value = ''" type='text' placeholder="Search..." spellcheck="false"/> -->
+<!-- <button mat-mini-fab color="primary" (click)="toSearch(newSearch.value); newSearch.value = ''">Go!</button> -->
 
 <hr>
+
+
