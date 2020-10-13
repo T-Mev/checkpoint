@@ -1,50 +1,46 @@
 
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
-<a class="navbar-brand" href="">Checkpoint</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-</button>
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+    <a class="navbar-brand" href="">
+        <img src="../../../assets/img/logo.svg" width="250" alt="" loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Browse⯆
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <h6 class="dropdown-header">Platform:</h6>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" (click)="toBrowse(48)">PS4</a>
-                <a class="dropdown-item" (click)="toBrowse(49)">Xbox One</a>
-                <a class="dropdown-item" (click)="toBrowse(130)">Nintendo Switch</a>
-                <a class="dropdown-item" (click)="toBrowse(6)">PC</a>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="upcoming">Upcoming</a>
-        </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Browse⯆
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <h6 class="dropdown-header">Platform:</h6>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" (click)="toBrowse(48)">PS4</a>
+                    <a class="dropdown-item" (click)="toBrowse(49)">Xbox One</a>
+                    <a class="dropdown-item" (click)="toBrowse(130)">Nintendo Switch</a>
+                    <a class="dropdown-item" (click)="toBrowse(6)">PC</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="upcoming">Upcoming</a>
+            </li>
+        </ul>
 
-    <mat-form-field appearance="standard" class="search-bar">
-        <mat-label>Search</mat-label>
-        <input matInput #newSearch  (keydown.enter)="toSearch(newSearch.value); newSearch.value = ''" type='search' spellcheck="false">
-        <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
+        <mat-form-field appearance="standard" class="search-bar">
+            <mat-label>Search</mat-label>
+            <input matInput #newSearch  (keydown.enter)="toSearch(newSearch.value); newSearch.value = ''" type='search' spellcheck="false">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
 
-    <div>
-        <button type="button" class="btn btn-light btn-sm login">Login</button>
-        <button type="button" class="btn btn-warning">Register</button>
+        <div>
+            <button type="button" class="btn btn-light btn-sm login">Login</button>
+            <button type="button" class="btn btn-warning register">Register</button>
+        </div>
+
     </div>
-
-</div>
 </nav>
-
-
 
 
 <!-- <input #newSearch (keydown.enter)="toSearch(newSearch.value); newSearch.value = ''" type='text' placeholder="Search..." spellcheck="false"/> -->
 <!-- <button mat-mini-fab color="primary" (click)="toSearch(newSearch.value); newSearch.value = ''">Go!</button> -->
-
-<hr>
-
-

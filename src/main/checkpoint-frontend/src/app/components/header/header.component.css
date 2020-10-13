@@ -1,19 +1,36 @@
-.navbar {
-    font-size: 12px;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+
+.dropdown-item {
+    cursor: pointer;
 }
 
-.search-bar {
-    width: 350px;
-    margin-right: 35px;
-    color: white;
+.navbar-collapse {
+    padding-bottom: 5px;
 }
 
 .login {
     margin-right: 17px;
 }
 
-.dropdown-item {
-    cursor: pointer;
+.navbar {
+    font-size: 12px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    -webkit-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.452);
+    -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.452);
+    box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.452);
+}
+
+.navbar-toggler {
+    width: 50px;
+    margin-right: 0em;
+}
+
+.navbar-toggler-icon{
+    font-size: 0.7em;
+}
+
+.search-bar {
+    width: 350px;
+    margin-right: 0.7em;
+    color: rgb(90, 92, 95);
 }
