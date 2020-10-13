@@ -1,21 +1,14 @@
 .navbar {
-    border-bottom: 100px;
-    font-size: 8px;
+    font-size: 12px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .search-bar {
-    width: 300px;
+    width: 350px;
     margin-right: 35px;
     color: white;
 }
-
-.example-spacer {
-    flex: 1 1 auto;
-  }
-
-  .button {
-      margin: 0px 5px;
-  }
 
 .login {
     margin-right: 17px;
