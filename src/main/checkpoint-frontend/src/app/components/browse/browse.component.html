@@ -17,17 +17,18 @@
     </div>
 </div> -->
 
-<div *ngIf="games" >
+<div *ngIf="games">
     <h1 class="popular-title">Popular {{games[0].platforms[0].name}} Games:</h1>
     <hr>
     <div *ngFor="let game of games" class="game-content">
         <ul class="list-unstyled">
-             <li class="media covers">
-             <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png" class="img img-fluid img-thumbnail align-self-start mr-3" alt="covers">
-             <div class="media-body">
-                 <h5 class="mt-0 mb-1" class="title">【{{game.name}}】</h5>
-                 <p class="summary">{{game.summary}}</p>
-            </div>
+            <li class="media covers">
+                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
+                    class="img img-fluid img-thumbnail align-self-start mr-3" alt="covers">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1" class="title">【{{game.name}}】</h5>
+                    <p class="summary">{{game.summary}}</p>
+                </div>
             </li>
         </ul>
     </div>
