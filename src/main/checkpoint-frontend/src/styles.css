@@ -3,11 +3,11 @@
 html, body {
     height: 100%;
     padding-top: 38px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     margin: 0;
-    font-family: "Helvetica Neue", sans-serif;
  }
 
  h1 {

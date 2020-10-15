@@ -1,0 +1,29 @@
+
+
+.carousel-container{
+    width: 700px;
+}
+
+.carousel-image {
+    width: 100%;
+  }
+
+
+  .carousel-inner {
+      width:100%;
+  }
+
+  .carousel-title {
+      font-weight: bold;
+      text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+  }
+
+  .carousel-caption {
+      bottom: 18px;
+      padding-bottom: 10px;
+  }
+
+  .carousel-indicators {
+    bottom: -5px;
+}
+
