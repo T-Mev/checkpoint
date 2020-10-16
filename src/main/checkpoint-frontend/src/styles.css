@@ -6,14 +6,13 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
+/* body {
+    background: url(./assets/img/background.png) no-repeat center .1px fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
     margin: 0;
- }
+ } */
 
- h1 {
-     font-size: 30px;
- }
-
- p {
-    font-size: 18px;
-}

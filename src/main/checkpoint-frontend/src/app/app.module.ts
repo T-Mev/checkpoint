@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { UpcomingComponent } from './components/upcoming/upcoming.component';
 import { SearchComponent } from './components/search/search.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     HeaderComponent,
     UpcomingComponent,
     SearchComponent,
-    CarouselComponent
+    CarouselComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

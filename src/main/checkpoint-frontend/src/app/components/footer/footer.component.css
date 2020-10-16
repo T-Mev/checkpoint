@@ -1,0 +1,16 @@
+
+.footer-checkpoint{
+    background-image: url(../../../assets/img/footer.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 1rem 0 .5rem 0;
+    font-size: small;
+    border-top: 1px solid #d4d4d4;;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-container a {
+    color: rgb(233, 110, 27);
+    font-weight: bold;
+}
