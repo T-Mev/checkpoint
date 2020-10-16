@@ -2,12 +2,12 @@
     width: 1000px;
     max-width: 100%;
     min-width: 100px;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 15px 15px 0px 15px;
     border: 3px solid rgb(230, 230, 230);
     border-radius: 5px;
 
-    background-image: linear-gradient(rgb(255, 255, 255), rgb(245, 245, 245));
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(238, 238, 238));
     -webkit-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
     -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
     box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
@@ -19,4 +19,8 @@
 
 .popular-title {
     margin-left: 16px;
+}
+
+.spacer {
+    padding-top: 4.5rem;
 }
