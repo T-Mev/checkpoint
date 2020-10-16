@@ -1,4 +1,4 @@
-<div *ngIf="games">
+<!-- <div *ngIf="games">
     <h1>Upcoming Games:</h1>
     <hr>
     <div *ngFor="let game of games">
@@ -10,4 +10,26 @@
             <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png">
         </div>
     </div>
+</div> -->
+
+
+<div *ngIf="games">
+    <h1 class="upcoming-title">Upcoming Games:</h1>
+    <hr>
+    <div class="img-container">
+        <span *ngFor="let game of games">
+            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
+                class="img img-fluid img-thumbnail" alt="covers">
+        </span>
+
+        <div *ngFor="let game of games">
+            <p>{{game.release_dates.human}}</p>
+        </div>
+    </div>
 </div>
+
+<div *ngIf="games.length === 0">
+    <h1>Platform not found!</h1>
+</div>
+
+<div class="spacer"></div>
