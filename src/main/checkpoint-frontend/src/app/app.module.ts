@@ -4,13 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material.module';
+
 import { HomeComponent } from './components/home/home.component';
 import { BrowseComponent } from './components/browse/browse.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UpcomingComponent } from './components/upcoming/upcoming.component';
 import { SearchComponent } from './components/search/search.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { MaterialModule } from './material.module';
     BrowseComponent,
     HeaderComponent,
     UpcomingComponent,
-    SearchComponent
+    SearchComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
