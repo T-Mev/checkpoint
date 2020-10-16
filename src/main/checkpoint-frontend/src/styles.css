@@ -2,17 +2,23 @@
 
 html, body {
     height: 100%;
-    padding-top: 38px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 40px;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* font-family: 'Bebas Neue', cursive; */
+    font-family: 'Overpass', sans-serif;
 }
 
-/* body {
-    background: url(./assets/img/background.png) no-repeat center .1px fixed;
+body {
+    background: url(../src/assets/img/background.png) no-repeat center .1px fixed;
+    background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 100%;
-    margin: 0;
- } */
+}
+
+hr {
+    margin-top: 0;
+}
+
 
