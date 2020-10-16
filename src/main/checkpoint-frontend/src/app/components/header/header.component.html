@@ -1,6 +1,7 @@
+
 <nav class="navbar navbar-expand-lg fixed-top navbar-light">
     <a class="navbar-brand" href="">
-        <img src="../../../assets/img/logo.svg" width="250" alt="" loading="lazy">
+        <img src="../../../assets/img/logo.svg" width="250" loading="lazy" data-toggle="collapse" data-target=".navbar-collapse.show">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
         aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,10 +18,10 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <h6 class="dropdown-header">Platform:</h6>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" (click)="toBrowse(48)">PS4</a>
-                    <a class="dropdown-item" (click)="toBrowse(49)">Xbox One</a>
-                    <a class="dropdown-item" (click)="toBrowse(130)">Nintendo Switch</a>
-                    <a class="dropdown-item" (click)="toBrowse(6)">PC</a>
+                    <a class="dropdown-item" (click)="toBrowse(48)" data-toggle="collapse" data-target=".navbar-collapse.show">PS4</a>
+                    <a class="dropdown-item" (click)="toBrowse(49)" data-toggle="collapse" data-target=".navbar-collapse.show">Xbox One</a>
+                    <a class="dropdown-item" (click)="toBrowse(130)" data-toggle="collapse" data-target=".navbar-collapse.show">Nintendo Switch</a>
+                    <a class="dropdown-item" (click)="toBrowse(6)" data-toggle="collapse" data-target=".navbar-collapse.show">PC</a>
                 </div>
             </li>
             <li class="nav-item">
