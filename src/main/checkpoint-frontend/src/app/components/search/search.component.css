@@ -32,6 +32,7 @@
     color: rgb(95, 95, 100);
     font-family: 'Bebas Neue', cursive;
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
+    margin-top: 2%
 }
 
 .search-title span {
