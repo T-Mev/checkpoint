@@ -14,6 +14,8 @@ import { UpcomingComponent } from './components/upcoming/upcoming.component';
 import { SearchComponent } from './components/search/search.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormLoginComponent } from './components/form-login/form-login.component';
+import { FormRegisterComponent } from './components/form-register/form-register.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { FooterComponent } from './components/footer/footer.component';
     SearchComponent,
     CarouselComponent,
     FooterComponent,
+    FormLoginComponent,
+    FormRegisterComponent,
   ],
   imports: [
     BrowserModule,
