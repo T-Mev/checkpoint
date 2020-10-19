@@ -1,8 +1,11 @@
 
+<div class="title-container">
+    <h1><span class="upcoming-title">Upcoming</span> Games:</h1>
+    <hr>
+</div>
+
 <div id="container">
     <div *ngIf="games">
-        <h1 class="upcoming-title">Upcoming Games:</h1>
-        <hr>
         <div class="games-list-container">
             <div class="game-container" *ngFor="let game of games">
                 <div class="game">
@@ -20,5 +23,3 @@
 
     <div class="spacer"></div>
 </div>
-
-<!-- <div class="spacer"></div> -->
