@@ -31,9 +31,12 @@
 
 .modal-header {
     padding: 5px 10px 0 1rem;
-    background: url(../../../assets/img/background.png);
-    background-position: top;
-    background-size: 498px;
+    background: url(../../../assets/img/modal-background.png);
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
 }
 
