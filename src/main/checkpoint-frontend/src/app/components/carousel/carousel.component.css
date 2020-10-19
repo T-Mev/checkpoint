@@ -1,16 +1,23 @@
 
 .carousel-container{
-    width: 800px;
+    justify-content: center;
+    align-items: center;
+
+    width: 700px;
     max-width: 100%;
     margin: 0 auto;
     padding: 8px;
     border: 3px solid rgb(230, 230, 230);
     border-radius: 5px;
 
-    background-image: linear-gradient(rgb(255, 255, 255), rgb(245, 245, 245));
+    /* background-image: linear-gradient(rgb(255, 255, 255), rgb(245, 245, 245));
     -webkit-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
     -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
-    box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
+    box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329); */
+
+    -webkit-box-shadow: 0px 0px 52px 26px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 52px 26px rgba(255,255,255,1);
+    box-shadow: 0px 0px 52px 26px rgb(255, 255, 255);
 }
 
 .carousel-image {
@@ -36,4 +43,22 @@
 
 .carousel-indicators {
 bottom: -5px;
+}
+
+.popular {
+    color: rgb(248, 132, 0);
+}
+
+.title-container {
+    width: 725px;
+    margin: 30px auto;
+    padding: 15px 15px 0px 15px;
+
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+
+    color: rgb(95, 95, 100);
+    font-family: 'Bebas Neue', cursive;
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
 }
