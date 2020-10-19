@@ -1,7 +1,7 @@
-
 <nav class="navbar navbar-expand-lg fixed-top navbar-light">
     <a class="navbar-brand" href="">
-        <img src="../../../assets/img/logo.svg" width="250" loading="lazy" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <img src="../../../assets/img/logo.svg" width="250" loading="lazy" data-toggle="collapse"
+            data-target=".navbar-collapse.show">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
         aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,10 +18,14 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <h6 class="dropdown-header">Platform:</h6>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" (click)="toBrowse(48)" data-toggle="collapse" data-target=".navbar-collapse.show">PS4</a>
-                    <a class="dropdown-item" (click)="toBrowse(49)" data-toggle="collapse" data-target=".navbar-collapse.show">Xbox One</a>
-                    <a class="dropdown-item" (click)="toBrowse(130)" data-toggle="collapse" data-target=".navbar-collapse.show">Nintendo Switch</a>
-                    <a class="dropdown-item" (click)="toBrowse(6)" data-toggle="collapse" data-target=".navbar-collapse.show">PC</a>
+                    <a class="dropdown-item" (click)="toBrowse(48)" data-toggle="collapse"
+                        data-target=".navbar-collapse.show">PS4</a>
+                    <a class="dropdown-item" (click)="toBrowse(49)" data-toggle="collapse"
+                        data-target=".navbar-collapse.show">Xbox One</a>
+                    <a class="dropdown-item" (click)="toBrowse(130)" data-toggle="collapse"
+                        data-target=".navbar-collapse.show">Nintendo Switch</a>
+                    <a class="dropdown-item" (click)="toBrowse(6)" data-toggle="collapse"
+                        data-target=".navbar-collapse.show">PC</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -37,12 +41,50 @@
         </mat-form-field>
 
         <div>
-            <button type="button" class="btn btn-light btn-sm login login-register">Login</button>
-            <button type="button" class="btn btn-warning login-register">Register</button>
+            <button type="button" class="btn btn-light btn-sm login login-register" data-toggle="modal"
+                data-target="#loginModal">
+                Login</button>
+            <button type="button" class="btn btn-secondary btn-sm login-register" data-toggle="modal"
+                data-target="#registerModal">
+                Register</button>
         </div>
 
     </div>
 </nav>
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog mw-100 w-25" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <app-form-login></app-form-login>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog mw-100 w-25" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Register:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <app-form-register></app-form-register>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- <input #newSearch (keydown.enter)="toSearch(newSearch.value); newSearch.value = ''" type='text' placeholder="Search..." spellcheck="false"/> -->

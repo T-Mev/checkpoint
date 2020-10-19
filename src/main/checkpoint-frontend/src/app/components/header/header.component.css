@@ -1,4 +1,8 @@
 
+.dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: rgb(253, 147, 27) !important;
+}
+
 .dropdown-item {
     cursor: pointer;
 }
@@ -15,6 +19,30 @@
     -webkit-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.452);
     -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.452);
     box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.452);
+}
+
+.modal-body {
+    margin: auto;
+}
+
+.modal-content {
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(231, 231, 231));
+}
+
+.modal-header {
+    padding: 5px 10px 0 1rem;
+    background: url(../../../assets/img/background.png);
+    background-position: top;
+    background-size: 498px;
+
+}
+
+.modal-title {
+    color: rgb(248, 132, 0);
+    font-family: 'Bebas Neue', cursive;
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
+    font-size: 30px;
+    letter-spacing: 1px;
 }
 
 .navbar-toggler {
