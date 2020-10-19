@@ -18,6 +18,14 @@
     transition: border .2s ease-in-out, transform .2s ease-in-out;
 }
 
+.game p {
+    margin: auto;
+    color: rgb(95, 95, 100);
+    font-family: 'Bebas Neue', cursive;
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
+    font-size: 20px;
+}
+
 .game-container {
     margin: 10px;
     width: fit-content;

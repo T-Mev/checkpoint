@@ -14,3 +14,7 @@
     color: rgb(233, 110, 27);
     font-weight: 500;
 }
+
+.footer-container p {
+    margin: 0 0 7px auto;
+}
