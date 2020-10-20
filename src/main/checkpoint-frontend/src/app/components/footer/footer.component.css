@@ -1,7 +1,7 @@
 
 .footer-checkpoint{
     background-image: url(../../../assets/img/footer.png);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     padding: 1rem 0 .5rem 0;
     font-size: 50%;
