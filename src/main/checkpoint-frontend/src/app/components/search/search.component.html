@@ -1,22 +1,3 @@
-<!-- <div *ngIf="games">
-    <h1 class="search-title">Results For: "{{searchTerm}}"</h1>
-    <hr>
-    <div *ngFor="let game of games">
-        <div class="title">
-            <h1>【{{game.name}}】</h1>
-        </div>
-
-        <div class="covers">
-            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png">
-        </div>
-
-        <div class="summary">
-            <h3>Summary: <p>"{{game.summary}}"</p>
-            </h3>
-        </div>
-    </div>
-</div> -->
-
 <div id="container">
     <div *ngIf="games">
         <h1 *ngIf="games.length !== 0" class="search-title">Results For: <span>"{{searchTerm}}"</span></h1>
@@ -24,11 +5,13 @@
         <div *ngFor="let game of games" class="game-content">
             <ul class="list-unstyled">
                 <li class="media covers mg-fluid">
-                    <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
-                        class="img img-fluid img-thumbnail align-self-start mr-3" alt="covers">
+                    <div class="img-container">
+                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
+                            class="img img-fluid img-thumbnail align-self-start mr-3" alt="covers">
+                    </div>
                     <div class="media-body">
-                        <h4 class="mt-0 mb-1" class="title"><span><img src="../../../assets/img/Arrow.svg"
-                            width="25" loading="lazy"></span>
+                        <h4 class="mt-0 mb-1" class="title"><span><img src="../../../assets/img/Arrow.svg" width="25"
+                                    loading="lazy"></span>
                             {{game.name}}</h4>
                         <hr>
                         <p>{{game.summary}}</p>
@@ -41,7 +24,6 @@
         <h1>0 results found!</h1>
     </div>
 </div>
-
 
 
 <div class="spacer"></div>
