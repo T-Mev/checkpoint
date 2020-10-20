@@ -24,4 +24,18 @@ export class BrowseComponent implements OnInit {
     })
   }
 
+  colorPicker(score: number): string {
+    if (score >= 75) {
+      return "green";
+    } else if (score >= 50) {
+      return "yellow";
+    } else {
+      return "red";
+    }
+  }
+
+  formatNumber(num: number): number {
+    return Math.round(num);
+  }
+
 }

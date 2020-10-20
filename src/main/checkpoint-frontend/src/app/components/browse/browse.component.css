@@ -24,11 +24,6 @@
     border-radius: 10px;
 }
 
-.media-body h4 {
-    margin-bottom: 0;
-    font-weight: 600;
-}
-
 .popular-title {
     color: rgb(95, 95, 100);
     font-family: 'Bebas Neue', cursive;
@@ -39,6 +34,20 @@
 .popular-title span {
     color: rgb(248, 132, 0);
 }
+
+/* .rating {
+    margin-top: 2px;
+    margin-bottom: 0;
+    font-family: 'Bebas Neue', cursive;
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
+}
+
+.rating-container {
+    text-align: center;
+    border: 2px solid red;
+    border-radius: 15px;
+    width: 28.89px;
+} */
 
 .spacer {
     padding-top: 3.5rem;
@@ -61,4 +70,31 @@
     letter-spacing: 5px;
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
     padding-bottom: 5px;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .img {
+        width: 250px;
+    }
+
+    .img-container {
+        margin: 0 auto 14px auto;
+        width: fit-content;
+    }
+
+    .media {
+        flex-wrap: wrap;
+    }
+
+    .media-body {
+        flex: 70%;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
 }
