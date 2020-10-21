@@ -1,4 +1,11 @@
 
+hr {
+    border: none;
+    height: 2px;
+    background: rgb(203,203,208);
+    background: linear-gradient(90deg, rgb(206, 206, 212) 0%, rgba(255,255,255,0) 100%);
+}
+
 .img {
     width: 100%;
 }
