@@ -1,4 +1,3 @@
-
 <div class="title-container">
     <h1><span class="popular">Popular</span> Games:</h1>
     <hr class="divider">
@@ -15,43 +14,55 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{games[0].screenshots[4].image_id}}.png"
-                    class="d-block w-100 carousel-image">
+                <a (click)="toGame(games[0].id)" class="clickable">
+                    <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{games[0].screenshots[4].image_id}}.png"
+                        class="d-block w-100 carousel-image">
+                </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="carousel-title">{{games[0].name}}</h5>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{games[1].screenshots[1].image_id}}.png"
-                    class="d-block w-100 carousel-image">
+                <a (click)="toGame(games[1].id)" class="clickable">
+                    <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{games[1].screenshots[1].image_id}}.png"
+                        class="d-block w-100 carousel-image">
+                </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="carousel-title">{{games[1].name}}</h5>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{games[4].screenshots[1].image_id}}.png"
-                    class="d-block w-100 carousel-image">
+                <a (click)="toGame(games[4].id)" class="clickable">
+                    <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{games[4].screenshots[1].image_id}}.png"
+                        class="d-block w-100 carousel-image">
+                </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="carousel-title">{{games[4].name}}</h5>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{games[6].screenshots[0].image_id}}.png"
-                    class="d-block w-100 carousel-image">
+                <a (click)="toGame(games[6].id)" class="clickable">
+                    <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{games[6].screenshots[0].image_id}}.png"
+                        class="d-block w-100 carousel-image">
+                </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="carousel-title">{{games[6].name}}</h5>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{games[12].screenshots[1].image_id}}.png"
-                    class="d-block w-100 carousel-image">
+                <a (click)="toGame(games[12].id)" class="clickable">
+                    <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{games[12].screenshots[1].image_id}}.png"
+                        class="d-block w-100 carousel-image">
+                </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="carousel-title">{{games[12].name}}</h5>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{games[15].screenshots[8].image_id}}.png"
-                    class="d-block w-100 carousel-image">
+                <a (click)="toGame(games[15].id)" class="clickable">
+                    <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{games[15].screenshots[8].image_id}}.png"
+                        class="d-block w-100 carousel-image">
+                </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="carousel-title">{{games[15].name}}</h5>
                 </div>
