@@ -14,6 +14,10 @@ export class RestService {
 
   constructor(private http: HttpClient) { }
 
+  getGame(id: number) {
+    return this.http.get(`${this.url}/REST/games?id=${id}`)
+  }
+
   getPlatform(id: number) {
     return this.http.get(`${this.url}/REST/browse?platform=${id}`);
   }
