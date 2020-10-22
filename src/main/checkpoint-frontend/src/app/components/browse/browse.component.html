@@ -1,18 +1,24 @@
 <div id="container">
     <div *ngIf="games">
-        <h1 *ngIf="games.length !== 0" class="popular-title">Popular <span>{{games[0].platforms[0].name}}</span> Games:</h1>
+        <h1 *ngIf="games.length !== 0" class="popular-title">Popular <span>{{games[0].platforms[0].name}}</span> Games:
+        </h1>
         <hr>
         <div *ngFor="let game of games" class="game-content">
             <ul class="list-unstyled">
                 <li class="media covers mg-fluid">
                     <div class="img-container">
-                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
-                            class="img img-fluid img-thumbnail align-self-start mr-3" alt="covers">
+                        <a (click)="toGame(game.id)" class="clickable">
+                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
+                                class="img img-fluid img-thumbnail align-self-start mr-3" alt="covers">
+                        </a>
                     </div>
                     <div class="media-body">
-                        <h4 class="mt-0 mb-1" class="title"><span><img src="../../../assets/img/Arrow.svg" width="25"
-                                    loading="lazy"></span>
-                            {{game.name}}</h4>
+                        <a (click)="toGame(game.id)" class="clickable">
+                            <h4 class="mt-0 mb-1" class="title"><span><img src="../../../assets/img/Arrow.svg"
+                                        width="25" loading="lazy"></span>
+                                {{game.name}}
+                            </h4>
+                        </a>
                         <hr>
                         <p>{{game.summary}}</p>
                         <!-- <div class="rating-container" *ngIf="game.total_rating">
