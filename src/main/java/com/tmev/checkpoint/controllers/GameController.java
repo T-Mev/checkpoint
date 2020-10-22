@@ -10,15 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/REST/games/")
+@RequestMapping("/REST/games")
 public class GameController {
 
     @Autowired
     ApiService apiService;
 
-    // Handles requests at /REST/games/{id}
-    @GetMapping("{id}")
-    public String displaySpecificGameData(@PathVariable int id) throws RequestException {
+    // Handles requests at /REST/games?id=
+    @GetMapping
+    public String displaySpecificGameData(@RequestParam int id) throws RequestException {
 
         // Authenticating requests for the IGDB API
         IGDBWrapper wrapper = IGDBWrapper.INSTANCE;
@@ -26,7 +26,7 @@ public class GameController {
 
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
-                    .fields("name, genres.name, platforms.name, summary, similar_games, involved_companies.company.name, " +
+                    .fields("name, genres.name, platforms.name, summary, involved_companies.company.name, " +
                             "involved_companies.developer, involved_companies.publisher, cover.image_id, " +
                             "screenshots.image_id, total_rating, release_dates.human, release_dates.region, videos.video_id")
                     .where("id = " + id));
