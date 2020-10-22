@@ -16,6 +16,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { FormRegisterComponent } from './components/form-register/form-register.component';
+import { GameDetailsComponent } from './components/game-details/game-details.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { FormRegisterComponent } from './components/form-register/form-register.
     FooterComponent,
     FormLoginComponent,
     FormRegisterComponent,
+    GameDetailsComponent,
   ],
   imports: [
     BrowserModule,
