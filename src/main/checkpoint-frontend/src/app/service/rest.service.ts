@@ -1,6 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+// Put in separate file
+// interface userInfo {
+//   username: string;
+//   password: string;
+// }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +21,7 @@ export class RestService {
   constructor(private http: HttpClient) { }
 
   getGame(id: number) {
-    return this.http.get(`${this.url}/REST/games?id=${id}`)
+    return this.http.get(`${this.url}/REST/games?id=${id}`);
   }
 
   getPlatform(id: number) {
@@ -33,5 +39,9 @@ export class RestService {
   getUpcoming() {
     return this.http.get(`${this.url}/REST/upcoming`);
   }
+
+  // login(userInfo: userInfo) {
+  //   return this.http.post(`${this.url}/REST/login`, userInfo)
+  // }
 
 }
