@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RestService } from 'src/app/service/rest.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class SearchComponent implements OnInit {
   //Make this a typescript interface
   games;
   searchTerm: string;
-  constructor(private route: ActivatedRoute, private rest: RestService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rest: RestService) {
 
   }
 
@@ -25,6 +25,10 @@ export class SearchComponent implements OnInit {
         console.log(this.games);
       });
     })
+  }
+
+  toGame(gameId: number) {
+    this.router.navigate(['/games'], { queryParams: { id: gameId } });
   }
 
 }
