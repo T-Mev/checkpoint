@@ -9,8 +9,10 @@
         <div class="games-list-container">
             <div class="game-container" *ngFor="let game of games">
                 <div class="game">
-                    <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
+                    <a (click)="toGame(game.id)" class="clickable">
+                                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
                         class="img img-fluid img-thumbnail" alt="covers">
+                    </a>
                     <p>{{game.release_dates[0].human}}</p>
                 </div>
             </div>

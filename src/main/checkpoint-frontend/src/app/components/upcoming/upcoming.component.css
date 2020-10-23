@@ -1,4 +1,8 @@
 
+.clickable {
+    cursor: pointer;
+}
+
 hr {
     border: none;
     height: 2px;
