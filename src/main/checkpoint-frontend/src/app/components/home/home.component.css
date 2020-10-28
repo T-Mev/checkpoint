@@ -28,6 +28,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: 20%;
+    height: 300px;
 }
 
 .lead {
