@@ -28,7 +28,8 @@ public class GameController {
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                     .fields("name, genres.name, platforms.name, summary, involved_companies.company.name, " +
                             "involved_companies.developer, involved_companies.publisher, cover.image_id, " +
-                            "screenshots.image_id, total_rating, release_dates.human, release_dates.region, videos.video_id")
+                            "screenshots.image_id, total_rating, release_dates.human, release_dates.region, " +
+                            "release_dates.platform, release_dates.platform.name, videos.video_id")
                     .where("id = " + id));
         } catch(RequestException e) {
             System.out.println(e.getStatusCode());
