@@ -25,36 +25,51 @@
                                 <p class="rating">{{formatNumber(game.total_rating)}}</p>
                             </font>
                         </div> -->
+                        <hr>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-4 details">
-                                <mat-card class="card">
-                                    <h2>Available on:</h2>
-                                    <hr>
-                                    <ul>
-                                        <li *ngFor="let platform of game.platforms">{{platform.name}}</li>
-                                    </ul>
-                                </mat-card>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        id="dropdownAvailableButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Available On
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownAvailableButton">
+                                        <p *ngFor="let platform of game.platforms">{{platform.name}}</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-4 details">
-                                <mat-card class="card">
-                                    <h2>Release Dates:</h2>
-                                    <hr>
-                                    <ul>
-                                        <li *ngFor="let release of game.release_dates">{{release.human}}
+
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        id="dropdownReleaseButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Release Dates
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownReleaseButton">
+                                        <!-- <p *ngFor="let platform of game.platforms">{{platform.name}}</p> -->
+                                        <div *ngFor="let release of game.release_dates">{{release.human}}
                                             <p>{{getReleaseDateRegion(release.region)}}</p>
-                                        </li>
-                                    </ul>
-                                </mat-card>
+                                            <p>{{release.platform.name}}</p>
+                                            <div class="dropdown-divider"></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-4 details">
-                                <mat-card class="card">
-                                    <h2>Genres:</h2>
-                                    <hr>
-                                    <ul>
-                                        <li *ngFor="let genre of game.genres">{{genre.name}}</li>
-                                    </ul>
-                                </mat-card>
+
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        id="dropdownGenresButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Genres
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownGenresButton">
+                                        <p *ngFor="let genre of game.genres">{{genre.name}}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

@@ -23,7 +23,6 @@ export class GameDetailsComponent implements OnInit {
   }
 
   getReleaseDateRegion(regionID: number): string {
-
     switch (regionID) {
       case 1: return "Europe";
       case 2: return "North America";
