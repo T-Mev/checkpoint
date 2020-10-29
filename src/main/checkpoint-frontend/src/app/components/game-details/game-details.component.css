@@ -138,19 +138,19 @@ ul {
     box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.15);
 }
 
-.screenshot-img {
+.media-img {
     margin: 10px 0;
     transition: border .2s ease-in-out, transform .2s ease-in-out;
 }
 
-.screenshot-img:hover {
+.media-img:hover {
     border: 4px solid rgb(248, 132, 0);
     border-radius: 5px;
     transform: scale(1.05);
     cursor: pointer;
 }
 
-.screenshot-list {
+.media-list {
     display: inline-block;
 }
 

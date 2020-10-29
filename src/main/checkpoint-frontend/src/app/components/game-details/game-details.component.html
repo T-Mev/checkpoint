@@ -67,10 +67,10 @@
     </div>
 </div>
 
-<div *ngIf="games" class="screenshots-container">
+<div *ngIf="games" class="media-container">
     <div class="container">
         <div class="title-container">
-            <h1 class="screenshots-title">
+            <h1 class="media-title">
                 <span><img src="../../../assets/img/Arrow.svg" width="25" loading="lazy"></span>
                 Screenshots
             </h1>
@@ -78,31 +78,11 @@
         </div>
         <div class="row">
             <div *ngFor="let game of games">
-                <div *ngFor="let screenshot of game.screenshots" class="col-lg-3 col-sm-6 screenshot-list">
-                    <img class="screenshot-img img-fluid img-thumbnail" data-toggle="modal"
-                        data-target="#screenshotModal"
+                <div *ngFor="let screenshot of game.screenshots" class="col-lg-3 col-sm-6 media-list">
+                    <img class="media-img img-fluid img-thumbnail" data-toggle="modal" data-target="#screenshotModal"
                         src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{screenshot.image_id}}.png">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div *ngIf="games" class="videos-container">
-    <div class="container">
-        <div class="title-container">
-            <h1 class="videos-title">
-                <span><img src="../../../assets/img/Arrow.svg" width="25" loading="lazy"></span>
-                Videos
-            </h1>
-            <hr>
-        </div>
-        <div class="row">
-            <div *ngFor="let game of games">
-                <div *ngFor="let screenshot of game.screenshots" class="col-lg-3 col-sm-6 screenshot-list">
-                    <img class="screenshot-img img-fluid img-thumbnail"
-                        src="https://images.igdb.com/igdb/image/upload/t_screenshot_med/{{screenshot.image_id}}.png">
-                    <!-- Modal -->
+                    <!-- Screenshot Modal -->
                     <div class="modal fade" id="screenshotModal" tabindex="-1" aria-labelledby="screenshotModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -114,6 +94,44 @@
                             </div>
                         </div>
                     </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="games" class="media-container">
+    <div class="container">
+        <div class="title-container">
+            <h1 class="media-title">
+                <span><img src="../../../assets/img/Arrow.svg" width="25" loading="lazy"></span>
+                Videos
+            </h1>
+            <hr>
+        </div>
+        <div class="row">
+            <div *ngFor="let game of games">
+                <div *ngFor="let video of game.videos" class="col-lg-3 col-sm-6 media-list">
+                    <img class="media-img img-fluid img-thumbnail" data-toggle="modal" data-target="#videoModal"
+                        src="https://i.ytimg.com/vi/{{video.video_id}}/maxresdefault.jpg">
+
+                    <!-- Video Modal -->
+                    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <!-- <iframe width="560" height="315"
+                                        src="https://www.youtube.com/embed/{{video.video_id}}" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                    </iframe> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
