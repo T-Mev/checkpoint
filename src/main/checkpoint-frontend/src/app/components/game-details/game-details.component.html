@@ -39,7 +39,8 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownReleaseButton">
                                 <div *ngFor="let release of game.release_dates">
                                     <div class="release-dates">
-                                        <p>• {{release.human}} - {{getReleaseDateRegion(release.region)}}</p>
+                                        <p>• <strong>{{release.human}}</strong></p>
+                                        <p><em>{{getReleaseDateRegion(release.region)}}</em></p>
                                         <p>On {{release.platform.name}}</p>
                                     </div>
                                 </div>
@@ -60,60 +61,6 @@
                     </div>
                     <hr>
                     <p class="summary">{{game.summary}}</p>
-
-                    <!-- <div class="rating-container" *ngIf="game.total_rating">
-                            <font [color]="colorPicker(game.total_rating)">
-                                <p class="rating">{{formatNumber(game.total_rating)}}</p>
-                            </font>
-                        </div> -->
-
-                    <!-- <div class="test">
-                        <div class="row">
-                        <div class="col-4 details">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
-                                id="dropdownAvailableButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                Available On
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownAvailableButton">
-                                <p *ngFor="let platform of game.platforms">• {{platform.name}}</p>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="col-md-4 details">
-
-                        <div class="dropdown">
-                            <button data-display="static" class="btn btn-secondary btn-sm  dropdown-toggle"
-                                type="button" id="dropdownReleaseButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                Release Dates
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownReleaseButton">
-                                <div *ngFor="let release of game.release_dates">
-                                    <div class="release-dates">
-                                        <p>• {{release.human}} - {{getReleaseDateRegion(release.region)}}</p>
-                                        <p>On {{release.platform.name}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="col-md-4 details">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
-                                id="dropdownGenresButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                Genres
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownGenresButton">
-                                <p *ngFor="let genre of game.genres">• {{genre.name}}</p>
-                            </div>
-                        </div>
-                        </div>
-                        </div>
-                    </div> -->
-
                 </div>
             </div>
         </div>
@@ -132,7 +79,8 @@
         <div class="row">
             <div *ngFor="let game of games">
                 <div *ngFor="let screenshot of game.screenshots" class="col-lg-3 col-sm-6 screenshot-list">
-                    <img class="screenshot-img img-fluid img-thumbnail"
+                    <img class="screenshot-img img-fluid img-thumbnail" data-toggle="modal"
+                        data-target="#screenshotModal"
                         src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{screenshot.image_id}}.png">
                 </div>
             </div>
@@ -153,13 +101,24 @@
             <div *ngFor="let game of games">
                 <div *ngFor="let screenshot of game.screenshots" class="col-lg-3 col-sm-6 screenshot-list">
                     <img class="screenshot-img img-fluid img-thumbnail"
-                        src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{screenshot.image_id}}.png">
+                        src="https://images.igdb.com/igdb/image/upload/t_screenshot_med/{{screenshot.image_id}}.png">
+                    <!-- Modal -->
+                    <div class="modal fade" id="screenshotModal" tabindex="-1" aria-labelledby="screenshotModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <img class="modal-img img-fluid"
+                                        src="https://images.igdb.com/igdb/image/upload/t_original/{{screenshot.image_id}}.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <div *ngIf="games.length === 0" class="temp-error">
     <h1>Platform not found!</h1>
