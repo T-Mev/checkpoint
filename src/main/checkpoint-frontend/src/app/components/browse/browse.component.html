@@ -14,13 +14,12 @@
                     </div>
                     <div class="media-body">
                         <a (click)="toGame(game.id)" class="clickable">
-                            <h4 class="mt-0 mb-1" class="title"><span><img src="../../../assets/img/Arrow.svg"
-                                        width="25" loading="lazy"></span>
+                            <h4 class="mt-0 mb-1" class="title"><span><img src="../../../assets/img/Arrow.svg" width="25" loading="lazy"></span>
                                 {{game.name}}
                             </h4>
                         </a>
                         <hr>
-                        <p>{{game.summary}}</p>
+                        <p class="summary">{{game.summary}}</p>
                         <!-- <div class="rating-container" *ngIf="game.total_rating">
                             <font [color]="colorPicker(game.total_rating)">
                                 <p class="rating">{{formatNumber(game.total_rating)}}</p>

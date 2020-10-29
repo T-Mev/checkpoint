@@ -25,7 +25,6 @@
                                 <p class="rating">{{formatNumber(game.total_rating)}}</p>
                             </font>
                         </div> -->
-                        <hr>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-4 details">
@@ -36,7 +35,7 @@
                                         Available On
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownAvailableButton">
-                                        <p *ngFor="let platform of game.platforms">{{platform.name}}</p>
+                                        <p *ngFor="let platform of game.platforms">• {{platform.name}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -50,9 +49,10 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownReleaseButton">
                                         <!-- <p *ngFor="let platform of game.platforms">{{platform.name}}</p> -->
-                                        <div *ngFor="let release of game.release_dates">{{release.human}}
-                                            <p>{{getReleaseDateRegion(release.region)}}</p>
-                                            <p>{{release.platform.name}}</p>
+                                        <div *ngFor="let release of game.release_dates">
+                                            <div class="dropdown-divider"></div>
+                                            <p>• {{release.human}} - {{getReleaseDateRegion(release.region)}}</p>
+                                            <p>On {{release.platform.name}}</p>
                                             <div class="dropdown-divider"></div>
                                         </div>
                                     </div>
@@ -67,7 +67,7 @@
                                         Genres
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownGenresButton">
-                                        <p *ngFor="let genre of game.genres">{{genre.name}}</p>
+                                        <p *ngFor="let genre of game.genres">• {{genre.name}}</p>
                                     </div>
                                 </div>
                             </div>

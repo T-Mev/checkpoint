@@ -1,3 +1,18 @@
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+   }
+   ::-webkit-scrollbar-thumb {
+    background: #b8b8ba;
+    border-radius: 10px;
+   }
+   ::-webkit-scrollbar-thumb:hover{
+    background: #FF7B00;
+   }
+   ::-webkit-scrollbar-track{
+    background: #ffffff;
+    border-radius: 10px;
+   }
 
 #container {
     display: flex;
@@ -67,6 +82,12 @@ hr {
     border-radius: 15px;
     width: 28.89px;
 } */
+
+.summary {
+    max-height: 175px;
+    overflow-y: auto;
+    padding: 5px;
+}
 
 .spacer {
     padding-top: 3.5rem;
