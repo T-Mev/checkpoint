@@ -29,15 +29,15 @@ public class HomeController {
 
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
-                    .fields("name, screenshots.image_id")
-                    .where("hypes > 100 & platforms.id = 48 & category = 0 & themes != 42")
-                    .sort("hypes", Sort.DESCENDING)
-                    .limit(20));
-
-//                    .fields("name, cover.image_id")
-//                    .where("id = (1877, 90101, 11169, 111469, 11198, 119313, 138225, 25076, 26192, 113112, 109462, 1942)")
+//                    .fields("name, screenshots.image_id")
+//                    .where("hypes > 100 & platforms.id = 48 & category = 0 & themes != 42")
 //                    .sort("hypes", Sort.DESCENDING)
-//                    .limit(12));
+//                    .limit(20));
+
+                    .fields("name, cover.image_id")
+                    .where("id = (1877, 111469, 11169, 11198, 119313, 90101, 138225, 25076, 26192, 113112, 109462, 1942)")
+//                    .sort("hypes", Sort.DESCENDING)
+                    .limit(12));
         } catch(RequestException e) {
             System.out.println(e.getStatusCode());
             throw e;

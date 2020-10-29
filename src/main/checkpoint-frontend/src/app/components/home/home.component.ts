@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RestService } from 'src/app/service/rest.service';
 
 @Component({
@@ -8,11 +9,19 @@ import { RestService } from 'src/app/service/rest.service';
 })
 export class HomeComponent implements OnInit{
 
-  constructor(private rest: RestService) { }
+  games;
 
+  constructor(private router: Router, private rest: RestService) { }
 
   ngOnInit() {
+    this.rest.getPopular().subscribe(res => {
+      this.games = res;
+      console.log(this.games);
+    });
+  }
 
+  toGame(gameId: number) {
+    this.router.navigate(['/games'], { queryParams: { id: gameId } });
   }
 
 }

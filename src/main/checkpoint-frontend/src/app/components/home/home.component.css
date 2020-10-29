@@ -6,6 +6,14 @@
     box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
 }
 
+.clickable {
+    cursor: pointer;
+}
+
+.container-games {
+    width: 60%;
+}
+
 .content {
     text-align: center;
     margin: 20px 0 20px 0;
@@ -19,16 +27,25 @@
 }
 
 .img {
-    border-radius: 50%;
+    border-radius: 5px;
+    width: 90%;
+    transition: border .2s ease-in-out, transform .2s ease-in-out;
+}
+
+.img:hover {
+    border: 3px solid rgb(248, 132, 0);
+    border-radius: 5px;
+    transform: scale(1.05);
 }
 
 .jumbotron {
     color: white;
+    height: 350px;
+    margin-bottom: 50px;
     background-image: linear-gradient(45deg,rgba(31, 60, 226, 0.52), rgba(211, 102, 0, 0.73)), url(../../../assets/img/jumbotron-image.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: 20%;
-    height: 300px;
 }
 
 .lead {
@@ -39,8 +56,14 @@
      4px 5px 1px #2c2e3618, 6px 5px 1px #2c2e3618, 5px 6px 1px #2c2e3618, 7px 6px 1px #2c2e3618;
 }
 
+.media-list{
+    text-align: center;
+    padding: 0;
+    margin: 40px 0 5px 0;
+}
+
 .spacer {
-    padding-top: 3.5rem;
+    padding-top: 5.5rem;
 }
 
 .thumbnail {
@@ -51,9 +74,25 @@
 
 .title {
     font-family: 'Bebas Neue', cursive;
-    font-size: 70px;
+    font-size: 65px;
     color: white;
+    padding-top: 20px;
     text-shadow: 1px 0px 1px #2c2e3618, 0px 1px 1px #2c2e3618, 2px 1px 1px #2c2e3618, 1px 2px 1px #2c2e3618,
      3px 2px 1px #2c2e3618, 2px 3px 1px #2c2e3618, 4px 3px 1px #2c2e3618, 3px 4px 1px #2c2e3618, 5px 4px 1px #2c2e3618,
       4px 5px 1px #2c2e3618, 6px 5px 1px #2c2e3618, 5px 6px 1px #2c2e3618, 7px 6px 1px #2c2e3618;
+}
+
+.title-container {
+    margin-top: 50px;
+    color: rgb(95, 95, 100);
+    font-family: 'Bebas Neue', cursive;
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
+}
+
+.title-popular {
+    font-size: 3.5rem;
+}
+
+.upcoming-title {
+    color: rgb(248, 132, 0);
 }
