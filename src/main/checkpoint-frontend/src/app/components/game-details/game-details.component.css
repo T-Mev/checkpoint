@@ -25,10 +25,6 @@
     z-index: 1;
 }
 
-.button-label {
-    /* font-size: 10px; */
-}
-
 .card {
     background-color: transparent;
 }
@@ -51,7 +47,7 @@
 
 .dropdown p {
     text-align: left;
-    padding: 0 10px;
+    padding: 1px 10px;
     margin: 3px;
 }
 
@@ -110,6 +106,10 @@ ul {
      4px 5px 1px #2c2e3618, 6px 5px 1px #2c2e3618, 5px 6px 1px #2c2e3618, 7px 6px 1px #2c2e3618;
 }
 
+.media {
+    margin-bottom: -170px;
+}
+
 /* .rating {
     margin-top: 2px;
     margin-bottom: 0;
@@ -129,6 +129,22 @@ ul {
     box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.15);
 }
 
+.screenshot-img {
+    margin: 10px 0;
+    transition: border .2s ease-in-out, transform .2s ease-in-out;
+}
+
+.screenshot-img:hover {
+    border: 4px solid rgb(248, 132, 0);
+    border-radius: 5px;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.screenshot-list {
+    display: inline-block;
+}
+
 .summary {
     /* font-size: 18px; */
     /* text-indent: 10px; */
@@ -138,7 +154,7 @@ ul {
 }
 
 .spacer {
-    padding-top: 1.5rem;
+    padding-top: 6.5rem;
 }
 
 .temp-error {
@@ -161,6 +177,13 @@ ul {
     padding-bottom: 5px;
     margin-bottom: 0;
     font-weight: 600;
+}
+
+.title-container {
+    margin: 5% auto 0 auto;
+    color: rgb(95, 95, 100);
+    font-family: 'Bebas Neue', cursive;
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
 }
 
 @media only screen and (max-width: 1010px) {

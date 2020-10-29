@@ -119,6 +119,48 @@
         </div>
     </div>
 </div>
+
+<div *ngIf="games" class="screenshots-container">
+    <div class="container">
+        <div class="title-container">
+            <h1 class="screenshots-title">
+                <span><img src="../../../assets/img/Arrow.svg" width="25" loading="lazy"></span>
+                Screenshots
+            </h1>
+            <hr>
+        </div>
+        <div class="row">
+            <div *ngFor="let game of games">
+                <div *ngFor="let screenshot of game.screenshots" class="col-lg-3 col-sm-6 screenshot-list">
+                    <img class="screenshot-img img-fluid img-thumbnail"
+                        src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{screenshot.image_id}}.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="games" class="videos-container">
+    <div class="container">
+        <div class="title-container">
+            <h1 class="videos-title">
+                <span><img src="../../../assets/img/Arrow.svg" width="25" loading="lazy"></span>
+                Videos
+            </h1>
+            <hr>
+        </div>
+        <div class="row">
+            <div *ngFor="let game of games">
+                <div *ngFor="let screenshot of game.screenshots" class="col-lg-3 col-sm-6 screenshot-list">
+                    <img class="screenshot-img img-fluid img-thumbnail"
+                        src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{screenshot.image_id}}.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div *ngIf="games.length === 0" class="temp-error">
     <h1>Platform not found!</h1>
 </div>
