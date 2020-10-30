@@ -33,7 +33,11 @@ export class GameDetailsComponent implements OnInit {
       case 7: return "Asia";
       case 8: return "Worldwide";
     }
-
   }
+
+
+  // getModalId(id: string): string {
+  //   return `#${id}`;
+  // }
 
 }
