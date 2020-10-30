@@ -35,9 +35,4 @@ export class GameDetailsComponent implements OnInit {
     }
   }
 
-
-  // getModalId(id: string): string {
-  //   return `#${id}`;
-  // }
-
 }
