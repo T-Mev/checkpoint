@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewChild } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { RestService } from 'src/app/service/rest.service';
 
@@ -9,9 +10,12 @@ import { RestService } from 'src/app/service/rest.service';
 })
 export class GameDetailsComponent implements OnInit {
 
+  @ViewChild("iframeModal", { static: false }) iframeModal;
+  @ViewChild("videoModal", { static: false }) videoModal;
+
   games;
 
-  constructor(private route: ActivatedRoute, private rest: RestService) { }
+  constructor(private route: ActivatedRoute, private rest: RestService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(param => {
@@ -33,6 +37,14 @@ export class GameDetailsComponent implements OnInit {
       case 7: return "Asia";
       case 8: return "Worldwide";
     }
+  }
+
+  updateVideoUrl(id: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + id);
+  }
+
+  openModal(id: string) {
+    console.log(this.videoModal);
   }
 
 }
