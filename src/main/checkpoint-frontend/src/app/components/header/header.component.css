@@ -26,6 +26,8 @@
 }
 
 .modal-content {
+    max-width: 300px;
+    margin: 10px auto;
     background-image: linear-gradient(rgb(255, 255, 255), rgb(231, 231, 231));
 }
 
