@@ -198,10 +198,11 @@ ul {
 @media only screen and (max-width: 1010px) {
 
     .img {
-        width: 320px;
+        width: 290px;
     }
 
     .img-container {
+        padding-top: 95px;
         margin: 0 auto 14px auto;
         width: fit-content;
     }

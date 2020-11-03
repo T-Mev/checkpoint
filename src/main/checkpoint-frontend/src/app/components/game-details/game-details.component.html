@@ -53,7 +53,7 @@
                                 aria-expanded="false">
                                 <span class="button-label">Genres</span>
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownGenresButton">
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownGenresButton">
                                 <p *ngFor="let genre of game.genres">• {{genre.name}}</p>
                             </div>
                         </div>
@@ -111,37 +111,35 @@
             </h1>
             <hr>
         </div>
-
         <!-- <div *ngIf="games.videos.length === 0" class="temp-video-error">
             <h3>No videos</h3>
         </div> -->
-
         <div class="row">
             <div *ngFor="let game of games">
                 <div *ngFor="let video of game.videos" class="col-lg-3 col-sm-6 media-list">
-                    <img class="media-img img-fluid img-thumbnail" data-toggle="modal"
-                        [attr.data-target]="'#' + video.video_id"
+                    <img (click)="openModal(video.video_id)" class="media-img img-fluid img-thumbnail"
+                        data-toggle="modal" data-target="#video-modal"
                         src="https://i.ytimg.com/vi/{{video.video_id}}/maxresdefault.jpg">
-
-                    <!-- Video Modal -->
-                    <div class="modal fade" id="{{video.video_id}}" tabindex="-1" aria-labelledby="videoModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-xl">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe id="cartoonVideo" class="embed-responsive-item" width="560" height="315"
-                                            src="//www.youtube.com/embed/{{video.video_id}}" allowfullscreen>
-                                        </iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
+
+        <!-- Video Modal -->
+        <div (click)="closeModal()" #videoModal class="modal fade" id="video-modal" tabindex="-1"
+            aria-labelledby="videoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe *ngIf="videoURL" #iframeModal id="youtubeVideo" class="embed-responsive-item" width="560"
+                                height="315" [src]="videoURL" allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>

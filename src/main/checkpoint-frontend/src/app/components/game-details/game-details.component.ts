@@ -10,10 +10,8 @@ import { RestService } from 'src/app/service/rest.service';
 })
 export class GameDetailsComponent implements OnInit {
 
-  @ViewChild("iframeModal", { static: false }) iframeModal;
-  @ViewChild("videoModal", { static: false }) videoModal;
-
   games;
+  videoURL;
 
   constructor(private route: ActivatedRoute, private rest: RestService, private sanitizer: DomSanitizer) { }
 
@@ -40,11 +38,15 @@ export class GameDetailsComponent implements OnInit {
   }
 
   updateVideoUrl(id: string) {
-    return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + id);
+    this.videoURL = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + id + '?autoplay=1');
   }
 
   openModal(id: string) {
-    console.log(this.videoModal);
+    this.updateVideoUrl(id);
+  }
+
+  closeModal() {
+    setTimeout(() => this.videoURL = null, 300)
   }
 
 }
