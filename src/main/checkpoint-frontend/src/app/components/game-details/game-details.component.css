@@ -145,6 +145,7 @@ hr {
 
 .media-img-container {
     margin: 10px 0;
+    min-width: 255px;
 }
 
 .media-list {
@@ -243,3 +244,13 @@ hr {
     }
 
 }
+
+@media (min-width: 992px) {
+    .col-lg-3 {
+        -webkit-box-flex: 0;
+        flex: 0 0 25%;
+        max-width: 25%;
+        margin: 0 20px;
+    }
+}
+
