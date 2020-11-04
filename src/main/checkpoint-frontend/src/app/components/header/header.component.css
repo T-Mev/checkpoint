@@ -50,6 +50,11 @@
     letter-spacing: 1px;
 }
 
+.nav-link {
+    font-size: 15px;
+    margin-top: 3px;
+}
+
 .navbar-toggler {
     width: 50px;
     margin-right: 0em;
