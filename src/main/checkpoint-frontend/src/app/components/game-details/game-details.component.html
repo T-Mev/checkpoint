@@ -79,9 +79,11 @@
         <div class="row">
             <div *ngFor="let game of games">
                 <div *ngFor="let screenshot of game.screenshots" class="col-lg-3 col-sm-6 media-list">
-                    <img class="media-img img-fluid img-thumbnail" data-toggle="modal"
-                        [attr.data-target]="'#' + screenshot.image_id"
-                        src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{screenshot.image_id}}.png">
+                    <div class="media-img-container hover">
+                        <img class="media-img img-fluid img-thumbnail" data-toggle="modal"
+                            [attr.data-target]="'#' + screenshot.image_id"
+                            src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{screenshot.image_id}}.png">
+                    </div>
 
                     <!-- Screenshot Modal -->
                     <div class="modal fade" id="{{screenshot.image_id}}" tabindex="-1"
@@ -117,9 +119,15 @@
         <div class="row">
             <div *ngFor="let game of games">
                 <div *ngFor="let video of game.videos" class="col-lg-3 col-sm-6 media-list">
-                    <img (click)="openModal(video.video_id)" class="media-img img-fluid img-thumbnail"
-                        data-toggle="modal" data-target="#video-modal"
-                        src="https://i.ytimg.com/vi/{{video.video_id}}/maxresdefault.jpg">
+                    <div class="hover-container media-img-container hover">
+                        <mat-icon (click)="openModal(video.video_id)" class="play-button" [inline]="true"
+                            data-toggle="modal" data-target="#video-modal">
+                            play_circle_filled
+                        </mat-icon>
+                        <img (click)="openModal(video.video_id)" class="media-img img-fluid img-thumbnail"
+                            data-toggle="modal" data-target="#video-modal"
+                            src="https://i.ytimg.com/vi/{{video.video_id}}/maxresdefault.jpg">
+                    </div>
                 </div>
             </div>
         </div>
@@ -131,8 +139,8 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe *ngIf="videoURL" #iframeModal id="youtubeVideo" class="embed-responsive-item" width="560"
-                                height="315" [src]="videoURL" allowfullscreen>
+                            <iframe *ngIf="videoURL" #iframeModal id="youtubeVideo" class="embed-responsive-item"
+                                width="560" height="315" [src]="videoURL" allowfullscreen>
                             </iframe>
                         </div>
                     </div>
