@@ -10,8 +10,16 @@
         <div class="list-unstyled">
             <div class="media covers mg-fluid">
                 <div class="img-container">
+                    <div class="rating-container" *ngIf="game.total_rating"
+                        matTooltip="Based on {{game.total_rating_count}} ratings" matTooltipClass="primary-tooltip"
+                        [matTooltipPosition]="'right'">
+                        <span class="rating-star">★</span>
+                        <span class="rating-score">{{formatScore(game.total_rating)}}
+                        </span>
+                    </div>
                     <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
                         class="img img-fluid img-thumbnail align-self-start mr-3" alt="covers">
+                    <button type="button" class="btn btn-secondary btn-block btn-collection">Add to Collection</button>
                 </div>
                 <div class="media-body">
                     <h4 class="mt-0 mb-1" class="title">
@@ -57,8 +65,8 @@
                                 <p *ngFor="let genre of game.genres">• {{genre.name}}</p>
                             </div>
                         </div>
-
                     </div>
+
                     <hr>
                     <p class="summary">{{game.summary}}</p>
                 </div>

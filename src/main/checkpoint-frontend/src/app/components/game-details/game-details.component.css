@@ -15,14 +15,17 @@
     border-radius: 10px;
    }
 
-.info-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    /* bottom: 230px; */
-    bottom: 20vh;
-    z-index: 1;
+.btn-block {
+    display: block;
+    width: 96%;
+    margin-top: 10px;
+}
+
+.btn-collection {
+    color: #fff;
+    background-color: #FF7B00;
+    border-color: #d6751b;
+    margin-bottom: 5%;
 }
 
 .card {
@@ -53,7 +56,7 @@
 
 .dropdowns {
     text-align: left;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
 }
 
 .game-content {
@@ -61,17 +64,6 @@
     max-width: 95vw;
     margin: 30px auto;
     padding: 15px 15px 0px 15px;
-    /* border-bottom: 3px solid rgb(230, 230, 230); */
-    /* border: 3px solid rgb(230, 230, 230);
-    border-radius: 5px; */
-
-    /* background-image: linear-gradient(rgb(255, 255, 255), rgb(238, 238, 238)); */
-    /* -webkit-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
-    -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
-    box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329); */
-
-    /* -webkit-box-shadow: 0px 0px 50px 20px #FFFFFF;
-    box-shadow: 0px 0px 50px 20px #FFFFFF; */
 }
 
 hr {
@@ -97,16 +89,22 @@ hr {
     position: relative;
 }
 
-/* .hover-container:hover media-img {
-    border: 4px solid rgb(248, 132, 0);
-    border-radius: 5px;
-    transform: scale(1.05);
-    cursor: pointer;
-} */
-
 .img {
     width: 300px;
     border-radius: 10px;
+}
+
+.img-container {
+    position: relative;
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 20vh;
+    z-index: 1;
 }
 
 .jumbotron {
@@ -128,20 +126,6 @@ hr {
 .media {
     margin-bottom: -170px;
 }
-
-/* .rating {
-    margin-top: 2px;
-    margin-bottom: 0;
-    font-family: 'Bebas Neue', cursive;
-    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
-}
-
-.rating-container {
-    text-align: center;
-    border: 2px solid red;
-    border-radius: 15px;
-    width: 28.89px;
-} */
 
 .media-img-container {
     margin: 10px 0;
@@ -173,11 +157,35 @@ hr {
     text-shadow: 0 0 10px #0000000a;
 }
 
+.rating-container {
+    /* font-size: 16px; */
+    font-family: 'Bebas Neue', cursive;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    position: absolute;
+    bottom: 56px;
+    left: 7px;
+    max-height: 50px;
+    height: 100%;
+}
+
+.rating-star {
+    font-size: 25px;
+    padding-left: 5px;
+    color: rgb(255, 219, 17);
+    text-shadow: 0 0 10px #3b3b3b;
+}
+
+.rating-score {
+    font-size: 30px;
+    text-shadow: 0 0 10px #3b3b3b;
+}
+
 .release-dates {
     /* padding-top: 10px; */
     box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.15);
 }
-
+b
 .summary {
     /* font-size: 18px; */
     /* text-indent: 10px; */
@@ -207,19 +215,23 @@ hr {
     font-size: 36px;
     letter-spacing: 5px;
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
-    padding-bottom: 5px;
-    margin-bottom: 0;
+    margin-bottom: 5px;
     font-weight: 600;
 }
 
 .title-container {
-    margin: 5% auto 0 auto;
+    margin: 2% auto 0 auto;
     color: rgb(95, 95, 100);
     font-family: 'Bebas Neue', cursive;
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
 }
 
-@media only screen and (max-width: 1010px) {
+.primary-tooltip {
+    background-color: #3F51B5 !important;
+    color: red !important;
+}
+
+@media only screen and (max-width: 800px) {
 
     .img {
         width: 290px;

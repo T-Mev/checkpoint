@@ -37,6 +37,10 @@ export class GameDetailsComponent implements OnInit {
     }
   }
 
+  formatScore(num: number): number {
+    return Math.round(num) / 10;
+  }
+
   updateVideoUrl(id: string) {
     this.videoURL = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + id + '?autoplay=1');
   }
