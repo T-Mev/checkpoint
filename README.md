@@ -25,15 +25,19 @@ Video game library manager used to track a user's collection utilizing an API to
     * Utilizing Amazon's API to find current price and link user to purchase page
 
 ### Technologies
+##### Frontend
 * Angular
 * TypeScript
 * HTML5
 * CSS3
-
+##### Backend
 * Java
 * Spring Boot
 * Hibernate
 * MySQL
+##### Styling
+* Angular Material
+* Bootstrap 4
 
 ### What I'll Have to Learn
 * Connecting Angular front-end to Java back-end
@@ -42,5 +46,4 @@ Video game library manager used to track a user's collection utilizing an API to
 * Authentication
 * Deployment
 
-### Project Tracker
-[Trello](https://trello.com/b/YG3RGTYB/checkpoint)
+
