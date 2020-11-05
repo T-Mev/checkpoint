@@ -185,8 +185,8 @@ hr {
     /* padding-top: 10px; */
     box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.15);
 }
-b
-.summary {
+
+#summary {
     /* font-size: 18px; */
     /* text-indent: 10px; */
     max-height: 245px;
