@@ -12,14 +12,14 @@
                 <div class="img-container">
                     <div class="rating-container" *ngIf="game.total_rating"
                         matTooltip="Based on {{game.total_rating_count}} ratings" matTooltipClass="primary-tooltip"
-                        [matTooltipPosition]="'right'">
+                        [matTooltipPosition]="'left'">
                         <span class="rating-star">★</span>
                         <span class="rating-score">{{formatScore(game.total_rating)}}
                         </span>
                     </div>
                     <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
                         class="img img-fluid img-thumbnail align-self-start mr-3" alt="covers">
-                    <button type="button" class="btn btn-secondary btn-block btn-collection">Add to Collection</button>
+                    <button type="button" class="btn btn-secondary btn-block btn-collection" matRipple>Add to Collection</button>
                 </div>
                 <div class="media-body">
                     <h4 class="mt-0 mb-1" class="title">
@@ -30,7 +30,7 @@
                         <div class="dropdown">
                             <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
                                 id="dropdownAvailableButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
+                                aria-expanded="false" matRipple>
                                 <span class="button-label">Available On</span>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownAvailableButton">
@@ -41,7 +41,7 @@
                         <div class="dropdown">
                             <button data-display="static" class="btn btn-secondary btn-sm  dropdown-toggle"
                                 type="button" id="dropdownReleaseButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
+                                aria-expanded="false" matRipple>
                                 <span class="button-label">Release Dates</span>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownReleaseButton">
@@ -58,7 +58,7 @@
                         <div class="dropdown">
                             <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
                                 id="dropdownGenresButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
+                                aria-expanded="false" matRipple>
                                 <span class="button-label">Genres</span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownGenresButton">
@@ -87,7 +87,7 @@
         <div class="row">
             <div *ngFor="let game of games">
                 <div *ngFor="let screenshot of game.screenshots" class="col-lg-3 col-sm-6 media-list">
-                    <div class="media-img-container hover">
+                    <div class="media-img-container hover" matRipple>
                         <img class="media-img img-fluid img-thumbnail" data-toggle="modal"
                             [attr.data-target]="'#' + screenshot.image_id"
                             src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{screenshot.image_id}}.png">
@@ -127,7 +127,7 @@
         <div class="row">
             <div *ngFor="let game of games">
                 <div *ngFor="let video of game.videos" class="col-lg-3 col-sm-6 media-list">
-                    <div class="hover-container media-img-container hover">
+                    <div class="hover-container media-img-container hover" matRipple>
                         <mat-icon (click)="openModal(video.video_id)" class="play-button" [inline]="true"
                             data-toggle="modal" data-target="#video-modal">
                             play_circle_filled

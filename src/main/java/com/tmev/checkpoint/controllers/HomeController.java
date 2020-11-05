@@ -35,8 +35,8 @@ public class HomeController {
 //                    .limit(20));
 
                     .fields("name, cover.image_id")
-                    .where("id = (1877, 111469, 11169, 11198, 119313, 90101, 138225, 25076, 26192, 113112, 109462, 1942)")
-//                    .sort("hypes", Sort.DESCENDING)
+                    .where("id = (90101, 111469, 11169, 11198, 119313, 1877, 138225, 25076, 26192, 113112, 109462, 1942)")
+                    .sort("hypes", Sort.ASCENDING)
                     .limit(12));
         } catch(RequestException e) {
             System.out.println(e.getStatusCode());
