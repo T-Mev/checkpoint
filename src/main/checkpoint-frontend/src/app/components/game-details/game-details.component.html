@@ -79,6 +79,12 @@
                         </h1>
                     </div>
                     <p id="summary">{{game.summary}}</p>
+                    <div class="error-media error-summary" *ngIf="!game.summary">
+                        <mat-icon class="error-icon">
+                            error_outline
+                        </mat-icon>
+                        No summary
+                    </div>
                 </div>
             </div>
         </div>

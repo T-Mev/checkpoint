@@ -78,6 +78,10 @@
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.295);
 }
 
+.error-summary {
+    margin-left: 0px;
+}
+
 .game-content {
     width: 1200px;
     max-width: 95vw;
@@ -223,7 +227,7 @@ hr {
 }
 
 #summary {
-    max-height: 330px;
+    max-height: 290px;
     overflow-y: auto;
     padding: 5px;
 }
