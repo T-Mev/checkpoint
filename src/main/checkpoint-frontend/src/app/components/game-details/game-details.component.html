@@ -108,7 +108,6 @@
                             [attr.data-target]="'#' + screenshot.image_id"
                             src="https://images.igdb.com/igdb/image/upload/t_screenshot_big/{{screenshot.image_id}}.png">
                     </div>
-
                     <!-- Screenshot Modal -->
                     <div class="modal fade" id="{{screenshot.image_id}}" tabindex="-1"
                         aria-labelledby="screenshotModalLabel" aria-hidden="true">
@@ -121,7 +120,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="error-media" *ngIf="!game.screenshots">
                     <mat-icon class="error-icon">
@@ -159,7 +157,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Video Modal -->
         <div (click)="closeModal()" #videoModal class="modal fade" id="video-modal" tabindex="-1"
             aria-labelledby="videoModalLabel" aria-hidden="true">
