@@ -1,4 +1,10 @@
 
+.btn-register {
+    color: #fff;
+    background-color: #ec7e00;
+    border-color: #d6751b;
+}
+
 .dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover {
     background-color: rgb(253, 147, 27) !important;
 }

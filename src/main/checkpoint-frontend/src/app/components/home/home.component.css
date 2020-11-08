@@ -39,16 +39,22 @@
     transform: scale(1.15);
 }
 
+.img-thumbnail {
+    box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
+    -webkit-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
+    -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
+}
+
 .jumbotron {
     color: white;
     height: 255px;
     margin-bottom: 50px;
-    background-image: linear-gradient(45deg,rgba(31, 60, 226, 0.52), rgba(211, 102, 0, 0.73)), url(../../../assets/img/jumbotron-image.png);
+    background-image: linear-gradient(45deg,rgba(0, 4, 238, 0.52), rgba(211, 102, 0, 0.73)), url(../../../assets/img/jumbotron-image.png);
     background-size: cover;
     background-position-y: 3%;
+    box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
     -webkit-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
     -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
-    box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
 }
 
 .lead {
