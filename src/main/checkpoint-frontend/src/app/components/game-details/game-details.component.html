@@ -131,11 +131,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-<div *ngIf="games" class="media-container">
-    <div class="container">
         <div class="title-container">
             <h1 class="media-title">
                 <span><img src="../../../assets/img/Arrow.svg" width="18" loading="lazy"></span>
@@ -143,9 +138,6 @@
             </h1>
             <hr>
         </div>
-        <!-- <div *ngIf="games.videos.length === 0" class="temp-video-error">
-            <h3>No videos</h3>
-        </div> -->
         <div class="row">
             <div *ngFor="let game of games">
                 <div *ngFor="let video of game.videos" class="col-lg-3 col-sm-6 media-list">
@@ -183,9 +175,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
 
 <div *ngIf="games.length === 0" class="temp-error">
