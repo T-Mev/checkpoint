@@ -9,6 +9,16 @@
     background-color: rgb(253, 147, 27) !important;
 }
 
+.dropdown-header {
+    color: rgb(231, 136, 26);
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    padding: 4px 1.5rem 0 1.5rem;
+}
+
 .dropdown-item {
     cursor: pointer;
 }
