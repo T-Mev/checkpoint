@@ -144,6 +144,10 @@ hr {
     background-position-y: 15% !important;
 }
 
+.jumbo-error {
+    padding-top: 10px;
+}
+
 .lead {
     font-size: 20px;
     font-weight: 400;
@@ -280,10 +284,10 @@ hr {
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
 }
 
-.primary-tooltip {
+/* .primary-tooltip {
     background-color: #3F51B5 !important;
     color: red !important;
-}
+} */
 
 @media only screen and (max-width: 800px) {
 
