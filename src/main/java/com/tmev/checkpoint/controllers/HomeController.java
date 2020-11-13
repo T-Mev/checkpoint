@@ -29,13 +29,8 @@ public class HomeController {
 
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
-//                    .fields("name, screenshots.image_id")
-//                    .where("hypes > 100 & platforms.id = 48 & category = 0 & themes != 42")
-//                    .sort("hypes", Sort.DESCENDING)
-//                    .limit(20));
-
                     .fields("name, cover.image_id")
-                    .where("id = (90101, 111469, 11169, 11198, 119313, 1877, 138225, 25076, 26192, 113112, 109462, 1942)")
+                    .where("id = (90101, 111469, 11169, 126459, 119313, 1877, 138225, 134581, 26192, 113112, 109462, 75235)")
                     .sort("hypes", Sort.ASCENDING)
                     .limit(12));
         } catch(RequestException e) {
