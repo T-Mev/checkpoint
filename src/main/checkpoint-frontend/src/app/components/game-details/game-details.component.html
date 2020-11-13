@@ -1,11 +1,17 @@
 <div *ngIf="games">
-    <div *ngIf="games[0].screenshots" class="jumbotron jumbotron-fluid"
-        [ngStyle]="{ background: 'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%),
-                    url(https://images.igdb.com/igdb/image/upload/t_original/'+ games[0].screenshots[0].image_id +'.png) ' }">
+    <div *ngIf="games[0].artworks; else jumboError1" class="jumbotron jumbotron-fluid" [ngStyle]="{ background: 'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%),
+                url(https://images.igdb.com/igdb/image/upload/t_original/'+ games[0].artworks[0].image_id +'.png)'}">
     </div>
-    <div *ngIf="!games[0].screenshots" class="jumbotron jumbotron-fluid"
-        [ngStyle]="{ background: 'linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 123, 0) 100%)' }">
-    </div>
+    <ng-template #jumboError1>
+        <div *ngIf="games[0].screenshots; else jumboError2" class="jumbotron jumbotron-fluid" [ngStyle]="{ background: 'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%),
+        url(https://images.igdb.com/igdb/image/upload/t_original/'+ games[0].screenshots[0].image_id +'.png)'}">
+        </div>
+    </ng-template>
+    <ng-template #jumboError2>
+        <div class="jumbotron jumbotron-fluid"
+            [ngStyle]="{ background: 'linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(132, 132, 139) 100%)'}">
+        </div>
+    </ng-template>
 </div>
 
 <div class="info-container" *ngIf="games">
