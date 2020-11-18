@@ -1,29 +1,36 @@
 package com.tmev.checkpoint.models;
 
-//import javax.persistence.Entity;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Objects;
 
-//@Entity
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue
     private int id;
+
+    @NotNull
     private String username;
+
+    @NotNull
     private String password;
+
     private List<Integer> gamesList;
 
-    public User(int id, String username, String password, List<Integer> gamesList) {
-        this.id = id;
+    public User() {}
+
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.gamesList = gamesList;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getUsername() {
@@ -48,6 +55,23 @@ public class User {
 
     public void setGamesList(List<Integer> gamesList) {
         this.gamesList = gamesList;
+    }
+
+    public void addToGamesList(Integer game) {
+        this.gamesList.add(game);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
 
