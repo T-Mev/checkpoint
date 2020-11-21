@@ -1,9 +1,7 @@
 package com.tmev.checkpoint.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,16 +9,14 @@ import java.util.Objects;
 public class User {
 
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-    @NotNull
     private String username;
-
-    @NotNull
     private String password;
 
-    private List<Integer> gamesList;
+    @ElementCollection
+    private List<Integer> gamesList = new ArrayList<>();
 
     public User() {}
 
@@ -29,7 +25,7 @@ public class User {
         this.password = password;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
