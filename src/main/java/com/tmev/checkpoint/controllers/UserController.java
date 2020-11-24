@@ -46,5 +46,15 @@ public class UserController {
         }
     }
 
+    // Handles POST requests at /REST/user?id=&gameId=
+    @PostMapping
+    public void addToCollection (@RequestParam Long id, @RequestParam Integer gameId) {
+
+        // Setting User and adding game to collection
+        User user = userRepository.getById(id);
+        user.addToGamesList(gameId);
+        userRepository.save(user);
+    }
+
 }
 
