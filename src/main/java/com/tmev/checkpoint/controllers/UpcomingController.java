@@ -33,6 +33,7 @@ public class UpcomingController {
         IGDBWrapper wrapper = IGDBWrapper.INSTANCE;
         wrapper.setCredentials(apiService.getClientId(), apiService.getAccessToken());
 
+        // IGDB API Call
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                     .fields("name, cover.image_id, release_dates.platform.name, release_dates.human, release_dates.region")

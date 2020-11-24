@@ -25,6 +25,7 @@ public class BrowseController {
         IGDBWrapper wrapper = IGDBWrapper.INSTANCE;
         wrapper.setCredentials(apiService.getClientId(), apiService.getAccessToken());
 
+        // IGDB API Call
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                     .fields("name, summary, cover.image_id, platforms.name")

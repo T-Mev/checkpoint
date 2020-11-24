@@ -24,6 +24,7 @@ public class GameController {
         IGDBWrapper wrapper = IGDBWrapper.INSTANCE;
         wrapper.setCredentials(apiService.getClientId(), apiService.getAccessToken());
 
+        // IGDB API Call
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                     .fields("name, genres.name, platforms.name, summary, cover.image_id, " +

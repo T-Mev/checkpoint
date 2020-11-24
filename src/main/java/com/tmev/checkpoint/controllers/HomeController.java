@@ -27,6 +27,7 @@ public class HomeController {
         IGDBWrapper wrapper = IGDBWrapper.INSTANCE;
         wrapper.setCredentials(apiService.getClientId(), apiService.getAccessToken());
 
+        // IGDB API Call
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                     .fields("name, cover.image_id")

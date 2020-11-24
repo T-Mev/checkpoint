@@ -36,6 +36,7 @@ public class UserController {
         IGDBWrapper wrapper = IGDBWrapper.INSTANCE;
         wrapper.setCredentials(apiService.getClientId(), apiService.getAccessToken());
 
+        // IGDB API Call
         try{
             return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                     .fields("name, cover.image_id")
@@ -59,6 +60,8 @@ public class UserController {
     // Handles DELETE requests at /REST/user?id=&gameId=
     @DeleteMapping
     public void removeFromCollection (@RequestParam Long id, @RequestParam Integer gameId) {
+
+        // Setting User and removing game from collection
         User user = userRepository.getById(id);
         user.removeFromGamesList(gameId);
         userRepository.save(user);
@@ -67,9 +70,10 @@ public class UserController {
     // Handles GET requests at /REST/user?id=&gameId=
     @GetMapping
     public Boolean includedInCollection(@RequestParam Long id, @RequestParam Integer gameId) {
+
+        // Setting User and checking if game is in collection
         User user = userRepository.getById(id);
         return user.containsGame(gameId);
     }
 
 }
-
