@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UpcomingController {
 
     @Autowired
-    ApiService apiService;
+    private ApiService apiService;
 
     // Get current time in unix
     private final long currentUnixTime = System.currentTimeMillis() / 1000;

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
 
     @Autowired
-    ApiService apiService;
+    private ApiService apiService;
 
     // Handles requests at root
     @GetMapping

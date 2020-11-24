@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class GameController {
 
     @Autowired
-    ApiService apiService;
+    private ApiService apiService;
 
     // Handles requests at /REST/games?id=
     @GetMapping

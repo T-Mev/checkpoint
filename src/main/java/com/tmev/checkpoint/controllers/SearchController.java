@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class SearchController {
 
     @Autowired
-    ApiService apiService;
+    private ApiService apiService;
 
     // Handles requests at /REST/search?term=
     @GetMapping

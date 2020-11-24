@@ -15,10 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class BrowseController {
 
     @Autowired
-    ApiService apiService;
-
-    private String platformName;
-    private String gameData;
+    private ApiService apiService;
 
     // Handles requests at /REST/browse?platform=
     @GetMapping
