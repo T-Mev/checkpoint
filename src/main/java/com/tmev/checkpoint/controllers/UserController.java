@@ -56,5 +56,13 @@ public class UserController {
         userRepository.save(user);
     }
 
+    // Handles DELETE requests at /REST/user?id=&gameId=
+    @DeleteMapping
+    public void removeFromCollection (@RequestParam Long id, @RequestParam Integer gameId) {
+        User user = userRepository.getById(id);
+        user.removeFromGamesList(gameId);
+        userRepository.save(user);
+    }
+
 }
 

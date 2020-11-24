@@ -53,6 +53,8 @@ public class User {
 
     public void addToGamesList(Integer game) { this.gamesList.add(game); }
 
+    public void removeFromGamesList(Integer game) { this.gamesList.remove(game); }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
