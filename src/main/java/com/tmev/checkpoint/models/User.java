@@ -55,6 +55,8 @@ public class User {
 
     public void removeFromGamesList(Integer game) { this.gamesList.remove(game); }
 
+    public Boolean containsGame(Integer game) { return this.gamesList.contains(game); }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

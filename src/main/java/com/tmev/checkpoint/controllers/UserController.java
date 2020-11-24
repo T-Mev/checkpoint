@@ -64,5 +64,12 @@ public class UserController {
         userRepository.save(user);
     }
 
+    // Handles GET requests at /REST/user?id=&gameId=
+    @GetMapping
+    public Boolean includedInCollection(@RequestParam Long id, @RequestParam Integer gameId) {
+        User user = userRepository.getById(id);
+        return user.containsGame(gameId);
+    }
+
 }
 
