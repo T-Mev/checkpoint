@@ -10,7 +10,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String username;
     private String password;
@@ -45,17 +45,13 @@ public class User {
         this.password = password;
     }
 
-    public List<Integer> getGamesList() {
-        return gamesList;
-    }
+    public List<Integer> getGamesList() { return gamesList; }
 
     public void setGamesList(List<Integer> gamesList) {
         this.gamesList = gamesList;
     }
 
-    public void addToGamesList(Integer game) {
-        this.gamesList.add(game);
-    }
+    public void addToGamesList(Integer game) { this.gamesList.add(game); }
 
     @Override
     public boolean equals(Object o) {

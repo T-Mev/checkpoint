@@ -10,15 +10,12 @@ import com.tmev.checkpoint.models.data.UserRepository;
 import com.tmev.checkpoint.services.ApiService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/REST/user/")
+@RequestMapping("/REST/user")
 public class UserController {
 
     @Autowired
@@ -27,12 +24,12 @@ public class UserController {
     @Autowired
     private ApiService apiService;
 
-    // Handles requests at /REST/user/
-    @GetMapping("{userId}")
-    public String displayUserCollection (@PathVariable int userId) throws RequestException {
+    // Handles GET requests at /REST/user?id=
+    @GetMapping
+    public String displayUserCollection (@RequestParam Long id) throws RequestException {
 
         // Setting User and getting games list
-        User user = userRepository.getById(userId);
+        User user = userRepository.getById(id);
         String gamesList = user.getGamesList().stream().map(String::valueOf).collect(Collectors.joining(","));
 
         // Authenticating requests for the IGDB API
@@ -48,6 +45,6 @@ public class UserController {
             throw e;
         }
     }
+
 }
 
-// create @PostMapping to handle edits to User's game collection
