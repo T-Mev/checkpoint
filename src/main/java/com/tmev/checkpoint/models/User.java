@@ -1,5 +1,7 @@
 package com.tmev.checkpoint.models;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -23,7 +25,9 @@ public class User {
     @NotNull
     @NotBlank(message = "Password is required")
     @Size(min = 6, max = 20, message = "Password must be between 6 and 20 characters")
-    private String password;
+    private String passwordHash;
+
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @ElementCollection
     private List<Integer> gamesList = new ArrayList<>();
@@ -32,7 +36,7 @@ public class User {
 
     public User(String username, String password) {
         this.username = username;
-        this.password = password;
+        this.passwordHash = encoder.encode(password);
     }
 
     public long getId() {
@@ -48,12 +52,14 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return passwordHash;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.passwordHash = encoder.encode(password);
     }
+
+    public boolean isMatchingPassword(String password) { return encoder.matches(password, this.passwordHash); }
 
     public List<Integer> getGamesList() { return gamesList; }
 
