@@ -33,6 +33,7 @@ public class User {
     public static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @ElementCollection
+    @Column(name = "games")
     private List<Integer> gamesList = new ArrayList<>();
 
     public User() {}
