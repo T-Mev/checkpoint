@@ -1,16 +1,16 @@
 package com.tmev.checkpoint.models.dto;
 
-import java.util.List;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
-public class UserDTO {
-
+public class UserDataRequest {
+    @NotBlank
+    @Size(min = 3, max = 20)
     private String username;
-    private List<SimpleGameDTO> simpleGames;
 
-    public UserDTO(String username, List<SimpleGameDTO> simpleGames) {
-        this.username = username;
-        this.simpleGames = simpleGames;
-    }
+    @NotBlank
+    @Size(min = 6, max = 40)
+    private String password;
 
     public String getUsername() {
         return username;
@@ -20,12 +20,12 @@ public class UserDTO {
         this.username = username;
     }
 
-    public List<SimpleGameDTO> getSimpleGames() {
-        return simpleGames;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSimpleGames(List<SimpleGameDTO> simpleGames) {
-        this.simpleGames = simpleGames;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
 
