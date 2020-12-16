@@ -1,8 +1,6 @@
 package com.tmev.checkpoint.models;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -30,11 +28,11 @@ public class User {
     @Column(name = "password")
     private String passwordHash;
 
-    public static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
     @ElementCollection
     @Column(name = "games")
     private List<Integer> gamesList = new ArrayList<>();
+
+    public static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     public User() {}
 
