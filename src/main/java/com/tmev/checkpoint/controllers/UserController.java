@@ -25,6 +25,7 @@
 //    @Autowired
 //    private ApiService apiService;
 //
+//    // Change id to username
 //    // Handles GET requests at /REST/user?id=
 //    @GetMapping
 //    public String displayUserCollection (@RequestParam Long id) throws RequestException {

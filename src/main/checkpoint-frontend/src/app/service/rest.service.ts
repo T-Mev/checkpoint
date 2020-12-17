@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UrlService } from './url.service';
 
 // Put in separate file
 // interface userInfo {
@@ -12,36 +13,30 @@ import { Injectable } from '@angular/core';
 })
 export class RestService {
 
-  // Development url:
-  url: string = "http://localhost:8080";
-
-  // Production url:
-  // url: string = "";
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private url: UrlService) { }
 
   getGame(id: number) {
-    return this.http.get(`${this.url}/REST/games?id=${id}`);
+    return this.http.get(`${this.url.url}/REST/games?id=${id}`);
   }
 
   getPlatform(id: number) {
-    return this.http.get(`${this.url}/REST/browse?platform=${id}`);
+    return this.http.get(`${this.url.url}/REST/browse?platform=${id}`);
   }
 
   getPopular() {
-    return this.http.get(`${this.url}/REST`);
+    return this.http.get(`${this.url.url}/REST`);
   }
 
   getSearch(value: string) {
-    return this.http.get(`${this.url}/REST/search?term=${value}`);
+    return this.http.get(`${this.url.url}/REST/search?term=${value}`);
   }
 
   getUpcoming() {
-    return this.http.get(`${this.url}/REST/upcoming`);
+    return this.http.get(`${this.url.url}/REST/upcoming`);
   }
 
   // login(userInfo: userInfo) {
-  //   return this.http.post(`${this.url}/REST/login`, userInfo)
+  //   return this.http.post(`${this.url.url}/REST/login`, userInfo)
   // }
 
 }
