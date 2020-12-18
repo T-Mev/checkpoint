@@ -9,10 +9,9 @@ import { RestService } from 'src/app/service/rest.service';
 })
 
 export class SearchComponent implements OnInit {
-
-  //Make this a typescript interface
   games;
   searchTerm: string;
+
   constructor(private router: Router, private route: ActivatedRoute, private rest: RestService) {
 
   }

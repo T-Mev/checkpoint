@@ -7,7 +7,7 @@ import { RestService } from 'src/app/service/rest.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
   games;
 

@@ -2,12 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UrlService } from './url.service';
 
-// Put in separate file
-// interface userInfo {
-//   username: string;
-//   password: string;
-// }
-
 @Injectable({
   providedIn: 'root'
 })

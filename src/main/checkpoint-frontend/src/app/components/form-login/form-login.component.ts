@@ -35,7 +35,9 @@ export class FormLoginComponent implements OnInit {
         setTimeout(() => this.reloadPage(), 1000)
       },
       err => {
-        this.errorMessage = err.error.message;
+        console.log(err);
+        // this.errorMessage = err.error.message;
+        this.errorMessage = err.error;
         this.isLoginFailed = true;
       }
     );
