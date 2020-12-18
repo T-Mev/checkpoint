@@ -21,6 +21,7 @@ import { FormRegisterComponent } from './components/form-register/form-register.
 import { GameDetailsComponent } from './components/game-details/game-details.component';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     FormLoginComponent,
     FormRegisterComponent,
     GameDetailsComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
