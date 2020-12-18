@@ -2,6 +2,8 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { RestService } from 'src/app/service/rest.service';
+import { TokenStorageService } from 'src/app/service/token-storage.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-game-details',
@@ -9,17 +11,21 @@ import { RestService } from 'src/app/service/rest.service';
   styleUrls: ['./game-details.component.css']
 })
 export class GameDetailsComponent implements OnInit {
-
+  currentUser: any;
   games;
+  gameId;
   videoURL;
 
-  constructor(private route: ActivatedRoute, private rest: RestService, private sanitizer: DomSanitizer) { }
+  constructor(private route: ActivatedRoute, private rest: RestService, private sanitizer: DomSanitizer, private token: TokenStorageService, private userService: UserService) { }
 
   ngOnInit() {
+    this.currentUser = this.token.getUser();
     this.route.queryParams.subscribe(param => {
       this.rest.getGame(param.id).subscribe(res => {
         this.games = res;
+        this.gameId = this.games[0].id;
         console.log(this.games);
+        console.log(this.gameId);
       });
     })
   }
@@ -51,6 +57,19 @@ export class GameDetailsComponent implements OnInit {
 
   closeModal() {
     setTimeout(() => this.videoURL = null, 300)
+  }
+
+  addToCollection() {
+    this.userService.addGameToCollection(this.currentUser.username, this.gameId).subscribe(
+      res => {
+        this.games = res;
+        console.log(this.games);
+      },
+      err => {
+        this.games = JSON.parse(err.error).message;
+      }
+    );
+    
   }
 
 }
