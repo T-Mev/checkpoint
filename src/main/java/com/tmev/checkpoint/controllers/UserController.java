@@ -9,7 +9,11 @@ import com.tmev.checkpoint.models.User;
 import com.tmev.checkpoint.models.data.UserRepository;
 import com.tmev.checkpoint.services.ApiService;
 
+import com.tmev.checkpoint.services.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -50,24 +54,58 @@ public class UserController {
             }
 
         } else {
-//            throw custom error handling when user is not found
+            // throw custom error handling when user is not found
             return "User not found";
         }
 
     }
 //
-//    // Handles POST requests at /REST/user?id=&gameId=
+    // Handles POST requests at /REST/user/{username}
+    @PostMapping("{username}")
+    @PreAuthorize("isAuthenticated()")
+    public ResponseEntity<?> addToCollection (@PathVariable String username, @RequestBody Integer gameId) {
+
+        // Setting User and adding game to collection
+        String usersName = ((UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+        User user = userRepository.findByUsername(usersName).orElseThrow();
+
+        // Checking if game is in collection
+        if (user.containsGame(gameId)) {
+            return ResponseEntity
+                    .badRequest()
+                    .body("This game is already in the collection!");
+        }
+
+        // Add game to collection
+        user.addToGamesList(gameId);
+        userRepository.save(user);
+
+        return ResponseEntity.ok("Game added successfully!");
+    }
+
+//    // Handles POST requests at /REST/user?username=&gameId=
 //    @PostMapping
-//    public void addToCollection (@RequestParam Long id, @RequestParam Integer gameId) {
-//
-//        // Use JWT / JavaScript web token to check which user is logged
-//        // Unwrap JWT to get user id
+//    @PreAuthorize("isAuthenticated()")
+//    public ResponseEntity<?> addToCollection (@RequestParam String username, @RequestParam Integer gameId) {
 //
 //        // Setting User and adding game to collection
-//        Optional<User> user = userRepository.findById(id);
-//        user.get().addToGamesList(gameId);
-//        userRepository.save(user.get());
+//        String usersName = ((UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+//        User user = userRepository.findByUsername(usersName).orElseThrow();
+//
+//        // Checking if game is in collection
+//        if (user.containsGame(gameId)) {
+//            return ResponseEntity
+//                    .badRequest()
+//                    .body("This game is already in the collection!");
+//        }
+//
+//        // Add game to collection
+//        user.addToGamesList(gameId);
+//        userRepository.save(user);
+//
+//        return ResponseEntity.ok("Game added successfully!");
 //    }
+
 //
 //    // Handles DELETE requests at /REST/user?id=&gameId=
 //    @DeleteMapping

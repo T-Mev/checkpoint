@@ -35,6 +35,12 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody UserDataRequest userDataRequest) {
 
+        if (!userRepository.existsByUsername(userDataRequest.getUsername())) {
+            return ResponseEntity
+                    .badRequest()
+                    .body("User doesn't exist!");
+        }
+
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(userDataRequest.getUsername(), userDataRequest.getPassword()));
 
@@ -54,7 +60,7 @@ public class AuthController {
         if (userRepository.existsByUsername(userDataRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
-                    .body("Error: Username is already taken!");
+                    .body("Username is already taken!");
         }
 
         User user = new User(userDataRequest.getUsername(), userDataRequest.getPassword());
