@@ -69,7 +69,7 @@ export class GameDetailsComponent implements OnInit {
         this.games = JSON.parse(err.error).message;
       }
     );
-    
+
   }
 
 }

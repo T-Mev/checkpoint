@@ -49,7 +49,7 @@
 
 .modal-header {
     padding: 5px 10px 0 1rem;
-    background: url(../../../assets/img/modal-background.png);
+    /* background: url(../../../assets/img/modal-background.png); */
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
