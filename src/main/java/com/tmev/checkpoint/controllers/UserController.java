@@ -61,9 +61,9 @@ public class UserController {
 
     }
 //
-    // Handles POST requests at /REST/user/{username}
+    // Handles POST requests at /REST/user/{username}/game/{gameId}
     // Adds game to the User's collection
-    @PostMapping("{username}")
+    @PostMapping("{username}/game/{gameId}")
     @PreAuthorize("isAuthenticated()")
     public ResponseEntity<String> addToCollection (@PathVariable String username, @RequestBody Integer gameId) {
 
@@ -86,11 +86,11 @@ public class UserController {
     }
 
 
-    // Handles DELETE requests at /REST/user/{username}
+    // Handles DELETE requests at /REST/user/{username}/game/{gameId}
     // Removes game from the User's collection
-    @DeleteMapping("{username}")
+    @DeleteMapping("{username}/game/{gameId}")
     @PreAuthorize("isAuthenticated()")
-    public ResponseEntity<String> removeFromCollection (@PathVariable String username, @RequestBody Integer gameId) {
+    public ResponseEntity<String> removeFromCollection (@PathVariable String username, @PathVariable Integer gameId) {
 
         // Setting the User
         String usersName = ((UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
@@ -100,7 +100,7 @@ public class UserController {
         if (!user.containsGame(gameId)) {
             return ResponseEntity
                     .badRequest()
-                    .body("This game is not in the collection!");
+                    .body("This game doesn't exist in the collection!");
         }
 
         // Remove game from collection
@@ -109,30 +109,6 @@ public class UserController {
 
         return ResponseEntity.ok("Game added successfully!");
     }
-
-//    // Handles POST requests at /REST/user?username=&gameId=
-//    @PostMapping
-//    @PreAuthorize("isAuthenticated()")
-//    public ResponseEntity<?> addToCollection (@RequestParam String username, @RequestParam Integer gameId) {
-//
-//        // Setting User and adding game to collection
-//        String usersName = ((UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
-//        User user = userRepository.findByUsername(usersName).orElseThrow();
-//
-//        // Checking if game is in collection
-//        if (user.containsGame(gameId)) {
-//            return ResponseEntity
-//                    .badRequest()
-//                    .body("This game is already in the collection!");
-//        }
-//
-//        // Add game to collection
-//        user.addToGamesList(gameId);
-//        userRepository.save(user);
-//
-//        return ResponseEntity.ok("Game added successfully!");
-//    }
-
 
 //
 //    // Handles GET requests at /REST/user?id=&gameId=
