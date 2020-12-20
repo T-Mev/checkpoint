@@ -20,12 +20,12 @@ export class UserService {
   }
 
   addGameToCollection(username: string, gameId: number): Observable<any> {
-    return this.http.post(`${this.url.generalUrl}/REST/user/${username}`, gameId, httpOptions);
+    return this.http.post(`${this.url.generalUrl}/REST/user/${username}/game/${gameId}`, gameId, httpOptions);
   }
 
-  // addGameToCollection(username: string, gameId: number): Observable<any> {
-  //   return this.http.post(`${this.url.generalUrl}user?username=${username}&gameId=${gameId}`, { username: username, gameId: gameId }, httpOptions);
-  // }
+  removeGameFromCollection(username: string, gameId: number): Observable<any> {
+    return this.http.delete(`${this.url.generalUrl}/REST/user/${username}/game/${gameId}`);
+  }
 
   // Add to each necessary component instead
   // authenticate() {

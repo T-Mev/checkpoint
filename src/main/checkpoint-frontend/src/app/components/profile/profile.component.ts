@@ -10,6 +10,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class ProfileComponent implements OnInit {
   currentUser: any;
+  deleteRes;
   games;
 
   constructor(private router: Router, private token: TokenStorageService, private userService: UserService) { }
@@ -29,6 +30,18 @@ export class ProfileComponent implements OnInit {
 
   toGame(gameId: number) {
     this.router.navigate(['/games'], { queryParams: { id: gameId } });
+  }
+
+  removeGame(gameId: number) {
+    this.userService.removeGameFromCollection(this.currentUser.username, gameId).subscribe(
+      res => {
+        this.deleteRes = res;
+        console.log(this.deleteRes);
+      },
+      err => {
+        this.deleteRes = JSON.parse(err.error).message;
+      }
+    );
   }
 
 }
