@@ -12,22 +12,36 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class GameDetailsComponent implements OnInit {
   currentUser: any;
+  errorMessage = '';
   games;
   gameId;
+  haveGame: boolean;
+  successMessage;
   videoURL;
+
 
   constructor(private route: ActivatedRoute, private rest: RestService, private sanitizer: DomSanitizer, private token: TokenStorageService, private userService: UserService) { }
 
   ngOnInit() {
     this.currentUser = this.token.getUser();
+
     this.route.queryParams.subscribe(param => {
       this.rest.getGame(param.id).subscribe(res => {
         this.games = res;
         this.gameId = this.games[0].id;
-        console.log(this.games);
-        console.log(this.gameId);
+        // console.log(this.games);
+        // console.log(this.gameId);
+
+        this.userService.includedInCollection(this.currentUser.username, this.gameId).subscribe(
+          res => {
+            this.haveGame = res;
+            // console.log(this.haveGame);
+          }
+        );
       });
+
     })
+
   }
 
   getReleaseDateRegion(regionID: number): string {
@@ -62,11 +76,13 @@ export class GameDetailsComponent implements OnInit {
   addToCollection() {
     this.userService.addGameToCollection(this.currentUser.username, this.gameId).subscribe(
       res => {
-        this.games = res;
-        console.log(this.games);
+        this.successMessage = res.text;
+        // console.log(this.games);
+        console.log(res.error.text);
       },
       err => {
-        this.games = JSON.parse(err.error).message;
+        this.errorMessage = err.error;
+        console.log(this.errorMessage);
       }
     );
 

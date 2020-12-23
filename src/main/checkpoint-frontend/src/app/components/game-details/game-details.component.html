@@ -30,9 +30,21 @@
                         <span class="rating-star">★</span>
                         <span class="rating-score">{{formatScore(game.total_rating)}}</span>
                     </div>
-                    <button (click)="addToCollection()" type="button" class="btn btn-secondary btn-block btn-collection"
-                        matRipple>Add toCollection
+                    <button *ngIf="!haveGame && currentUser != null" (click)="addToCollection()" type="button"
+                        class="btn btn-secondary btn-block btn-collection" matRipple>Add to Collection
                     </button>
+
+                    <!-- <div *ngIf="errorMessage; else successMessage" class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        {{ errorMessage }}
+                    </div>
+                    <ng-template #successMessage>
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            {{ errorMessage }}
+                        </div>
+                    </ng-template> -->
+
                 </div>
                 <div class="media-body">
                     <h4 class="mt-0 mb-1" class="title">
