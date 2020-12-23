@@ -106,17 +106,21 @@ public class UserController {
         user.removeFromGamesList(gameId);
         userRepository.save(user);
 
-        return ResponseEntity.ok("Game added successfully!");
+        return ResponseEntity.ok("Game removed successfully!");
     }
 
     // Handles GET requests at /REST/user?id=&gameId=
     // Check if game is included in the User's collection
-//    @GetMapping("")
-//    public Boolean includedInCollection(@PathVariable Long id, @RequestParam Integer gameId) {
-//
-//        // Setting User and checking if game is in collection
-//        User user = userRepository.getById(id);
-//        return user.containsGame(gameId);
-//    }
+    @GetMapping("{username}/game/{gameId}")
+    @PreAuthorize("isAuthenticated()")
+    public Boolean includedInCollection(@PathVariable String username, @PathVariable Integer gameId) {
+
+        // Setting the User
+        String usersName = ((UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+        User user = userRepository.findByUsername(usersName).orElseThrow();
+
+        // Checking if game is in collection
+        return user.containsGame(gameId);
+    }
 
 }

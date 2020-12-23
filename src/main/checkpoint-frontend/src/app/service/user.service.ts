@@ -27,6 +27,10 @@ export class UserService {
     return this.http.delete(`${this.url.generalUrl}/REST/user/${username}/game/${gameId}`);
   }
 
+  includedInCollection(username: string, gameId: number): Observable<any> {
+    return this.http.get(`${this.url.generalUrl}/REST/user/${username}/game/${gameId}`);
+  }
+
   // Add to each necessary component instead
   // authenticate() {
   //   return sessionStorage.getItem('username') !== null;
