@@ -1,6 +1,7 @@
 package com.tmev.checkpoint.controllers;
 
 import com.api.igdb.apicalypse.APICalypse;
+import com.api.igdb.apicalypse.Sort;
 import com.api.igdb.exceptions.RequestException;
 import com.api.igdb.request.IGDBWrapper;
 import com.api.igdb.request.JsonRequestKt;
@@ -48,7 +49,8 @@ public class UserController {
             try{
                 return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                         .fields("name, cover.image_id")
-                        .where("id = (" + gamesList + ")"));
+                        .where("id = (" + gamesList + ")")
+                        .sort("name", Sort.ASCENDING));
             } catch(RequestException e) {
                 System.out.println(e.getStatusCode());
                 throw e;
