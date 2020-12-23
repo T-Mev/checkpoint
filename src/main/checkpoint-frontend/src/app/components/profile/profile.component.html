@@ -5,23 +5,28 @@
         </h3>
     </header>
 
-    <div *ngIf="games">
-        <div *ngFor="let game of games">
-            <a (click)="toGame(game.id)" class="clickable">
-                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
-                    class="img img-fluid img-thumbnail" alt="covers">
-            </a>
-            <button (click)="removeGame(game.id)" type="button" class="btn btn-secondary btn-block btn-collection"
-                matRipple>Remove game
-            </button>
+    <div *ngIf="games" class="container container-games">
+        <div class="title-container">
+            <h1 class="title-popular upcoming-title">{{ currentUser.username.toUpperCase() }}'s COLLECTION:</h1>
+            <hr>
+        </div>
+        <div class="row">
+            <div *ngFor="let game of games" class="col-lg-3 col-sm-6 media-list">
+                <a (click)="toGame(game.id)" class="clickable">
+                    <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
+                        class="img img-fluid img-thumbnail" alt="covers">
+                </a>
+            </div>
         </div>
     </div>
 </div>
 
 <ng-template #loggedOut>
-    <header class="jumbotron">
-        <h3>
-            <strong>Please login</strong>
-        </h3>
-    </header>
+    <div>
+        <header class="jumbotron">
+            <h3>
+                <strong>Please sign in!</strong>
+            </h3>
+        </header>
+    </div>
 </ng-template>

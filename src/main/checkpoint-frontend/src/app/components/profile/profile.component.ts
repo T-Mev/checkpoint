@@ -17,6 +17,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = this.token.getUser();
+
+    if (this.currentUser == null) {
+      this.router.navigate(['profile']);
+    }
+
     this.userService.getUserCollection(this.currentUser.username).subscribe(
       res => {
         this.games = res;
@@ -37,9 +42,11 @@ export class ProfileComponent implements OnInit {
       res => {
         this.deleteRes = res;
         console.log(this.deleteRes);
+        window.location.reload();
       },
       err => {
-        this.deleteRes = JSON.parse(err.error).message;
+        // this.deleteRes = JSON.parse(err.error).message;
+        console.log(err);
       }
     );
   }
