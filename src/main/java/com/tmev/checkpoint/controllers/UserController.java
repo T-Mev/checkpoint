@@ -29,10 +29,10 @@ public class UserController {
     @Autowired
     private ApiService apiService;
 
-    // Handles GET requests at /REST/user?name=
+    // Handles GET requests at /REST/user/{name}
     // Displays the user's collection
-    @GetMapping
-    public String displayUserCollection (@RequestParam String name) throws RequestException {
+    @GetMapping("{name}")
+    public String displayUserCollection (@PathVariable String name) throws RequestException {
 
         // Authenticating requests for the IGDB API
         IGDBWrapper wrapper = IGDBWrapper.INSTANCE;
@@ -60,7 +60,7 @@ public class UserController {
         }
 
     }
-//
+
     // Handles POST requests at /REST/user/{username}/game/{gameId}
     // Adds game to the User's collection
     @PostMapping("{username}/game/{gameId}")
@@ -84,7 +84,6 @@ public class UserController {
 
         return ResponseEntity.ok("Game added successfully!");
     }
-
 
     // Handles DELETE requests at /REST/user/{username}/game/{gameId}
     // Removes game from the User's collection
@@ -110,10 +109,10 @@ public class UserController {
         return ResponseEntity.ok("Game added successfully!");
     }
 
-//
-//    // Handles GET requests at /REST/user?id=&gameId=
-//    @GetMapping
-//    public Boolean includedInCollection(@RequestParam Long id, @RequestParam Integer gameId) {
+    // Handles GET requests at /REST/user?id=&gameId=
+    // Check if game is included in the User's collection
+//    @GetMapping("")
+//    public Boolean includedInCollection(@PathVariable Long id, @RequestParam Integer gameId) {
 //
 //        // Setting User and checking if game is in collection
 //        User user = userRepository.getById(id);

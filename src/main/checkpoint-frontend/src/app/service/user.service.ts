@@ -16,7 +16,7 @@ export class UserService {
 
   getUserCollection(username: string): Observable<any> {
     // return this.http.get(`${this.url.generalUrl}/REST/user?name=${username}`, { responseType: 'text' });
-    return this.http.get(`${this.url.generalUrl}/REST/user?name=${username}`);
+    return this.http.get(`${this.url.generalUrl}/REST/user/${username}`);
   }
 
   addGameToCollection(username: string, gameId: number): Observable<any> {
