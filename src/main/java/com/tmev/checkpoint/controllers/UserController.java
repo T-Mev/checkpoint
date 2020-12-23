@@ -50,7 +50,8 @@ public class UserController {
                 return JsonRequestKt.jsonGames(IGDBWrapper.INSTANCE, new APICalypse()
                         .fields("name, cover.image_id")
                         .where("id = (" + gamesList + ")")
-                        .sort("name", Sort.ASCENDING));
+                        .sort("name", Sort.ASCENDING)
+                        .limit(500));
             } catch(RequestException e) {
                 System.out.println(e.getStatusCode());
                 throw e;
