@@ -1,6 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RestService } from 'src/app/service/rest.service';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
 import { UserService } from 'src/app/service/user.service';
@@ -20,7 +20,8 @@ export class GameDetailsComponent implements OnInit {
   videoURL;
 
 
-  constructor(private route: ActivatedRoute, private rest: RestService, private sanitizer: DomSanitizer, private token: TokenStorageService, private userService: UserService) { }
+  constructor(private route: ActivatedRoute, private rest: RestService, private sanitizer: DomSanitizer, private token: TokenStorageService,
+    private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.currentUser = this.token.getUser();
@@ -79,10 +80,12 @@ export class GameDetailsComponent implements OnInit {
         this.successMessage = res.text;
         // console.log(this.games);
         console.log(res.error.text);
+        this.router.navigate(['profile']);
       },
       err => {
         this.errorMessage = err.error;
         console.log(this.errorMessage);
+        this.router.navigate(['profile']);
       }
     );
 

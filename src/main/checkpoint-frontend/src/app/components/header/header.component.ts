@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/service/token-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,12 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  currentUser;
+
+  constructor(private router: Router, private token: TokenStorageService) { }
 
   ngOnInit() {
+    this.currentUser = this.token.getUser();
   }
 
   toBrowse(id: number) {

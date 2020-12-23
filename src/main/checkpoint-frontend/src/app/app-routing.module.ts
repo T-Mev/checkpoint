@@ -9,13 +9,13 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'browse', component: BrowseComponent },
   { path: 'upcoming', component: UpcomingComponent },
   { path: 'search', component: SearchComponent },
   { path: 'games', component: GameDetailsComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
