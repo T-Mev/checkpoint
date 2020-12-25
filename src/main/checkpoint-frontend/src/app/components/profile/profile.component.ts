@@ -13,8 +13,8 @@ export class ProfileComponent implements OnInit {
   deleteRes;
   games;
   gamesList: number[] = [];
-  selectedStyling: any;
   itemsInGamesList: boolean = false;
+  showEdit: boolean = false;
 
   constructor(private router: Router, private token: TokenStorageService, private userService: UserService) { }
 
@@ -58,10 +58,6 @@ export class ProfileComponent implements OnInit {
     if (!this.gamesList.includes(gameId)) {
       this.gamesList.push(gameId);
       this.itemsInGamesList = true;
-      this.selectedStyling = {
-        'border': '4px solid #f88400',
-        'border-radius': '5px'
-      }
       console.log(this.gamesList);
     } else {
       this.gamesList.splice(this.gamesList.indexOf(gameId), 1);
@@ -85,6 +81,10 @@ export class ProfileComponent implements OnInit {
         window.location.reload();
       }
     );
+  }
+
+  toggleEdit() {
+    this.showEdit = !this.showEdit;
   }
 
 }

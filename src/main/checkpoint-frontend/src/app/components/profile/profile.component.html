@@ -9,16 +9,23 @@
         <div class="title-container">
             <h1 class="title-popular upcoming-title">{{ currentUser.username.toUpperCase() }}'s COLLECTION:</h1>
             <hr>
-            <button class="btn btn-danger" *ngIf="itemsInGamesList" (click)="removeAllGames()">Remove from Collection</button>
+            <button class="btn btn-warning" *ngIf="!itemsInGamesList" matRipple (click)="toggleEdit()">Edit
+                Collection
+            </button>
+            <button class="btn btn-danger" *ngIf="itemsInGamesList" matRipple (click)="removeAllGames()">Remove from
+                Collection
+            </button>
         </div>
         <div class="row">
             <div *ngFor="let game of games" class="col-lg-3 col-sm-6 media-list">
                 <a (click)="toGame(game.id)" class="clickable">
-                    <img [ngStyle]="selectedStylingg" src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
+                    <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
                         class="img img-fluid img-thumbnail game-cover-default" alt="covers">
                 </a>
-                <button class="btn btn-secondary"
-                    (click)="addToGamesList(game.id)">Select</button>
+                <button *ngIf="showEdit" class="btn btn-outline-warning btn-sm" data-toggle="button" matRipple
+                    (click)="addToGamesList(game.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
             </div>
         </div>
     </div>
