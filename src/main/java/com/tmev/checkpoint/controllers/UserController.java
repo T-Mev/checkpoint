@@ -17,6 +17,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -110,6 +111,30 @@ public class UserController {
         userRepository.save(user);
 
         return ResponseEntity.ok("Game removed successfully!");
+    }
+
+    // Handles POST requests at /REST/user/{username}/games
+    // Removes all games from the User's collection
+    @PostMapping("{username}/games")
+    @PreAuthorize("isAuthenticated()")
+    public ResponseEntity<String> removeAllFromCollection (@PathVariable String username, @RequestBody List<Integer> gameList) {
+
+        // Setting the User
+        String usersName = ((UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+        User user = userRepository.findByUsername(usersName).orElseThrow();
+
+        // Checking if game is in collection
+//        if (!user.containsGame(gameId)) {
+//            return ResponseEntity
+//                    .badRequest()
+//                    .body("This game doesn't exist in the collection!");
+//        }
+
+        // Remove games from collection
+        user.removeAllFromGamesList(gameList);
+        userRepository.save(user);
+
+        return ResponseEntity.ok("Games removed successfully!");
     }
 
     // Handles GET requests at /REST/user?id=&gameId=

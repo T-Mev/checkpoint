@@ -71,6 +71,12 @@ public class User {
 
     public void removeFromGamesList(Integer game) { this.gamesList.remove(game); }
 
+    public void removeAllFromGamesList(List<Integer> games) {
+        for (Integer game : games) {
+            this.gamesList.remove(game);
+        }
+    }
+
     public Boolean containsGame(Integer game) { return this.gamesList.contains(game); }
 
     @Override
