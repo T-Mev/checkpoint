@@ -27,6 +27,10 @@ export class UserService {
     return this.http.delete(`${this.url.generalUrl}/REST/user/${username}/game/${gameId}`);
   }
 
+  removeAllGamesFromCollection(username: string, gameList: number[]): Observable<any> {
+    return this.http.post(`${this.url.generalUrl}/REST/user/${username}/games`, gameList);
+  }
+
   includedInCollection(username: string, gameId: number): Observable<any> {
     return this.http.get(`${this.url.generalUrl}/REST/user/${username}/game/${gameId}`);
   }
