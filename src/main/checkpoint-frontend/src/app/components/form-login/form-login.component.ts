@@ -20,7 +20,7 @@ export class FormLoginComponent implements OnInit {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.currentUser = this.tokenStorage.getUser();
-      console.log(this.currentUser.username);
+      // console.log(this.currentUser.username);
     }
   }
 
