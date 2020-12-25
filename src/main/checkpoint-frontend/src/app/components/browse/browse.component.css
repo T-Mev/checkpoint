@@ -62,26 +62,13 @@ hr {
     color: rgb(95, 95, 100);
     font-family: 'Bebas Neue', cursive;
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
-    margin-top: 2%
+    margin-top: 2%;
+    font-size: 3rem;
 }
 
 .popular-title span {
     color: rgb(248, 132, 0);
 }
-
-/* .rating {
-    margin-top: 2px;
-    margin-bottom: 0;
-    font-family: 'Bebas Neue', cursive;
-    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
-}
-
-.rating-container {
-    text-align: center;
-    border: 2px solid red;
-    border-radius: 15px;
-    width: 28.89px;
-} */
 
 .summary {
     max-height: 175px;
