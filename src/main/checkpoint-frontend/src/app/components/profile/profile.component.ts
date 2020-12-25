@@ -10,11 +10,13 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class ProfileComponent implements OnInit {
   currentUser: any;
+  customStyle: any;
   deleteRes;
   games;
   gamesList: number[] = [];
   itemsInGamesList: boolean = false;
   showEdit: boolean = false;
+  buttonText: string = "delete";
 
   constructor(private router: Router, private token: TokenStorageService, private userService: UserService) { }
 
@@ -58,12 +60,15 @@ export class ProfileComponent implements OnInit {
     if (!this.gamesList.includes(gameId)) {
       this.gamesList.push(gameId);
       this.itemsInGamesList = true;
+      this.buttonText = "check";
       console.log(this.gamesList);
     } else {
       this.gamesList.splice(this.gamesList.indexOf(gameId), 1);
       if (this.gamesList.length <= 0) {
         this.itemsInGamesList = false;
+        this.toggleEdit();
       }
+      this.buttonText = "delete";
       console.log(this.gamesList);
     }
   }
@@ -85,6 +90,15 @@ export class ProfileComponent implements OnInit {
 
   toggleEdit() {
     this.showEdit = !this.showEdit;
+    if (this.showEdit) {
+      this.customStyle = {
+        'transform': 'scale(.93)'
+      }
+    } else {
+      this.customStyle = {
+        'transform': 'scale(.99)'
+      }
+    }
   }
 
 }
