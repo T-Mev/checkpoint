@@ -25,4 +25,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/search'], { queryParams: { term: value } });
   }
 
+  logOut() {
+    this.token.logout();
+    this.router.navigate(['']);
+    setTimeout(() => window.location.reload(), 20);
+  }
+
 }

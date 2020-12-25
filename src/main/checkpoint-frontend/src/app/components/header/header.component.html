@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-light">
     <a class="navbar-brand" href="">
-        <img src="../../../assets/img/logo.svg" width="250" loading="lazy" data-toggle="collapse"
+        <img src="../../../assets/img/LogoSmall.png" width="250" loading="lazy" data-toggle="collapse"
             data-target=".navbar-collapse.show">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
@@ -40,12 +40,7 @@
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
 
-        <div>
-            <button type="button" class="btn btn-light btn-sm" routerLink="profile" matRipple>
-                My Collection
-            </button>
-        </div>
-        <div>
+        <div *ngIf="!currentUser || currentUser == null; else loggedIn">
             <button type="button" class="btn btn-light btn-sm login login-register" data-toggle="modal"
                 data-target="#loginModal" matRipple>
                 Sign In
@@ -55,7 +50,16 @@
                 Register
             </button>
         </div>
-
+        <ng-template #loggedIn>
+            <div>
+                <button type="button" class="btn btn-light btn-sm btn-collection" routerLink="profile" matRipple>
+                    My Collection
+                </button>
+                <button type="button" class="btn btn-secondary btn-sm btn-signout" (click)="logOut()" matRipple>
+                    Log Out
+                </button>
+            </div>
+        </ng-template>
     </div>
 </nav>
 
