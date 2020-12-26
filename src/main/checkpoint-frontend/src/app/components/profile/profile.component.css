@@ -21,9 +21,23 @@
 .btn-select {
     width: 75%;
     margin: 5px auto;
+    border-color:#ec7e00;
+    color:  #ec7e00;
     box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
     -webkit-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
     -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
+}
+
+.btn-select:hover {
+    color: white;
+    border-color: #d6751b;
+    background-color:#ec7e00;
+}
+
+.btn-select:not(:disabled):not(.disabled).active, .btn-select:not(:disabled):not(.disabled):active, .show>.btn-select.dropdown-toggle {
+    color: white;
+    border-color: #d6751b;
+    background-color:#ec7e00;
 }
 
 .clickable {
@@ -35,7 +49,7 @@
 }
 
 .container-games {
-    width: 70%;
+    width: 65%;
 }
 
 hr {
