@@ -1,4 +1,8 @@
 
+.btn {
+    font-size: 16px;
+}
+
 .btn-block {
     display: block;
     margin-top: 10px;
@@ -8,14 +12,13 @@
     color: #fff;
     background-color: #ec7e00;
     border-color: #d6751b;
-    font-size: 16px;
 }
 
 .btn-delete-collection {
     color: #fff;
     background-color: #c32510;
     border-color: #c21700;
-    font-size: 16px;
+    margin-left: 10px;
 }
 
 .btn-select {

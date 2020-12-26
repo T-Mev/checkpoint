@@ -101,4 +101,13 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  removeAllFromGamesList() {
+    this.gamesList = [];
+    if (this.gamesList.length <= 0) {
+      this.itemsInGamesList = false;
+      this.toggleEdit();
+    }
+    console.log(this.gamesList);
+  }
+
 }

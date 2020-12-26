@@ -11,9 +11,11 @@
                 (click)="toggleEdit()">Edit
                 Collection
             </button>
+            <button class="btn btn-outline-secondary btn-deselect" *ngIf="itemsInGamesList" matRipple
+                (click)="removeAllFromGamesList()">Deselect All
+            </button>
             <button class="btn btn-danger btn-delete-collection" *ngIf="itemsInGamesList" matRipple
-                (click)="removeAllGames()">Remove from
-                Collection
+                (click)="removeAllGames()">Remove
             </button>
         </div>
         <div class="row">
@@ -26,7 +28,7 @@
                     <button *ngIf="showEdit" class="btn btn-outline-warning btn-sm btn-block btn-select"
                         data-toggle="button" matRipple (click)="addToGamesList(game.id)">
                         <!-- <mat-icon>{{ buttonText }}</mat-icon> -->
-                        Delete
+                        Select
                     </button>
                 </div>
             </div>
