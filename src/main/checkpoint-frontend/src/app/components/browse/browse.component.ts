@@ -10,7 +10,6 @@ import { RestService } from 'src/app/service/rest.service';
 
 export class BrowseComponent implements OnInit {
 
-  //Make this a typescript interface
   games;
 
   constructor(private router: Router, private route: ActivatedRoute, private rest: RestService) { }

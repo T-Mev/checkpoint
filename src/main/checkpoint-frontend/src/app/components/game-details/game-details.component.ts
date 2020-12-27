@@ -11,6 +11,7 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./game-details.component.css']
 })
 export class GameDetailsComponent implements OnInit {
+
   currentUser: any;
   errorMessage = '';
   games;
@@ -80,12 +81,12 @@ export class GameDetailsComponent implements OnInit {
         this.successMessage = res.text;
         // console.log(this.games);
         console.log(res.error.text);
-        this.router.navigate(['profile']);
+        // this.router.navigate(['profile']);
       },
       err => {
         this.errorMessage = err.error;
         console.log(this.errorMessage);
-        this.router.navigate(['profile']);
+        // this.router.navigate(['profile']);
       }
     );
 
