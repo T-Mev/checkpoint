@@ -37,12 +37,12 @@
 </div>
 
 <ng-template #loggedOut>
-    <div>
-        <header class="jumbotron">
-            <h3>
-                <strong>Please sign in!</strong>
-            </h3>
-        </header>
+    <div class="error">
+        <img src="../../../assets/img/error.svg" class="error-img">
+        <div class="error-text">
+            <p class="error-text-title">Uh-Oh! Looks like you aren't signed in!</p>
+            <p class="error-text-body">Don't have an account? Register here!</p>
+        </div>
     </div>
 </ng-template>
 

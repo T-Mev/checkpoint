@@ -25,10 +25,15 @@
             </ul>
         </div>
     </div>
-    <div *ngIf="games.length === 0" class="error-search">
-        <h1>0 results found!</h1>
+    <div *ngIf="!games.length">
+        <div class="error">
+            <img src="../../../assets/img/search.svg" class="error-img">
+            <div class="error-text">
+                <p class="error-text-title">No results found for search: "<span>{{searchTerm}}</span>"</p>
+                <p class="error-text-body">Try a different search term!</p>
+            </div>
+        </div>
     </div>
 </div>
-
 
 <div class="spacer"></div>

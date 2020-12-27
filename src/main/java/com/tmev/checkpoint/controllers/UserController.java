@@ -123,13 +123,6 @@ public class UserController {
         String usersName = ((UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
         User user = userRepository.findByUsername(usersName).orElseThrow();
 
-        // Checking if game is in collection
-//        if (!user.containsGame(gameId)) {
-//            return ResponseEntity
-//                    .badRequest()
-//                    .body("This game doesn't exist in the collection!");
-//        }
-
         // Remove games from collection
         user.removeAllFromGamesList(gameList);
         userRepository.save(user);
