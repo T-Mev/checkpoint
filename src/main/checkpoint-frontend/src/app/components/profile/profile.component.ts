@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
 import { UserService } from 'src/app/service/user.service';
 
@@ -9,7 +9,7 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  currentUser: any;
+  currentUser: any = null;
   customStyle: any;
   deleteRes;
   games;
@@ -17,44 +17,41 @@ export class ProfileComponent implements OnInit {
   itemsInGamesList: boolean = false;
   showEdit: boolean = false;
   buttonText: string = "delete";
+  isOwner: boolean;
+  urlParam: string = null;
+  username: string;
 
-  constructor(private router: Router, private token: TokenStorageService, private userService: UserService) { }
+  constructor(private router: Router, private token: TokenStorageService, private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.currentUser = this.token.getUser();
 
-    if (this.currentUser == null) {
-      this.router.navigate(['profile']);
+    // if (this.currentUser == null) {
+    //   this.router.navigate(['profile']);
+    // }
+
+    this.route.params.subscribe(res => {
+      if (res.username) {
+        this.urlParam = res.username;
+      }
+    })
+
+    if (!this.urlParam && this.currentUser != null) {
+
+      this.getCollection(this.currentUser.username);
+      this.username = this.currentUser.username;
+      this.isOwner = true;
+    } else {
+      this.getCollection(this.urlParam);
+      this.username = this.urlParam;
+      this.isOwner = this.urlParam === this.currentUser.username;
     }
 
-    this.userService.getUserCollection(this.currentUser.username).subscribe(
-      res => {
-        this.games = res;
-        console.log(this.games);
-      },
-      err => {
-        this.games = JSON.parse(err.error).message;
-      }
-    );
   }
 
   toGame(gameId: number) {
     this.router.navigate(['/games'], { queryParams: { id: gameId } });
   }
-
-  // removeGame(gameId: number) {
-  //   this.userService.removeGameFromCollection(this.currentUser.username, gameId).subscribe(
-  //     res => {
-  //       this.deleteRes = res;
-  //       console.log(this.deleteRes);
-  //       window.location.reload();
-  //     },
-  //     err => {
-  //       // this.deleteRes = JSON.parse(err.error).message;
-  //       console.log(err);
-  //     }
-  //   );
-  // }
 
   addToGamesList(gameId: number) {
     if (!this.gamesList.includes(gameId)) {
@@ -108,6 +105,19 @@ export class ProfileComponent implements OnInit {
       this.toggleEdit();
     }
     console.log(this.gamesList);
+  }
+
+
+  getCollection(username: string) {
+    this.userService.getUserCollection(username).subscribe(
+      res => {
+        this.games = res;
+        console.log(this.games);
+      },
+      err => {
+        this.games = JSON.parse(err.error).message;
+      }
+    )
   }
 
 }

@@ -1,13 +1,13 @@
-<div class="container" *ngIf="currentUser; else loggedOut">
+<div class="container" *ngIf="currentUser || urlParam; else loggedOut">
 
     <div *ngIf="games" class="container container-games">
         <div class="title-container">
-            <h1 class="title-popular"><span class="user-title">{{ currentUser.username.toUpperCase() }}'s</span>
+            <h1 class="title-popular"><span class="user-title">{{ username.toUpperCase() }}'s</span>
                 COLLECTION:</h1>
             <hr>
         </div>
         <div>
-            <button class="btn btn-warning btn-collection" *ngIf="!itemsInGamesList" matRipple
+            <button class="btn btn-warning btn-collection" *ngIf="!itemsInGamesList && isOwner" matRipple
                 (click)="toggleEdit()">Edit
                 Collection
             </button>

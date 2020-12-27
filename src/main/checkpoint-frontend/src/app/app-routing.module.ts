@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'games', component: GameDetailsComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'profile/:username', component: ProfileComponent },
   { path: '**', component: HomeComponent }
 ];
 
