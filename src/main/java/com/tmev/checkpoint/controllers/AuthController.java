@@ -38,7 +38,7 @@ public class AuthController {
         if (!userRepository.existsByUsername(userDataRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
-                    .body("User doesn't exist!");
+                    .body("\"User doesn't exist!\"");
         }
 
         Authentication authentication = authenticationManager.authenticate(
@@ -60,14 +60,14 @@ public class AuthController {
         if (userRepository.existsByUsername(userDataRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
-                    .body("Username is already taken!");
+                    .body("\"Username is already taken!\"");
         }
 
         User user = new User(userDataRequest.getUsername(), userDataRequest.getPassword());
 
         userRepository.save(user);
 
-        return ResponseEntity.ok("User registered successfully!");
+        return ResponseEntity.ok("\"User registered successfully!\"");
     }
 
 }

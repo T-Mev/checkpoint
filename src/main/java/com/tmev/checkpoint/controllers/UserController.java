@@ -79,14 +79,14 @@ public class UserController {
         if (user.containsGame(gameId)) {
             return ResponseEntity
                     .badRequest()
-                    .body("This game is already in the collection!");
+                    .body("\"This game is already in the collection!\"");
         }
 
         // Add game to collection
         user.addToGamesList(gameId);
         userRepository.save(user);
 
-        return ResponseEntity.ok("Game added successfully!");
+        return ResponseEntity.ok("\"Game added successfully!\"");
     }
 
     // Handles DELETE requests at /REST/user/{username}/game/{gameId}
@@ -103,14 +103,14 @@ public class UserController {
         if (!user.containsGame(gameId)) {
             return ResponseEntity
                     .badRequest()
-                    .body("This game doesn't exist in the collection!");
+                    .body("\"This game doesn't exist in the collection!\"");
         }
 
         // Remove game from collection
         user.removeFromGamesList(gameId);
         userRepository.save(user);
 
-        return ResponseEntity.ok("Game removed successfully!");
+        return ResponseEntity.ok("\"Game removed successfully!\"");
     }
 
     // Handles POST requests at /REST/user/{username}/games
@@ -127,7 +127,7 @@ public class UserController {
         user.removeAllFromGamesList(gameList);
         userRepository.save(user);
 
-        return ResponseEntity.ok("Games removed successfully!");
+        return ResponseEntity.ok("\"Games removed successfully!\"");
     }
 
     // Handles GET requests at /REST/user?id=&gameId=
