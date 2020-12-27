@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   showEdit: boolean = false;
   buttonText: string = "delete";
   isOwner: boolean;
-  urlParam: string = null;
+  urlUser: string = null;
   username: string;
 
   constructor(private router: Router, private token: TokenStorageService, private userService: UserService, private route: ActivatedRoute) { }
@@ -32,19 +32,19 @@ export class ProfileComponent implements OnInit {
 
     this.route.params.subscribe(res => {
       if (res.username) {
-        this.urlParam = res.username;
+        this.urlUser = res.username;
       }
     })
 
-    if (!this.urlParam && this.currentUser != null) {
+    if (!this.urlUser && this.currentUser != null) {
 
       this.getCollection(this.currentUser.username);
       this.username = this.currentUser.username;
       this.isOwner = true;
     } else {
-      this.getCollection(this.urlParam);
-      this.username = this.urlParam;
-      this.isOwner = this.urlParam === this.currentUser.username;
+      this.getCollection(this.urlUser);
+      this.username = this.urlUser;
+      this.isOwner = this.urlUser === this.currentUser.username;
     }
 
   }

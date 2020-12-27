@@ -1,6 +1,6 @@
-<div class="container" *ngIf="currentUser || urlParam; else loggedOut">
+<div class="container" *ngIf="currentUser || urlUser; else loggedOut">
 
-    <div *ngIf="games" class="container container-games">
+    <div *ngIf="games; else noGames" class="container container-games">
         <div class="title-container">
             <h1 class="title-popular"><span class="user-title">{{ username.toUpperCase() }}'s</span>
                 COLLECTION:</h1>
@@ -34,6 +34,23 @@
             </div>
         </div>
     </div>
+    <ng-template #noGames>
+        <div class="container container-games">
+            <div class="title-container">
+                <h1 class="title-popular"><span class="user-title">{{ username.toUpperCase() }}'s</span>
+                    COLLECTION:</h1>
+                <hr>
+            </div>
+        </div>
+
+        <div class="error">
+            <img src="../../../assets/img/gaming.svg" class="error-img2">
+            <div class="error-text">
+                <p class="error-text-title">Uh-Oh! No games found!</p>
+                <p class="error-text-body">Add some games to grow your collection!</p>
+            </div>
+        </div>
+    </ng-template>
 </div>
 
 <ng-template #loggedOut>
