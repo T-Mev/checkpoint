@@ -1,0 +1,19 @@
+
+.btn-select {
+    margin-left: 50px;
+    padding: 5px;
+    border-color:#ec7e00;
+    color:  #ec7e00;
+}
+
+.btn-select:hover {
+    color: white;
+    border-color: #d6751b;
+    background-color:#ec7e00;
+}
+
+.btn-select:not(:disabled):not(.disabled).active, .btn-select:not(:disabled):not(.disabled):active, .show>.btn-select.dropdown-toggle {
+    color: white;
+    border-color: #d6751b;
+    background-color:#ec7e00;
+}

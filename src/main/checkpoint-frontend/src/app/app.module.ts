@@ -22,6 +22,7 @@ import { GameDetailsComponent } from './components/game-details/game-details.com
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CustomSnackbarComponent } from './components/custom-snackbar/custom-snackbar.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     FormRegisterComponent,
     GameDetailsComponent,
     ProfileComponent,
+    CustomSnackbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule
+  ],
+  entryComponents: [
+    CustomSnackbarComponent
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

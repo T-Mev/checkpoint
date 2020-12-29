@@ -1,9 +1,11 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestService } from 'src/app/service/rest.service';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
 import { UserService } from 'src/app/service/user.service';
+import { CustomSnackbarComponent } from '../custom-snackbar/custom-snackbar.component';
 
 @Component({
   selector: 'app-game-details',
@@ -12,6 +14,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class GameDetailsComponent implements OnInit {
 
+  addedToCollection: boolean = false;
   currentUser: any;
   errorMessage = '';
   games;
@@ -22,7 +25,7 @@ export class GameDetailsComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute, private rest: RestService, private sanitizer: DomSanitizer, private token: TokenStorageService,
-    private userService: UserService, private router: Router) { }
+    private userService: UserService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.currentUser = this.token.getUser();
@@ -72,14 +75,19 @@ export class GameDetailsComponent implements OnInit {
     setTimeout(() => this.videoURL = null, 300)
   }
 
-  addToCollection() {
+  addToCollection(gameId: number) {
     this.userService.addGameToCollection(this.currentUser.username, this.gameId).subscribe(
       res => {
         this.successMessage = res;
-        this.router.navigate(['profile']);
+        this.addedToCollection = true;
+        this.snackBar.openFromComponent(CustomSnackbarComponent, {
+          duration: 4000,
+          panelClass: ['snackbar']
+        });
       },
       err => {
         this.errorMessage = err.error;
+        console.log(this.errorMessage);
       }
     );
 
