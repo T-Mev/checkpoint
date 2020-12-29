@@ -15,28 +15,6 @@
     border-radius: 10px;
    }
 
-/*
-   .alert {
-    padding: 20px;
-    background-color: #f44336;
-    color: white;
-  }
-
-  .closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  .closebtn:hover {
-    color: black;
-  } */
-
 .btn-block {
     display: block;
     width: 96%;
@@ -149,6 +127,18 @@ hr {
     -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
 }
 
+.included-container {
+    background-color: rgb(0, 153, 38);
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    margin: 10px;
+    height: 37px;
+    padding-top: 7px;
+    font-size: 16px;
+    border: 1px solid rgb(8, 138, 41);
+}
+
 .info-container {
     display: flex;
     justify-content: center;
@@ -176,6 +166,11 @@ hr {
     text-shadow: 1px 0px 1px #2c2e3618, 0px 1px 1px #2c2e3618, 2px 1px 1px #2c2e3618, 1px 2px 1px #2c2e3618,
     3px 2px 1px #2c2e3618, 2px 3px 1px #2c2e3618, 4px 3px 1px #2c2e3618, 3px 4px 1px #2c2e3618, 5px 4px 1px #2c2e3618,
      4px 5px 1px #2c2e3618, 6px 5px 1px #2c2e3618, 5px 6px 1px #2c2e3618, 7px 6px 1px #2c2e3618;
+}
+
+::ng-deep .mat-snack-bar-container {
+    background: #525257;
+    margin-bottom: 40px !important;
 }
 
 .media {

@@ -30,20 +30,13 @@
                         <span class="rating-star">★</span>
                         <span class="rating-score">{{formatScore(game.total_rating)}}</span>
                     </div>
-                    <button *ngIf="!haveGame && currentUser != null" (click)="addToCollection()" type="button"
+                    <button *ngIf="!haveGame && currentUser != null && !addedToCollection" (click)="addToCollection(game.id)" type="button"
                         class="btn btn-secondary btn-block btn-collection" matRipple>Add to Collection
                     </button>
 
-                    <!-- <div *ngIf="errorMessage; else successMessage" class="alert">
-                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                        {{ errorMessage }}
-                        <ng-template #successMessage>
-                            <div class="alert">
-                                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                                {{ successMessage }}
-                            </div>
-                        </ng-template>
-                    </div> -->
+                    <div *ngIf="haveGame" class="included-container">
+                        Already in collection!
+                    </div>
 
                 </div>
                 <div class="media-body">
