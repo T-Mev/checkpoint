@@ -59,7 +59,7 @@ public class UserController {
             }
 
         } else {
-            // throw custom error handling when user is not found
+            // should throw custom error handling when user is not found
             return "User not found";
         }
 

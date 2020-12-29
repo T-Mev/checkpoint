@@ -9,15 +9,17 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
+  buttonText: string = "delete";
   currentUser: any = null;
   customStyle: any;
-  deleteRes;
+  errorMessage: string;
   games;
   gamesList: number[] = [];
+  isOwner: boolean;
   itemsInGamesList: boolean = false;
   showEdit: boolean = false;
-  buttonText: string = "delete";
-  isOwner: boolean;
+  successMessage: string;
   urlUser: string = null;
   username: string;
 
@@ -73,14 +75,11 @@ export class ProfileComponent implements OnInit {
   removeAllGames() {
     this.userService.removeAllGamesFromCollection(this.currentUser.username, this.gamesList).subscribe(
       res => {
-        this.deleteRes = res;
-        console.log(this.deleteRes);
+        this.successMessage = res;
         window.location.reload();
       },
       err => {
-        // this.deleteRes = JSON.parse(err.error).message;
-        console.log(err);
-        window.location.reload();
+        this.errorMessage = err.error;
       }
     );
   }
@@ -98,7 +97,7 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  removeAllFromGamesList() {
+  deselectAllFromGamesList() {
     this.gamesList = [];
     if (this.gamesList.length <= 0) {
       this.itemsInGamesList = false;
@@ -115,7 +114,7 @@ export class ProfileComponent implements OnInit {
         console.log(this.games);
       },
       err => {
-        this.games = JSON.parse(err.error).message;
+        this.errorMessage = "User Not found";
       }
     )
   }

@@ -20,7 +20,6 @@ export class FormLoginComponent implements OnInit {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.currentUser = this.tokenStorage.getUser();
-      // console.log(this.currentUser.username);
     }
   }
 
@@ -33,7 +32,7 @@ export class FormLoginComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        setTimeout(() => this.reloadPage(), 1000)
+        setTimeout(() => window.location.reload(), 1000)
       },
       err => {
         if (err.error.message) {
@@ -41,14 +40,9 @@ export class FormLoginComponent implements OnInit {
         } else if (err.error) {
           this.errorMessage = err.error;
         }
-        console.log(this.errorMessage);
         this.isLoginFailed = true;
       }
     );
-  }
-
-  reloadPage() {
-    window.location.reload();
   }
 
 }

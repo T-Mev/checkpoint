@@ -80,7 +80,6 @@ export class GameDetailsComponent implements OnInit {
       },
       err => {
         this.errorMessage = err.error;
-        console.log(this.errorMessage);
       }
     );
 

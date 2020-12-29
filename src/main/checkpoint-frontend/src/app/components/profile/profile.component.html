@@ -1,6 +1,6 @@
 <div class="container" *ngIf="currentUser || urlUser; else loggedOut">
 
-    <div *ngIf="games; else noGames" class="container container-games">
+    <div *ngIf="games" class="container container-games">
         <div class="title-container">
             <h1 class="title-popular"><span class="user-title">{{ username.toUpperCase() }}'s</span>
                 COLLECTION:</h1>
@@ -12,7 +12,7 @@
                 Collection
             </button>
             <button class="btn btn-outline-secondary btn-deselect" *ngIf="itemsInGamesList" matRipple
-                (click)="removeAllFromGamesList()">Deselect All
+                (click)="deselectAllFromGamesList()">Deselect All
             </button>
             <button class="btn btn-danger btn-delete-collection" *ngIf="itemsInGamesList" matRipple
                 (click)="removeAllGames()">Remove
@@ -34,7 +34,7 @@
             </div>
         </div>
     </div>
-    <ng-template #noGames>
+    <!-- <ng-template #noGames>
         <div class="container container-games">
             <div class="title-container">
                 <h1 class="title-popular"><span class="user-title">{{ username.toUpperCase() }}'s</span>
@@ -50,7 +50,7 @@
                 <p class="error-text-body">Add some games to grow your collection!</p>
             </div>
         </div>
-    </ng-template>
+    </ng-template> -->
 </div>
 
 <ng-template #loggedOut>

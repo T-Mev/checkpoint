@@ -77,6 +77,10 @@ public class User {
         }
     }
 
+    public boolean hasNoGames() {
+        return this.gamesList.isEmpty();
+    }
+
     public Boolean containsGame(Integer game) { return this.gamesList.contains(game); }
 
     @Override
