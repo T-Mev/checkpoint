@@ -20,13 +20,11 @@ export class FormRegisterComponent implements OnInit {
   onSubmit() {
     this.authService.register(this.form).subscribe(
       res => {
-        console.log(res);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
       },
       err => {
-        console.log(err);
-        this.errorMessage = err.error.message;
+        this.errorMessage = err.error;
         this.isSignUpFailed = true;
       }
     );

@@ -29,15 +29,19 @@ export class FormLoginComponent implements OnInit {
       res => {
         this.tokenStorage.saveToken(res.accessToken);
         this.tokenStorage.saveUser(res);
+        this.currentUser = this.tokenStorage.getUser();
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         setTimeout(() => this.reloadPage(), 1000)
       },
       err => {
-        console.log(err);
-        // this.errorMessage = err.error.message;
-        this.errorMessage = err.error;
+        if (err.error.message) {
+          this.errorMessage = err.error.message;
+        } else if (err.error) {
+          this.errorMessage = err.error;
+        }
+        console.log(this.errorMessage);
         this.isLoginFailed = true;
       }
     );

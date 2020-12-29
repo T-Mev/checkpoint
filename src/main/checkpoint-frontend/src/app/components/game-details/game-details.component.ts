@@ -31,13 +31,10 @@ export class GameDetailsComponent implements OnInit {
       this.rest.getGame(param.id).subscribe(res => {
         this.games = res;
         this.gameId = this.games[0].id;
-        // console.log(this.games);
-        // console.log(this.gameId);
 
         this.userService.includedInCollection(this.currentUser.username, this.gameId).subscribe(
           res => {
             this.haveGame = res;
-            // console.log(this.haveGame);
           }
         );
       });
@@ -78,15 +75,12 @@ export class GameDetailsComponent implements OnInit {
   addToCollection() {
     this.userService.addGameToCollection(this.currentUser.username, this.gameId).subscribe(
       res => {
-        this.successMessage = res.text;
-        // console.log(this.games);
-        console.log(res.error.text);
-        // this.router.navigate(['profile']);
+        this.successMessage = res;
+        this.router.navigate(['profile']);
       },
       err => {
         this.errorMessage = err.error;
         console.log(this.errorMessage);
-        // this.router.navigate(['profile']);
       }
     );
 
