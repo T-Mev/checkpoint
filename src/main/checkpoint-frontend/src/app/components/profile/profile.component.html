@@ -27,12 +27,12 @@
                     </a>
                     <button *ngIf="showEdit" class="btn btn-outline-warning btn-sm btn-block btn-select"
                         data-toggle="button" matRipple (click)="addToGamesList(game.id)">
-                        <!-- <mat-icon>{{ buttonText }}</mat-icon> -->
                         Select
                     </button>
                 </div>
             </div>
         </div>
+        <button class="btn btn-outline-secondary btn-block btn-top" (click)="scrollToTop()">Back To Top</button>
     </div>
     <!-- <ng-template #noGames>
         <div class="container container-games">

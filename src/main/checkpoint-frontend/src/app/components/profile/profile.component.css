@@ -43,6 +43,11 @@
     background-color:#ec7e00;
 }
 
+.btn-top {
+    width: 97%;
+    margin: 30px auto 0 auto;
+}
+
 .clickable {
     cursor: pointer;
 }

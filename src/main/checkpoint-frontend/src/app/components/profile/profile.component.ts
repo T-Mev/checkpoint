@@ -119,4 +119,8 @@ export class ProfileComponent implements OnInit {
     )
   }
 
+  scrollToTop() {
+    window.scrollTo(0,0);
+  }
+
 }

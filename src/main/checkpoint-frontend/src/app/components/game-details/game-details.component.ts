@@ -81,7 +81,7 @@ export class GameDetailsComponent implements OnInit {
         this.successMessage = res;
         this.addedToCollection = true;
         this.snackBar.openFromComponent(CustomSnackbarComponent, {
-          duration: 400000,
+          duration: 4000,
           panelClass: ['snackbar']
         });
       },
