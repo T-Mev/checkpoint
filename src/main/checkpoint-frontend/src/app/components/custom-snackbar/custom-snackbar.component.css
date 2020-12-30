@@ -1,9 +1,9 @@
 
 .btn-select {
-    margin-left: 50px;
-    padding: 5px;
+    padding: 3px;
     border-color:#ec7e00;
     color:  #ec7e00;
+    margin-left: 30px;
 }
 
 .btn-select:hover {
@@ -16,4 +16,9 @@
     color: white;
     border-color: #d6751b;
     background-color:#ec7e00;
+}
+
+.container {
+    display: flex;
+    align-items: center;
 }

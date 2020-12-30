@@ -169,7 +169,7 @@ hr {
 }
 
 ::ng-deep .mat-snack-bar-container {
-    background: #525257;
+    background: rgba(82, 82, 87, 0.925);
     margin-bottom: 40px !important;
 }
 

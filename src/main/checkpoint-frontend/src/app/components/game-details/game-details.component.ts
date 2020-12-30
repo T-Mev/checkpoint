@@ -24,8 +24,8 @@ export class GameDetailsComponent implements OnInit {
   videoURL;
 
 
-  constructor(private route: ActivatedRoute, private rest: RestService, private sanitizer: DomSanitizer, private token: TokenStorageService,
-    private userService: UserService, private router: Router, private snackBar: MatSnackBar) { }
+  constructor(private route: ActivatedRoute, private rest: RestService, private sanitizer: DomSanitizer,
+    private token: TokenStorageService, private userService: UserService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.currentUser = this.token.getUser();
@@ -81,7 +81,7 @@ export class GameDetailsComponent implements OnInit {
         this.successMessage = res;
         this.addedToCollection = true;
         this.snackBar.openFromComponent(CustomSnackbarComponent, {
-          duration: 4000,
+          duration: 400000,
           panelClass: ['snackbar']
         });
       },
