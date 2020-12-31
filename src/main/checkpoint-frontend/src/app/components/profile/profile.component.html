@@ -6,7 +6,18 @@
                 COLLECTION:</h1>
             <hr>
         </div>
-        <div>
+        <div class="button-container">
+            <div *ngIf="isOwner">
+                <button class="btn btn-outline-secondary btn-input" matRipple
+                    (click)="showInput = !showInput">Share</button>
+                <div>
+                    <mat-form-field *ngIf="showInput" class="input-share-form">
+                        <mat-label class="input-label">Share</mat-label>
+                        <input (focus)="$event.target.select()" class="input-text" matInput type="text"
+                            value="localhost:4200/profile/{{username}}">
+                    </mat-form-field>
+                </div>
+            </div>
             <button class="btn btn-warning btn-collection" *ngIf="!itemsInGamesList && isOwner" matRipple
                 (click)="toggleEdit()">Edit
                 Collection

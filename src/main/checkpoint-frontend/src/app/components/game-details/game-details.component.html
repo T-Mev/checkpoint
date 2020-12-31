@@ -31,7 +31,8 @@
                         <span class="rating-score">{{formatScore(game.total_rating)}}</span>
                     </div>
                     <button *ngIf="!haveGame && currentUser != null && !addedToCollection" (click)="addToCollection(game.id)" type="button"
-                        class="btn btn-secondary btn-block btn-collection" matRipple>Add to Collection
+                        class="btn btn-secondary btn-block btn-collection" matRipple>
+                        Add to Collection
                     </button>
 
                     <div *ngIf="haveGame" class="included-container">
@@ -188,5 +189,15 @@
         </div>
     </div>
 </div>
+
+<!-- <div *ngIf="!games">
+    <div class="error">
+        <img src="../../../assets/img/error.svg" class="error-img">
+        <div class="error-text">
+            <p class="error-text-title">Uh-Oh! Looks like you aren't signed in!</p>
+            <p class="error-text-body">Don't have an account? Register here!</p>
+        </div>
+    </div>
+</div> -->
 
 <div class="spacer"></div>

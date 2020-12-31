@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
   isOwner: boolean;
   itemsInGamesList: boolean = false;
   showEdit: boolean = false;
+  showInput: boolean = false;
   successMessage: string;
   urlUser: string = null;
   username: string;
@@ -120,7 +121,7 @@ export class ProfileComponent implements OnInit {
   }
 
   scrollToTop() {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
 }
