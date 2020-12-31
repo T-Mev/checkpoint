@@ -12,7 +12,7 @@
                     (click)="showInput = !showInput">Share</button>
                 <div>
                     <mat-form-field *ngIf="showInput" class="input-share-form">
-                        <mat-label class="input-label">Share</mat-label>
+                        <mat-label class="input-label">Your link:</mat-label>
                         <input (focus)="$event.target.select()" class="input-text" matInput type="text"
                             value="localhost:4200/profile/{{username}}">
                     </mat-form-field>
