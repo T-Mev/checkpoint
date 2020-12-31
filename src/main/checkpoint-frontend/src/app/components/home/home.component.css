@@ -1,6 +1,8 @@
 
 .card {
     cursor: default;
+    width: 100%;
+    margin: 0 auto;
     background-image: linear-gradient(rgb(255, 255, 255), rgb(238, 238, 238));
     -webkit-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
     -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
