@@ -2,8 +2,12 @@
 
     <div *ngIf="games" class="container container-games">
         <div class="title-container">
-            <h1 class="title-popular"><span class="user-title">{{ username.toUpperCase() }}'s</span>
-                COLLECTION:</h1>
+            <h1 class="title-popular">
+                <span class="user-title">{{ username.toUpperCase() }}'s</span>
+                Collection |
+                <span class="user-title">{{games.length}}</span>
+                Games
+            </h1>
             <hr>
         </div>
         <div class="button-container">
