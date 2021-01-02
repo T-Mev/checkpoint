@@ -115,16 +115,13 @@ hr {
 .img {
     width: 300px;
     border-radius: 10px;
+    box-shadow: 0 8px 6px -6px  rgba(0, 0, 0, 0.329);
+    -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.329);
+    -moz-box-shadow: 0 8px 6px -6px  rgba(0, 0, 0, 0.329);
 }
 
 .img-container {
     position: relative;
-}
-
-.img-thumbnail {
-    box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
-    -webkit-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
-    -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
 }
 
 .included-container {

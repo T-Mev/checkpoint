@@ -116,21 +116,18 @@ hr {
 }
 
 .img {
-    border-radius: 5px;
+    border-radius: 10px;
     width: 80%;
     transition: border .2s ease-in-out, transform .2s ease-in-out;
+    box-shadow: 0 8px 6px -6px  rgba(0, 0, 0, 0.329);
+    -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.329);
+    -moz-box-shadow: 0 8px 6px -6px  rgba(0, 0, 0, 0.329);
 }
 
 .img:hover {
     border: 4px solid rgb(248, 132, 0);
-    border-radius: 5px;
+    border-radius: 10px;
     transform: scale(1.08);
-}
-
-.img-thumbnail {
-    box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
-    -webkit-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
-    -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
 }
 
 .input-label {

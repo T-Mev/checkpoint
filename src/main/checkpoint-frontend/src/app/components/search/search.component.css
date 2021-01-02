@@ -77,11 +77,14 @@ hr {
     width: 200px;
     border-radius: 10px;
     transition: border .2s ease-in-out, transform .2s ease-in-out;
+    -webkit-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
+    -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
+    box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
 }
 
 .img:hover {
-    border: 3px solid rgb(248, 132, 0);
-    border-radius: 5px;
+    border: 4px solid rgb(248, 132, 0);
+    border-radius: 10px;
     transform: scale(1.05);
 }
 
@@ -89,7 +92,8 @@ hr {
     color: rgb(95, 95, 100);
     font-family: 'Bebas Neue', cursive;
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
-    margin-top: 2%
+    margin-top: 2%;
+    font-size: 3rem;
 }
 
 .search-title span {
@@ -121,6 +125,12 @@ hr {
     color: rgb(131, 131, 141);
 }
 
+@media only screen and (max-width: 990px) {
+    .error-img {
+        width: 50vw;
+    }
+}
+
 @media only screen and (max-width: 650px) {
 
     .img {
@@ -147,8 +157,8 @@ hr {
 
 }
 
-@media only screen and (max-width: 990px) {
-    .error-img {
-        width: 50vw;
+@media screen and (max-width:360px) {
+    .search-title {
+        font-size: 2.7rem;
     }
 }
