@@ -40,7 +40,7 @@ public class UpcomingController {
                     .where("first_release_date > " + currentUnixTime + " & first_release_date < " + monthAfterUnixTime +
                             " & category = (0, 1, 2, 3, 4) & cover.image_id != null & version_parent = null & themes != 42 & release_dates.human != null")
                     .sort("first_release_date", Sort.ASCENDING)
-                    .limit(50));
+                    .limit(48));
         } catch(RequestException e) {
             System.out.println(e.getStatusCode());
             throw e;

@@ -1,37 +1,21 @@
-<div class="title-container">
-    <h1 class="upcoming-title"><span>Upcoming</span> Games:</h1>
-    <hr>
-    <div *ngFor="let game of games">
-        <mat-card class="game-card">
-            <a (click)="toGame(game.id)" class="clickable">
-                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
-                    class="img img-fluid img-game" alt="covers">
-            </a>
-            {{game.name}}
-            {{game.release_dates[0].human}}
-        </mat-card>
-    </div>
-</div>
-
-<!-- <div class="title-container">
-    <h1 class="upcoming-title"><span>Upcoming</span> Games:</h1>
-    <hr>
-</div> -->
-
-<!-- <div id="container">
-    <div *ngIf="games">
-        <div class="games-list-container">
-            <div class="game-container" *ngFor="let game of games">
-                <div class="game">
-                    <a (click)="toGame(game.id)" class="clickable">
+<div class="container">
+    <div class="title-container">
+        <h1 class="upcoming-title"><span>Upcoming</span> Games:</h1>
+        <hr>
+        <div class="row">
+            <div *ngFor="let game of games" class="col-lg-3 col-sm-6 upcoming-list">
+                <mat-card (click)="toGame(game.id)" class="game-card clickable">
+                    <a>
                         <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
-                            class="img img-fluid img-thumbnail" alt="covers">
+                            class="img img-fluid img-game" alt="covers">
                     </a>
-                    <p>{{game.release_dates[0].human}}</p>
-                </div>
+                    <p class="game-title">{{game.name}}</p>
+                    <mat-card-subtitle>Release Date: <p>{{game.release_dates[0].human}}</p>
+                    </mat-card-subtitle>
+                </mat-card>
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
 <div class="spacer"></div>
