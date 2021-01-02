@@ -2,15 +2,13 @@
 
     <div *ngIf="games" class="container container-games">
         <div class="title-container">
-            <h1 class="title-popular">
-                <span class="user-title">{{ username.toUpperCase() }}'s</span>
-                Collection |
-                <span class="user-title">{{games.length}}</span>
-                Games
+            <h1 class="title-profile">
+                <span class="user-title">{{ username.toUpperCase() }}'s</span> Collection
+                <span class="user-title-counter">{{games.length}} Games</span>
             </h1>
             <hr>
         </div>
-        <div class="button-container">
+        <div class="btn-container">
             <div *ngIf="isOwner">
                 <button class="btn btn-outline-secondary btn-input" matRipple
                     (click)="showInput = !showInput">Share</button>

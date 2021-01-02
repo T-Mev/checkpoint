@@ -14,6 +14,11 @@
     border-color: #d6751b;
 }
 
+.btn-container {
+    margin: 25px auto 0 auto;
+    width: 95%;
+}
+
 .btn-delete-collection {
     color: #fff;
     background-color: #c32510;
@@ -21,8 +26,13 @@
     margin-left: 10px;
 }
 
+.btn-deselect {
+    margin-top: 1px;
+}
+
 .btn-input {
     margin-bottom: 10px;
+    float: right;
 }
 
 .btn-select {
@@ -58,6 +68,8 @@
 
 .container {
     max-width: 1920px;
+    padding: 0;
+    margin: 0 auto;
 }
 
 .container-games {
@@ -142,7 +154,11 @@ hr {
     text-align: center;
     padding: 0;
     margin-top: 20px;
-    /* margin: 40px 0 5px 0; */
+}
+
+.row {
+    margin: 0 auto;
+    width: 100%;
 }
 
 .spacer {
@@ -156,16 +172,17 @@ hr {
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
 }
 
-.title-popular {
+.title-profile {
     font-size: 3.5rem;
-    margin-bottom: 0;
+    margin-bottom: 5px;
 }
 
 .user-title {
     color: rgb(248, 132, 0);
 }
 
-.test {
+.user-title-counter {
+    color: rgb(248, 132, 0);
     float: right;
 }
 
@@ -175,7 +192,7 @@ hr {
     }
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 768px) {
     .btn-delete-collection {
         margin-top: 10px;
     }
@@ -184,8 +201,12 @@ hr {
         margin-top: 10px;
     }
 
-    .button-container {
+    .btn-container {
         text-align: center;
+    }
+
+    .btn-input {
+        float: inherit;
     }
 
     .input-share-form {
@@ -194,5 +215,9 @@ hr {
 
     .title-container {
         text-align: center;
+    }
+
+    .user-title-counter {
+        float: inherit;
     }
 }
