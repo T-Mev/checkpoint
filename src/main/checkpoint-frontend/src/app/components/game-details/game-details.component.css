@@ -115,9 +115,9 @@ hr {
 .img {
     width: 300px;
     border-radius: 10px;
-    box-shadow: 0 8px 6px -6px  rgba(0, 0, 0, 0.329);
-    -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.329);
-    -moz-box-shadow: 0 8px 6px -6px  rgba(0, 0, 0, 0.329);
+    box-shadow: 0 8px 6px -6px  rgba(31, 31, 31, 0.329);
+    -webkit-box-shadow: 0 8px 6px -6px  rgba(31, 31, 31, 0.329);
+    -moz-box-shadow: 0 8px 6px -6px  rgba(31, 31, 31, 0.329);
 }
 
 .img-container {
