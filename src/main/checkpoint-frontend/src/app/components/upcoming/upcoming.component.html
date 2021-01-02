@@ -1,27 +1,37 @@
-
 <div class="title-container">
-    <h1 class="upcoming-title"><span >Upcoming</span> Games:</h1>
+    <h1 class="upcoming-title"><span>Upcoming</span> Games:</h1>
     <hr>
+    <div *ngFor="let game of games">
+        <mat-card class="game-card">
+            <a (click)="toGame(game.id)" class="clickable">
+                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
+                    class="img img-fluid img-game" alt="covers">
+            </a>
+            {{game.name}}
+            {{game.release_dates[0].human}}
+        </mat-card>
+    </div>
 </div>
 
-<div id="container">
+<!-- <div class="title-container">
+    <h1 class="upcoming-title"><span>Upcoming</span> Games:</h1>
+    <hr>
+</div> -->
+
+<!-- <div id="container">
     <div *ngIf="games">
         <div class="games-list-container">
             <div class="game-container" *ngFor="let game of games">
                 <div class="game">
                     <a (click)="toGame(game.id)" class="clickable">
-                                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
-                        class="img img-fluid img-thumbnail" alt="covers">
+                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
+                            class="img img-fluid img-thumbnail" alt="covers">
                     </a>
                     <p>{{game.release_dates[0].human}}</p>
                 </div>
             </div>
         </div>
     </div>
+</div> -->
 
-    <div *ngIf="games.length === 0">
-        <h1>Platform not found!</h1>
-    </div>
-
-    <div class="spacer"></div>
-</div>
+<div class="spacer"></div>

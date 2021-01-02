@@ -1,3 +1,15 @@
+.game-card {
+    margin: 20px;
+    padding: 10px
+}
+
+.img-game {
+    width: 50px;
+}
+
+
+
+
 
 .clickable {
     cursor: pointer;
@@ -10,9 +22,9 @@ hr {
     background: linear-gradient(90deg, rgb(206, 206, 212) 0%, rgba(255,255,255,0) 100%);
 }
 
-.img {
+/* .img {
     width: 100%;
-}
+} */
 
 .game:hover {
     border: 5px solid rgb(248, 132, 0);
@@ -67,13 +79,11 @@ hr {
     margin: 2% auto;
     padding: 15px 15px 0px 15px;
 
-    /* display: flex; */
     justify-content: center;
     align-items: center;
 
     color: rgb(95, 95, 100);
     font-family: 'Bebas Neue', cursive;
-    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
 }
 
 .spacer {
