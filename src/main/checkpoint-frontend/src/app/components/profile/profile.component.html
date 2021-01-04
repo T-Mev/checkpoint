@@ -10,12 +10,12 @@
         </div>
         <div class="btn-container">
             <div *ngIf="isOwner">
-                <button class="btn btn-outline-secondary btn-input" matRipple
-                    (click)="showInput = !showInput">Share</button>
+                <button class="btn btn-outline-secondary btn-input" matRipple (click)="onShareClick()">Share
+                </button>
                 <div>
                     <mat-form-field *ngIf="showInput" class="input-share-form">
                         <mat-label class="input-label">Your link:</mat-label>
-                        <input (focus)="$event.target.select()" class="input-text" matInput type="text"
+                        <input #share class="input-text" matInput type="text"
                             value="localhost:4200/profile/{{username}}">
                     </mat-form-field>
                 </div>

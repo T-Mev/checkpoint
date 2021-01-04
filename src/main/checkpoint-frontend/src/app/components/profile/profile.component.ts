@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
+import { MatInput } from '@angular/material/input';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
 import { UserService } from 'src/app/service/user.service';
@@ -9,6 +10,8 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
+  @ViewChild("share", { static: false }) share;
 
   buttonText: string = "delete";
   currentUser: any = null;
@@ -122,6 +125,23 @@ export class ProfileComponent implements OnInit {
 
   scrollToTop() {
     window.scrollTo(0, 0);
+  }
+
+  onShareClick() {
+    this.showInput = !this.showInput;
+    if (this.showInput) {
+      this.shareHighlight();
+    }
+  }
+
+  shareHighlight() {
+    if (this.share) {
+      this.share.nativeElement.select();
+    } else {
+      setTimeout(() => {
+        this.shareHighlight()
+      }, 3)
+    }
   }
 
 }

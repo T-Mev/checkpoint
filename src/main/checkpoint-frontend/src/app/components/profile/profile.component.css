@@ -14,6 +14,10 @@
     border-color: #d6751b;
 }
 
+.btn-collection:hover {
+    background-color: #ca6c00;
+}
+
 .btn-container {
     margin: 25px auto 0 auto;
     width: 95%;
@@ -24,6 +28,10 @@
     background-color: #c32510;
     border-color: #c21700;
     margin-left: 10px;
+}
+
+.btn-delete-collection:hover {
+    background-color: #a8200e;
 }
 
 .btn-deselect {
