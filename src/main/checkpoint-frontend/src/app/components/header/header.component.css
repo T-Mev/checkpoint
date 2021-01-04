@@ -10,12 +10,20 @@
     border-color: #d6751b;
 }
 
+.btn-register:hover {
+    background-color: #ca6c00;
+}
+
 .btn-signout {
     color: #fff;
     background-color: #ec7e00;
     border-color: #d6751b;
     margin-left: 17px;
 
+}
+
+.btn-signout:hover {
+    background-color: #ca6c00;
 }
 
 .dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover {

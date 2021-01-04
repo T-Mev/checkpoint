@@ -29,6 +29,10 @@
     font-size: 16px;
 }
 
+.btn-collection:hover {
+    background-color: #ca6c00;
+}
+
 .card {
     background-color: transparent;
 }
@@ -128,6 +132,7 @@ hr {
     background-color: rgb(0, 153, 38);
     border-radius: 5px;
     color: white;
+    cursor: default;
     text-align: center;
     margin: 10px;
     height: 37px;
