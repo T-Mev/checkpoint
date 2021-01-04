@@ -1,4 +1,24 @@
 
+.alert-danger {
+    color: #b80012;
+    margin-top: 5px;
+    padding: 2px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.alert-danger p {
+    margin: 0;
+}
+
+.btn-login {
+    margin-bottom: 10px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
 .form-group {
     margin : 0 auto;
 }
