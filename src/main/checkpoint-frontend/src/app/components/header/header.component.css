@@ -26,6 +26,10 @@
     background-color: #ca6c00;
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 .dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover {
     background-color: rgb(253, 147, 27) !important;
 }
@@ -106,6 +110,10 @@
     width: 350px;
     margin-right: 0.7em;
     color: rgb(90, 92, 95);
+}
+
+.search-button:hover {
+    color:rgb(248, 132, 0);
 }
 
 @media only screen and (max-width: 989px) {

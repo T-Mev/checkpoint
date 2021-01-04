@@ -37,7 +37,7 @@
             <mat-label>Search</mat-label>
             <input matInput #newSearch (keydown.enter)="toSearch(newSearch.value); newSearch.value = ''" type='search'
                 spellcheck="false">
-            <mat-icon matSuffix>search</mat-icon>
+            <mat-icon class="clickable search-button" (click)="toSearch(newSearch.value); newSearch.value = ''" matSuffix>search</mat-icon>
         </mat-form-field>
 
         <div *ngIf="!currentUser || currentUser == null; else loggedIn">
