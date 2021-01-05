@@ -17,8 +17,9 @@ export class ProfileComponent implements OnInit {
   currentUser: any = null;
   customStyle: any;
   errorMessage: string;
-  games;
+  games: any;
   gamesList: number[] = [];
+  hasGames: boolean = true;
   isOwner: boolean;
   itemsInGamesList: boolean = false;
   showEdit: boolean = false;
@@ -118,6 +119,7 @@ export class ProfileComponent implements OnInit {
         console.log(this.games);
       },
       err => {
+        this.hasGames = false;
         this.errorMessage = "User Not found";
       }
     )

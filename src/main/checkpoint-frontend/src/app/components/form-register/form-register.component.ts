@@ -29,7 +29,6 @@ export class FormRegisterComponent implements OnInit {
             this.tokenStorage.saveToken(res.accessToken);
             this.tokenStorage.saveUser(res);
           });
-
         setTimeout(() => window.location.reload(), 1000);
       },
       err => {

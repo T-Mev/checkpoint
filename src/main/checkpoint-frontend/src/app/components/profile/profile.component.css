@@ -90,7 +90,7 @@
     color: rgb(132, 132, 139)
 } */
 
-/* .error {
+.error {
     margin-top: 50px;
     text-align: center;
     color: rgb(82, 82, 98);
@@ -114,7 +114,11 @@
     font-size: 1.1vw;
     padding: 0;
     margin: 0;
-} */
+}
+
+.error-text-body::first-letter {
+    text-transform: capitalize;
+}
 
 hr {
     border: none;
