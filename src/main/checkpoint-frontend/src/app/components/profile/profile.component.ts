@@ -122,7 +122,7 @@ export class ProfileComponent implements OnInit {
         this.hasGames = false;
         this.errorMessage = "User Not found";
       }
-    )
+    );
   }
 
   scrollToTop() {

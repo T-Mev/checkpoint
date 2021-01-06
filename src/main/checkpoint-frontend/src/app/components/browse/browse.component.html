@@ -1,6 +1,6 @@
 <div id="container">
     <div *ngIf="games">
-        <h1 *ngIf="games.length !== 0" class="popular-title">Popular <span>{{games[0].platforms[0].name}}</span> Games:
+        <h1 *ngIf="hasGames" class="popular-title">Popular <span>{{games[0].platforms[0].name}}</span> Games:
         </h1>
         <hr>
         <div *ngFor="let game of games" class="game-content">
@@ -26,7 +26,7 @@
             </ul>
         </div>
     </div>
-    <div *ngIf="!games.length">
+    <div *ngIf="!hasGames">
         <div class="error">
             <img src="../../../assets/img/notFound.svg" class="error-img">
             <div class="error-text">
