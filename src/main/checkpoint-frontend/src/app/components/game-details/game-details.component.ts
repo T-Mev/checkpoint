@@ -28,6 +28,7 @@ export class GameDetailsComponent implements OnInit {
     private token: TokenStorageService, private userService: UserService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
+
     this.currentUser = this.token.getUser();
 
     this.route.queryParams.subscribe(param => {
@@ -35,15 +36,16 @@ export class GameDetailsComponent implements OnInit {
         this.games = res;
         this.gameId = this.games[0].id;
 
-        this.userService.includedInCollection(this.currentUser.username, this.gameId).subscribe(
-          res => {
-            this.haveGame = res;
-          }
-        );
+        if (this.token.getUser() !== null) {
+          this.userService.includedInCollection(this.currentUser.username, this.gameId).subscribe(
+            res => {
+              this.haveGame = res;
+            }
+          );
+        }
+
       });
-
     })
-
   }
 
   getReleaseDateRegion(regionID: number): string {
