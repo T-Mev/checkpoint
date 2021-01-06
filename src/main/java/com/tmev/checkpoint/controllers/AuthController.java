@@ -1,11 +1,14 @@
 package com.tmev.checkpoint.controllers;
 
+import com.google.gson.Gson;
+
 import com.tmev.checkpoint.models.User;
 import com.tmev.checkpoint.models.data.UserRepository;
 import com.tmev.checkpoint.models.dto.JwtResponse;
 import com.tmev.checkpoint.models.dto.UserDataRequest;
 import com.tmev.checkpoint.security.JwtUtils;
 import com.tmev.checkpoint.services.UserDetailsImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -32,13 +35,16 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
+    private static final Gson gson = new Gson();
+
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody UserDataRequest userDataRequest) {
 
         if (!userRepository.existsByUsername(userDataRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
-                    .body("\"User doesn't exist!\"");
+                    .body(gson.toJson("User doesn't exist!"));
+//                    .body("\"User doesn't exist!\"");
         }
 
         Authentication authentication = authenticationManager.authenticate(
@@ -60,14 +66,16 @@ public class AuthController {
         if (userRepository.existsByUsername(userDataRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
-                    .body("\"Username is already taken!\"");
+                    .body(gson.toJson("Username is already taken!"));
+//                    .body("\"Username is already taken!\"");
         }
 
         User user = new User(userDataRequest.getUsername(), userDataRequest.getPassword());
 
         userRepository.save(user);
 
-        return ResponseEntity.ok("\"User registered successfully!\"");
+        return ResponseEntity.ok(gson.toJson("User registered successfully!"));
+//        return ResponseEntity.ok("\"User registered successfully!\"");
     }
 
 }

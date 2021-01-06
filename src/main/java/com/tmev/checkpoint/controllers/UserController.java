@@ -6,11 +6,13 @@ import com.api.igdb.exceptions.RequestException;
 import com.api.igdb.request.IGDBWrapper;
 import com.api.igdb.request.JsonRequestKt;
 
+import com.google.gson.Gson;
+
 import com.tmev.checkpoint.models.User;
 import com.tmev.checkpoint.models.data.UserRepository;
 import com.tmev.checkpoint.services.ApiService;
-
 import com.tmev.checkpoint.services.UserDetailsImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -30,6 +32,8 @@ public class UserController {
 
     @Autowired
     private ApiService apiService;
+
+    private static final Gson gson = new Gson();
 
     // Handles GET requests at /REST/user/{name}
     // Displays the user's collection
@@ -79,14 +83,16 @@ public class UserController {
         if (user.containsGame(gameId)) {
             return ResponseEntity
                     .badRequest()
-                    .body("\"This game is already in the collection!\"");
+                    .body(gson.toJson("This game is already in the collection!"));
+//                    .body("\"This game is already in the collection!\"");
         }
 
         // Add game to collection
         user.addToGamesList(gameId);
         userRepository.save(user);
 
-        return ResponseEntity.ok("\"Game added successfully!\"");
+        return ResponseEntity.ok(gson.toJson("Game added successfully!"));
+//        return ResponseEntity.ok("\"Game added successfully!\"");
     }
 
     // Handles DELETE requests at /REST/user/{username}/game/{gameId}
@@ -103,14 +109,16 @@ public class UserController {
         if (!user.containsGame(gameId)) {
             return ResponseEntity
                     .badRequest()
-                    .body("\"This game doesn't exist in the collection!\"");
+                    .body(gson.toJson("This game doesn't exist in the collection!"));
+//                    .body("\"This game doesn't exist in the collection!\"");
         }
 
         // Remove game from collection
         user.removeFromGamesList(gameId);
         userRepository.save(user);
 
-        return ResponseEntity.ok("\"Game removed successfully!\"");
+        return ResponseEntity.ok(gson.toJson("Game removed successfully!"));
+//        return ResponseEntity.ok("\"Game removed successfully!\"");
     }
 
     // Handles POST requests at /REST/user/{username}/games
@@ -127,7 +135,8 @@ public class UserController {
         user.removeAllFromGamesList(gameList);
         userRepository.save(user);
 
-        return ResponseEntity.ok("\"Games removed successfully!\"");
+        return ResponseEntity.ok(gson.toJson("Games removed successfully!"));
+//        return ResponseEntity.ok("\"Games removed successfully!\"");
     }
 
     // Handles GET requests at /REST/user?id=&gameId=
