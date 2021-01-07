@@ -28,6 +28,8 @@ export class SearchComponent implements OnInit {
 
         if (this.games.length === 0) {
           this.hasGames = false;
+        } else {
+          this.hasGames = true;
         }
 
       },

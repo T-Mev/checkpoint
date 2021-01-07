@@ -23,8 +23,10 @@ export class BrowseComponent implements OnInit {
 
         if (this.games.length === 0) {
           this.hasGames = false;
+        } else {
+          this.hasGames = true;
         }
-        
+
       },
         err => {
           this.hasGames = false;
