@@ -10,8 +10,8 @@ Video game library manager used to track a user's collection utilizing an API to
 * User register / log-in
 * Add to collection
 * Edit collection
-* Public user pages
-    * Share collections
+* Share collections
+    * Public user pages
 * Game page
     * Detailed info on specific game chosen
 * Browse popular games
