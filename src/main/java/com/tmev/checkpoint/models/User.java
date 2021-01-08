@@ -1,10 +1,12 @@
 package com.tmev.checkpoint.models;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,13 +20,21 @@ public class User {
     private Long id;
 
     @NotNull
-    @NotBlank(message = "Name is required")
-    @Size(min = 3, max = 20, message = "Username must be between 3 and 20 characters")
+    @NotBlank(message = "Username is required")
+    @Size(min = 3, max = 20, message = "Must be between 3 and 20 characters")
+    @Pattern( regexp = "^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$",
+            message = "Cannot begin or end with special characters. Only dot (.) and underscore (_) special characters allowed")
     private String username;
 
     @NotNull
     @NotBlank(message = "Password is required")
-    @Size(min = 6, max = 120, message = "Password must be at least 6 characters")
+    @Size(min = 6, max = 120, message = "Must be at least 6 characters")
+    @Pattern( regexp = "^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$",
+            message = "Cannot begin or end with special characters. Only dot and underscore special characters allowed")
+//    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Transient
+    private String password;
+
     @Column(name = "password")
     private String passwordHash;
 
@@ -38,7 +48,8 @@ public class User {
 
     public User(String username, String password) {
         this.username = username;
-        this.passwordHash = encoder.encode(password);
+        this.password = password;
+        this.passwordHash = encoder.encode(this.password);
     }
 
     public Long getId() {

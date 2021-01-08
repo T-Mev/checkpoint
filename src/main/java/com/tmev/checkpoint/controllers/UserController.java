@@ -84,7 +84,6 @@ public class UserController {
             return ResponseEntity
                     .badRequest()
                     .body(gson.toJson("This game is already in the collection!"));
-//                    .body("\"This game is already in the collection!\"");
         }
 
         // Add game to collection
@@ -92,7 +91,6 @@ public class UserController {
         userRepository.save(user);
 
         return ResponseEntity.ok(gson.toJson("Game added successfully!"));
-//        return ResponseEntity.ok("\"Game added successfully!\"");
     }
 
     // Handles DELETE requests at /REST/user/{username}/game/{gameId}
@@ -110,7 +108,6 @@ public class UserController {
             return ResponseEntity
                     .badRequest()
                     .body(gson.toJson("This game doesn't exist in the collection!"));
-//                    .body("\"This game doesn't exist in the collection!\"");
         }
 
         // Remove game from collection
@@ -118,7 +115,6 @@ public class UserController {
         userRepository.save(user);
 
         return ResponseEntity.ok(gson.toJson("Game removed successfully!"));
-//        return ResponseEntity.ok("\"Game removed successfully!\"");
     }
 
     // Handles POST requests at /REST/user/{username}/games
@@ -136,7 +132,6 @@ public class UserController {
         userRepository.save(user);
 
         return ResponseEntity.ok(gson.toJson("Games removed successfully!"));
-//        return ResponseEntity.ok("\"Games removed successfully!\"");
     }
 
     // Handles GET requests at /REST/user?id=&gameId=
