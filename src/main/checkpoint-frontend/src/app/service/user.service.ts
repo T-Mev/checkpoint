@@ -1,41 +1,43 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { UrlService } from './url.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  }
-
   constructor(private http: HttpClient, private url: UrlService) { }
 
-
-  login(username: string, password: string) {
-    this.http.post(`${this.url.url}/REST/auth/login`, {username: username, password: password}, this.httpOptions).subscribe((res: any) => {
-      sessionStorage.setItem("username", res.username);
-      sessionStorage.setItem("token", `${res.tokenType} ${res.accessToken}`);
-      window.location.reload();
-    })
+  getUserCollection(username: string): Observable<any> {
+    // return this.http.get(`${this.url.generalUrl}/REST/user?name=${username}`, { responseType: 'text' });
+    return this.http.get(`${this.url.generalUrl}/REST/user/${username}`);
   }
 
-  logout() {
-    sessionStorage.clear();
-    window.location.reload();
+  addGameToCollection(username: string, gameId: number): Observable<any> {
+    return this.http.post(`${this.url.generalUrl}/REST/user/${username}/game/${gameId}`, gameId, httpOptions);
   }
 
-  register(username: string, password: string) {
-    return this.http.post(`${this.url.url}/REST/auth/register`, {username: username, password: password}, this.httpOptions);
+  removeGameFromCollection(username: string, gameId: number): Observable<any> {
+    return this.http.delete(`${this.url.generalUrl}/REST/user/${username}/game/${gameId}`);
+  }
+
+  removeAllGamesFromCollection(username: string, gameList: number[]): Observable<any> {
+    return this.http.post(`${this.url.generalUrl}/REST/user/${username}/games`, gameList);
+  }
+
+  includedInCollection(username: string, gameId: number): Observable<any> {
+    return this.http.get(`${this.url.generalUrl}/REST/user/${username}/game/${gameId}`);
   }
 
   // Add to each necessary component instead
-  authenticate() {
-    return sessionStorage.getItem('username') !== null;
-  }
+  // authenticate() {
+  //   return sessionStorage.getItem('username') !== null;
+  // }
 
 }

@@ -1,11 +1,14 @@
 package com.tmev.checkpoint.controllers;
 
+import com.google.gson.Gson;
+
 import com.tmev.checkpoint.models.User;
 import com.tmev.checkpoint.models.data.UserRepository;
 import com.tmev.checkpoint.models.dto.JwtResponse;
 import com.tmev.checkpoint.models.dto.UserDataRequest;
 import com.tmev.checkpoint.security.JwtUtils;
 import com.tmev.checkpoint.services.UserDetailsImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
 
 @RestController
@@ -32,11 +36,19 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
+    private static final Gson gson = new Gson();
+
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody UserDataRequest userDataRequest) {
 
+        if (!userRepository.existsByUsername(userDataRequest.getUsername().toLowerCase())) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(gson.toJson("User doesn't exist!"));
+        }
+
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(userDataRequest.getUsername(), userDataRequest.getPassword()));
+                new UsernamePasswordAuthenticationToken(userDataRequest.getUsername().toLowerCase(), userDataRequest.getPassword().toLowerCase()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
@@ -51,17 +63,25 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@Valid @RequestBody UserDataRequest userDataRequest) {
 
-        if (userRepository.existsByUsername(userDataRequest.getUsername())) {
+        try {
+            if (userRepository.existsByUsername(userDataRequest.getUsername())) {
+                return ResponseEntity
+                        .badRequest()
+                        .body(gson.toJson("Username is already taken!"));
+            }
+
+            User user = new User(userDataRequest.getUsername().toLowerCase(), userDataRequest.getPassword().toLowerCase());
+            userRepository.save(user);
+            return ResponseEntity.ok(gson.toJson("User registered successfully!"));
+
+        } catch (ConstraintViolationException e) {
+
             return ResponseEntity
                     .badRequest()
-                    .body("Error: Username is already taken!");
+                    .body(gson.toJson("Only letters (a-z), numbers (0-9), periods (.) and underscores (_) allowed. " +
+                            "Cannot start or end with a period (.) or underscore (_)."));
         }
 
-        User user = new User(userDataRequest.getUsername(), userDataRequest.getPassword());
-
-        userRepository.save(user);
-
-        return ResponseEntity.ok("User registered successfully!");
     }
 
 }

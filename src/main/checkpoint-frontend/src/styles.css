@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-@font-face {
+/* @font-face {
     font-family: gameplay;
-    src: url(./assets/gameplay.ttf);
-}
+    src: url();
+} */
 
 html, body {
     height: 100%;
@@ -14,7 +14,7 @@ html, body {
 }
 
 body {
-    background: url(../src/assets/img/background.png) no-repeat center .1px fixed;
+    /* background: url(../src/assets/img/background.png) no-repeat center .1px fixed; */
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;

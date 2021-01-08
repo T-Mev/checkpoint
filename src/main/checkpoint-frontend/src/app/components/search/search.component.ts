@@ -10,20 +10,33 @@ import { RestService } from 'src/app/service/rest.service';
 
 export class SearchComponent implements OnInit {
 
-  //Make this a typescript interface
-  games;
+  errorMessage: string;
+  games: any;
+  hasGames: boolean = true;
   searchTerm: string;
+
   constructor(private router: Router, private route: ActivatedRoute, private rest: RestService) {
 
   }
 
   ngOnInit() {
+
     this.route.queryParams.subscribe(param => {
       this.searchTerm = param.term.toLowerCase().replace(/(^\w{1})|(\s{1}\w{1})/g, (match: string) => match.toUpperCase());
       this.rest.getSearch(param.term).subscribe(res => {
         this.games = res;
-        console.log(this.games);
-      });
+
+        if (this.games.length === 0) {
+          this.hasGames = false;
+        } else {
+          this.hasGames = true;
+        }
+
+      },
+        err => {
+          this.hasGames = false;
+          this.errorMessage = "User Not found";
+        });
     })
   }
 

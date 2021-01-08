@@ -22,7 +22,7 @@
             <div class="media covers mg-fluid">
                 <div class="img-container">
                     <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
-                        class="img img-fluid img-thumbnail align-self-start mr-3" alt="covers">
+                        class="img img-fluid align-self-start mr-3" alt="covers">
                     <div class="rating-container" *ngIf="game.total_rating"
                         matTooltip="Based on {{game.total_rating_count}} ratings" matTooltipClass="primary-tooltip"
                         [matTooltipPosition]="'above'">
@@ -30,8 +30,15 @@
                         <span class="rating-star">★</span>
                         <span class="rating-score">{{formatScore(game.total_rating)}}</span>
                     </div>
-                    <button type="button" class="btn btn-secondary btn-block btn-collection" matRipple>Add to
-                        Collection</button>
+                    <button *ngIf="!haveGame && currentUser != null && !addedToCollection" (click)="addToCollection(game.id)" type="button"
+                        class="btn btn-secondary btn-block btn-collection" matRipple>
+                        Add to Collection
+                    </button>
+
+                    <div *ngIf="haveGame" class="included-container">
+                        Already in collection!
+                    </div>
+
                 </div>
                 <div class="media-body">
                     <h4 class="mt-0 mb-1" class="title">
@@ -183,8 +190,14 @@
     </div>
 </div>
 
-<div *ngIf="games.length === 0" class="temp-error">
-    <h1>Platform not found!</h1>
-</div>
+<!-- <div *ngIf="!games">
+    <div class="error">
+        <img src="../../../assets/img/error.svg" class="error-img">
+        <div class="error-text">
+            <p class="error-text-title">Uh-Oh! Looks like you aren't signed in!</p>
+            <p class="error-text-body">Don't have an account? Register here!</p>
+        </div>
+    </div>
+</div> -->
 
 <div class="spacer"></div>

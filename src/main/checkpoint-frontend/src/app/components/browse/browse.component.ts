@@ -10,8 +10,9 @@ import { RestService } from 'src/app/service/rest.service';
 
 export class BrowseComponent implements OnInit {
 
-  //Make this a typescript interface
-  games;
+  errorMessage: string;
+  games: any;
+  hasGames: boolean = true;
 
   constructor(private router: Router, private route: ActivatedRoute, private rest: RestService) { }
 
@@ -19,27 +20,23 @@ export class BrowseComponent implements OnInit {
     this.route.queryParams.subscribe(param => {
       this.rest.getPlatform(param.platform).subscribe(res => {
         this.games = res;
-        console.log(this.games);
-      });
-    })
+
+        if (this.games.length === 0) {
+          this.hasGames = false;
+        } else {
+          this.hasGames = true;
+        }
+
+      },
+        err => {
+          this.hasGames = false;
+          this.errorMessage = "User Not found";
+        });
+    });
   }
 
   toGame(gameId: number) {
     this.router.navigate(['/games'], { queryParams: { id: gameId } });
-  }
-
-  colorPicker(score: number): string {
-    if (score >= 75) {
-      return "green";
-    } else if (score >= 50) {
-      return "yellow";
-    } else {
-      return "red";
-    }
-  }
-
-  formatNumber(num: number): number {
-    return Math.round(num);
   }
 
 }

@@ -1,0 +1,83 @@
+<div class="container" *ngIf="currentUser || urlUser; else loggedOut">
+
+    <div *ngIf="games" class="container container-games">
+        <div class="title-container">
+            <h1 class="title-profile">
+                <span class="user-title">{{ username.toUpperCase() }}'s</span> Collection
+                <span *ngIf="games.length == 1" class="user-title-counter">{{games.length}} Game</span>
+                <span *ngIf="games.length > 1" class="user-title-counter">{{games.length}} Games</span>
+            </h1>
+            <hr>
+        </div>
+        <div class="btn-container">
+            <div *ngIf="isOwner">
+                <button class="btn btn-outline-secondary btn-input" matRipple (click)="onShareClick()">Share
+                </button>
+                <div>
+                    <mat-form-field *ngIf="showInput" class="input-share-form">
+                        <mat-label class="input-label">Your link:</mat-label>
+                        <input #share class="input-text" matInput type="text"
+                            value="localhost:4200/profile/{{username}}" readonly="readonly">
+                    </mat-form-field>
+                </div>
+            </div>
+            <button class="btn btn-warning btn-collection" *ngIf="!itemsInGamesList && isOwner" matRipple
+                (click)="toggleEdit()">Edit
+                Collection
+            </button>
+            <button class="btn btn-outline-secondary btn-deselect" *ngIf="itemsInGamesList" matRipple
+                (click)="deselectAllFromGamesList()">Deselect All
+            </button>
+            <button class="btn btn-danger btn-delete-collection" *ngIf="itemsInGamesList" matRipple
+                (click)="removeAllGames()">Remove
+            </button>
+        </div>
+        <div class="row">
+            <div *ngFor="let game of games" class="col-lg-3 col-sm-6 media-list">
+                <div class="game-button">
+                    <a (click)="toGame(game.id)" class="clickable">
+                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
+                            [ngStyle]='customStyle' class="img img-fluid" alt="covers">
+                    </a>
+                    <button *ngIf="showEdit" class="btn btn-outline-warning btn-sm btn-block btn-select"
+                        data-toggle="button" matRipple (click)="addToGamesList(game.id)">
+                        Select
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button *ngIf="games.length > 20" class="btn btn-outline-secondary btn-block btn-top"
+            (click)="scrollToTop()">Back To Top</button>
+    </div>
+
+    <div *ngIf="!hasGames">
+        <div class="container container-games">
+            <div class="title-container">
+                <h1 class="title-popular"><span class="user-title">{{ username.toUpperCase() }}'s</span>
+                    COLLECTION:</h1>
+                <hr>
+            </div>
+        </div>
+
+        <div class="error">
+            <img src="../../../assets/img/gaming.svg" class="error-img2">
+            <div class="error-text">
+                <p class="error-text-title">Uh-Oh! No games found!</p>
+                <p class="error-text-body" *ngIf="isOwner">Add some games to grow your collection!</p>
+                <p class="error-text-body" *ngIf="!isOwner">{{username}} needs to grow their collection!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #loggedOut>
+    <div class="error">
+        <img src="../../../assets/img/error.svg" class="error-img">
+        <div class="error-text">
+            <p class="error-text-title">Uh-Oh! Looks like you aren't signed in!</p>
+            <p class="error-text-body">Don't have an account? Register now!</p>
+        </div>
+    </div>
+</ng-template>
+
+<div class="spacer"></div>

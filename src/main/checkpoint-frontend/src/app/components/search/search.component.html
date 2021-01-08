@@ -1,6 +1,6 @@
 <div id="container">
     <div *ngIf="games">
-        <h1 *ngIf="games.length !== 0" class="search-title">Results For: <span>"{{searchTerm}}"</span></h1>
+        <h1 *ngIf="hasGames" class="search-title">Results For: <span>"{{searchTerm}}"</span></h1>
         <hr>
         <div *ngFor="let game of games" class="game-content">
             <ul class="list-unstyled">
@@ -8,13 +8,13 @@
                     <div class="img-container">
                         <a (click)="toGame(game.id)" class="clickable">
                             <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png"
-                                class="img img-fluid img-thumbnail align-self-start mr-3" alt="covers">
+                                class="img img-fluid align-self-start mr-3" alt="covers">
                         </a>
                     </div>
                     <div class="media-body">
                         <a (click)="toGame(game.id)" class="clickable">
-                            <h4 class="mt-0 mb-1" class="title"><span><img src="../../../assets/img/Arrow.svg"
-                                        width="25" loading="lazy"></span>
+                            <h4 class="mt-0 mb-1" class="title"><span>
+                                    <img src="../../../assets/img/Arrow.svg" width="25" loading="lazy"></span>
                                 {{game.name}}
                             </h4>
                         </a>
@@ -25,10 +25,15 @@
             </ul>
         </div>
     </div>
-    <div *ngIf="games.length === 0" class="error-search">
-        <h1>0 results found!</h1>
+    <div *ngIf="!hasGames">
+        <div class="error">
+            <img src="../../../assets/img/search.svg" class="error-img">
+            <div class="error-text">
+                <p class="error-text-title">No results found for search: "<span>{{searchTerm}}</span>"</p>
+                <p class="error-text-body">Try a different search term!</p>
+            </div>
+        </div>
     </div>
 </div>
-
 
 <div class="spacer"></div>

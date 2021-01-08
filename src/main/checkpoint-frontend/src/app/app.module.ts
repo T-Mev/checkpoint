@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +20,9 @@ import { FormLoginComponent } from './components/form-login/form-login.component
 import { FormRegisterComponent } from './components/form-register/form-register.component';
 import { GameDetailsComponent } from './components/game-details/game-details.component';
 
+import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { ProfileComponent } from './components/profile/profile.component';
+import { CustomSnackbarComponent } from './components/custom-snackbar/custom-snackbar.component';
 
 @NgModule({
   declarations: [
@@ -32,15 +37,21 @@ import { GameDetailsComponent } from './components/game-details/game-details.com
     FormLoginComponent,
     FormRegisterComponent,
     GameDetailsComponent,
+    ProfileComponent,
+    CustomSnackbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
     MaterialModule
   ],
-  providers: [],
+  entryComponents: [
+    CustomSnackbarComponent
+  ],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

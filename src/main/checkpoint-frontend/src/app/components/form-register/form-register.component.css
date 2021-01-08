@@ -1,4 +1,40 @@
 
+.alert-danger {
+    color: #b80012;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    margin-top: 5px;
+    padding: 2px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.alert-danger p {
+    margin: 0;
+}
+
+.alert-warning {
+    color: #b80012;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    margin-top: 5px;
+    padding: 2px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.alert-warning p {
+    margin: 0;
+}
+
+.btn-register {
+    margin-bottom: 10px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
 .form-group {
     margin : 0 auto;
 }
