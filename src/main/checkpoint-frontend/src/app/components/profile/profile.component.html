@@ -16,8 +16,8 @@
                 <div>
                     <mat-form-field *ngIf="showInput" class="input-share-form">
                         <mat-label class="input-label">Your link:</mat-label>
-                        <input #share class="input-text" matInput type="text"
-                            value="localhost:4200/profile/{{username}}" readonly="readonly">
+                        <input #share class="input-text" matInput type="text" value="{{shareUrl}}/profile/{{username}}"
+                            readonly="readonly">
                     </mat-form-field>
                 </div>
             </div>

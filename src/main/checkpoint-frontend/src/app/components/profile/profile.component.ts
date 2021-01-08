@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { MatInput } from '@angular/material/input';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
+import { UrlService } from 'src/app/service/url.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -22,16 +23,18 @@ export class ProfileComponent implements OnInit {
   hasGames: boolean = true;
   isOwner: boolean;
   itemsInGamesList: boolean = false;
+  shareUrl: string;
   showEdit: boolean = false;
   showInput: boolean = false;
   successMessage: string;
   urlUser: string = null;
   username: string;
 
-  constructor(private router: Router, private token: TokenStorageService, private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private router: Router, private token: TokenStorageService, private userService: UserService, private route: ActivatedRoute, private url: UrlService) { }
 
   ngOnInit() {
     this.currentUser = this.token.getUser();
+    this.shareUrl = this.url.shareUrl;
 
     // if (this.currentUser == null) {
     //   this.router.navigate(['profile']);
