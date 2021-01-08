@@ -1,6 +1,7 @@
-![Logo](https://raw.githubusercontent.com/T-Mev/checkpoint/master/src/main/checkpoint-frontend/src/assets/img/Logo.png)
-
-Capstone project for LaunchCode's LiftOff program.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/T-Mev/checkpoint/master/src/main/checkpoint-frontend/src/assets/img/Logo.png">
+   <p align="center">Capstone project for LaunchCode's LiftOff program</p>
+</p>
 
 ### Overview
 Video game library manager used to track a user's collection utilizing an API to gather all necessary game data.
@@ -9,6 +10,8 @@ Video game library manager used to track a user's collection utilizing an API to
 * User register / log-in
 * Add to collection
 * Edit collection
+* Public user pages
+    * Share collections
 * Game page
     * Detailed info on specific game chosen
 * Browse popular games
@@ -16,11 +19,9 @@ Video game library manager used to track a user's collection utilizing an API to
 * Search
 
 ##### Possible Additional Features
-* Public user pages
 * Advanced Search
     * Search by platform, developer, etc.
 * Multiple collections
-* Share collections
 * "Buy on Amazon" 
     * Utilizing Amazon's API to find current price and link user to purchase page
 
@@ -40,8 +41,10 @@ Video game library manager used to track a user's collection utilizing an API to
 * Bootstrap 4
 
 ### What I'll Have to Learn
+* Angular
+* Responsive design
 * Connecting Angular front-end to Java back-end
-* Working with the API to receive game data
+* Working with the IGDB API to receive game data
 * Managing Users
 * Authentication
 * Deployment
