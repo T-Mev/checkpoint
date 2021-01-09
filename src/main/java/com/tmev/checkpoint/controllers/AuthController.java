@@ -44,7 +44,7 @@ public class AuthController {
         if (!userRepository.existsByUsername(userDataRequest.getUsername().toLowerCase())) {
             return ResponseEntity
                     .badRequest()
-                    .body(gson.toJson("User doesn't exist!"));
+                    .body(gson.toJson("Incorrect username or password."));
         }
 
         Authentication authentication = authenticationManager.authenticate(
