@@ -14,7 +14,6 @@ import { BrowseComponent } from './components/browse/browse.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UpcomingComponent } from './components/upcoming/upcoming.component';
 import { SearchComponent } from './components/search/search.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { FormRegisterComponent } from './components/form-register/form-register.component';
@@ -32,7 +31,6 @@ import { CustomSnackbarComponent } from './components/custom-snackbar/custom-sna
     HeaderComponent,
     UpcomingComponent,
     SearchComponent,
-    CarouselComponent,
     FooterComponent,
     FormLoginComponent,
     FormRegisterComponent,
