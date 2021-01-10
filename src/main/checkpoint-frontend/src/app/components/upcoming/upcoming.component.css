@@ -79,6 +79,7 @@ hr {
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
     margin-top: 1%;
     font-size: 3.5rem;
+    user-select: none;
 }
 
 .upcoming-title span{

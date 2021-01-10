@@ -36,6 +36,10 @@
     width: 25vw;
 }
 
+.error-text {
+    user-select: none;
+}
+
 .error-text-title {
     font-size: 1.5vw;
     font-weight: 600;
@@ -88,6 +92,7 @@ hr {
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
     margin-top: 2%;
     font-size: 3rem;
+    user-select: none;
 }
 
 .search-title span {

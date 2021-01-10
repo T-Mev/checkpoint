@@ -76,6 +76,10 @@
     width: 20vw;
 }
 
+.error-text {
+    user-select: none;
+}
+
 .error-text-title {
     font-size: 1.5vw;
     font-weight: 600;
@@ -160,6 +164,7 @@ hr {
     height: 37px;
     padding-top: 7px;
     font-size: 16px;
+    user-select: none;
     border: 1px solid rgb(8, 138, 41);
 }
 
