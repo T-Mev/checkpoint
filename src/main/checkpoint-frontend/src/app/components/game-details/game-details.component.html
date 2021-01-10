@@ -30,7 +30,8 @@
                         <span class="rating-star">★</span>
                         <span class="rating-score">{{formatScore(game.total_rating)}}</span>
                     </div>
-                    <button *ngIf="!haveGame && currentUser != null && !addedToCollection" (click)="addToCollection(game.id)" type="button"
+                    <button *ngIf="!haveGame && currentUser != null && !addedToCollection"
+                        (click)="addToCollection(game.id)" type="button"
                         class="btn btn-secondary btn-block btn-collection" matRipple>
                         Add to Collection
                     </button>
@@ -42,7 +43,6 @@
                 </div>
                 <div class="media-body">
                     <h4 class="mt-0 mb-1" class="title">
-                        <!-- <span><img src="../../../assets/img/Arrow.svg" width="24" loading="lazy"></span> -->
                         {{game.name}}
                     </h4>
                     <div class="dropdowns">
@@ -190,14 +190,14 @@
     </div>
 </div>
 
-<!-- <div *ngIf="!games">
+<div *ngIf="!gameExists">
     <div class="error">
-        <img src="../../../assets/img/error.svg" class="error-img">
+        <img src="../../../assets/img/notFound.svg" class="error-img">
         <div class="error-text">
-            <p class="error-text-title">Uh-Oh! Looks like you aren't signed in!</p>
-            <p class="error-text-body">Don't have an account? Register here!</p>
+            <p class="error-text-title">Uh-Oh! Something went wrong!</p>
+            <p class="error-text-body">The game you are looking for doesn't exist!</p>
         </div>
     </div>
-</div> -->
+</div>
 
 <div class="spacer"></div>

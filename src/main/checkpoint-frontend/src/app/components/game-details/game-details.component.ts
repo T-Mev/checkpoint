@@ -20,6 +20,7 @@ export class GameDetailsComponent implements OnInit {
   games;
   gameId;
   haveGame: boolean;
+  gameExists: boolean = true;
   successMessage;
   videoURL;
 
@@ -44,6 +45,10 @@ export class GameDetailsComponent implements OnInit {
           );
         }
 
+      },
+      err => {
+        this.gameExists = false;
+        this.errorMessage = "Game Not found";
       });
     })
   }
@@ -83,7 +88,7 @@ export class GameDetailsComponent implements OnInit {
         this.successMessage = res;
         this.addedToCollection = true;
         this.snackBar.openFromComponent(CustomSnackbarComponent, {
-          duration: 4000,
+          duration: 3000,
           panelClass: ['snackbar']
         });
       },
