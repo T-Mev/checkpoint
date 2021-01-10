@@ -9,7 +9,7 @@ import { TokenStorageService } from 'src/app/service/token-storage.service';
 })
 export class HeaderComponent implements OnInit {
 
-  currentUser;
+  currentUser: any;
 
   constructor(private router: Router, private token: TokenStorageService) { }
 

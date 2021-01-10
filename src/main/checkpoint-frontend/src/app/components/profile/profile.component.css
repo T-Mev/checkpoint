@@ -84,12 +84,6 @@
     width: 65%;
 }
 
-/* .games-counter {
-    font-size: 16px;
-    float: right;
-    color: rgb(132, 132, 139)
-} */
-
 .error {
     margin-top: 50px;
     text-align: center;
@@ -130,6 +124,7 @@ hr {
 .img {
     border-radius: 10px;
     width: 80%;
+    max-height: 299px;
     transition: border .2s ease-in-out, transform .2s ease-in-out;
     box-shadow: 0 8px 6px -6px  rgba(0, 0, 0, 0.329);
     -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.329);

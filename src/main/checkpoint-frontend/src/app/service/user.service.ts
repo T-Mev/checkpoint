@@ -15,7 +15,6 @@ export class UserService {
   constructor(private http: HttpClient, private url: UrlService) { }
 
   getUserCollection(username: string): Observable<any> {
-    // return this.http.get(`${this.url.generalUrl}/REST/user?name=${username}`, { responseType: 'text' });
     return this.http.get(`${this.url.generalUrl}/REST/user/${username}`);
   }
 
@@ -34,10 +33,5 @@ export class UserService {
   includedInCollection(username: string, gameId: number): Observable<any> {
     return this.http.get(`${this.url.generalUrl}/REST/user/${username}/game/${gameId}`);
   }
-
-  // Add to each necessary component instead
-  // authenticate() {
-  //   return sessionStorage.getItem('username') !== null;
-  // }
 
 }

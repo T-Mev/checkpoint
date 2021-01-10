@@ -17,7 +17,7 @@ export class GameDetailsComponent implements OnInit {
   addedToCollection: boolean = false;
   currentUser: any;
   errorMessage = '';
-  games;
+  games: any;
   gameId;
   haveGame: boolean;
   gameExists: boolean = true;
@@ -46,10 +46,10 @@ export class GameDetailsComponent implements OnInit {
         }
 
       },
-      err => {
-        this.gameExists = false;
-        this.errorMessage = "Game Not found";
-      });
+        err => {
+          this.gameExists = false;
+          this.errorMessage = "Game Not found";
+        });
     })
   }
 
@@ -94,7 +94,6 @@ export class GameDetailsComponent implements OnInit {
       },
       err => {
         this.errorMessage = err.error;
-        console.log(this.errorMessage);
       }
     );
 

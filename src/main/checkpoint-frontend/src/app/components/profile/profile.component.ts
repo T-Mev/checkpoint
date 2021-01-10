@@ -36,10 +36,6 @@ export class ProfileComponent implements OnInit {
     this.currentUser = this.token.getUser();
     this.shareUrl = this.url.shareUrl;
 
-    // if (this.currentUser == null) {
-    //   this.router.navigate(['profile']);
-    // }
-
     this.route.params.subscribe(res => {
       if (res.username) {
         this.urlUser = res.username;
@@ -68,7 +64,6 @@ export class ProfileComponent implements OnInit {
       this.gamesList.push(gameId);
       this.itemsInGamesList = true;
       this.buttonText = "check";
-      console.log(this.gamesList);
     } else {
       this.gamesList.splice(this.gamesList.indexOf(gameId), 1);
       if (this.gamesList.length <= 0) {
@@ -76,7 +71,6 @@ export class ProfileComponent implements OnInit {
         this.toggleEdit();
       }
       this.buttonText = "delete";
-      console.log(this.gamesList);
     }
   }
 
@@ -111,7 +105,6 @@ export class ProfileComponent implements OnInit {
       this.itemsInGamesList = false;
       this.toggleEdit();
     }
-    console.log(this.gamesList);
   }
 
 
@@ -119,7 +112,6 @@ export class ProfileComponent implements OnInit {
     this.userService.getUserCollection(username).subscribe(
       res => {
         this.games = res;
-        console.log(this.games);
       },
       err => {
         this.hasGames = false;
