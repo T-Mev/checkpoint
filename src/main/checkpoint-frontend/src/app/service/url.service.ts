@@ -8,19 +8,19 @@ export class UrlService {
   constructor() { }
 
   // Auth Development URL:
-  authUrl: string = "http://localhost:8080/REST/auth/";
+  authUrl: string = "/REST/auth/";
 
   // Auth Production URL:
   // authUrl: string = "";
 
   // User Development URL:
-  userUrl: string = 'http://localhost:8080/REST/user/';
+  userUrl: string = '/REST/user/';
 
   // User Production URL:
   // userUrl: string = "";
 
   // General Development URL:
-  generalUrl: string = "http://localhost:8080";
+  generalUrl: string = "";
 
   // General Production URL:
   // generalUrl: string = "";
