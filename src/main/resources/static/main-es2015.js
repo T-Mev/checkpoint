@@ -1260,7 +1260,7 @@ let ProfileComponent = class ProfileComponent {
     }
     ngOnInit() {
         this.currentUser = this.token.getUser();
-        this.shareUrl = this.url.shareUrl;
+        this.shareUrl = this.url.shareProdUrl;
         this.route.params.subscribe(res => {
             if (res.username) {
                 this.urlUser = res.username;
@@ -1896,6 +1896,8 @@ let UrlService = class UrlService {
         // generalUrl: string = "";
         // Share Development URL:
         this.shareUrl = "http://localhost:4200";
+        // Share Production URL:
+        this.shareProdUrl = "https://app-checkpoint.herokuapp.com";
     }
 };
 UrlService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

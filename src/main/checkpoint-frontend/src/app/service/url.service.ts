@@ -29,5 +29,5 @@ export class UrlService {
   shareUrl: string = "http://localhost:4200";
 
   // Share Production URL:
-  // authUrl: string = "";
+  shareProdUrl: string = "https://app-checkpoint.herokuapp.com";
 }

@@ -34,7 +34,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = this.token.getUser();
-    this.shareUrl = this.url.shareUrl;
+    this.shareUrl = this.url.shareProdUrl;
 
     this.route.params.subscribe(res => {
       if (res.username) {

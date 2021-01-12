@@ -2372,7 +2372,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this8 = this;
 
           this.currentUser = this.token.getUser();
-          this.shareUrl = this.url.shareUrl;
+          this.shareUrl = this.url.shareProdUrl;
           this.route.params.subscribe(function (res) {
             if (res.username) {
               _this8.urlUser = res.username;
@@ -3481,7 +3481,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       // generalUrl: string = "";
       // Share Development URL:
 
-      this.shareUrl = "http://localhost:4200";
+      this.shareUrl = "http://localhost:4200"; // Share Production URL:
+
+      this.shareProdUrl = "https://app-checkpoint.herokuapp.com";
     };
 
     UrlService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
