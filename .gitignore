@@ -257,4 +257,3 @@ gradle-app.setting
 
 ### Gradle Patch ###
 **/build/
-/src/main/resources/static/
