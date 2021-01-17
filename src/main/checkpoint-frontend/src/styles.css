@@ -27,4 +27,10 @@ hr {
     margin-top: 0;
 }
 
+@media (max-width: 992px) {
 
+    body {
+        padding-top: 6px;
+    }
+
+}

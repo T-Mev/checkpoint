@@ -320,7 +320,7 @@ hr {
 }
 
 .title-container {
-    margin: 2% auto 0 auto;
+    margin: 5% auto 0 auto;
     color: rgb(119, 119, 131);
     font-family: 'Bebas Neue', cursive;
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
@@ -365,4 +365,11 @@ hr {
         max-width: 25%;
     }
 }
+
+@media only screen and (max-width: 800px) {
+    .img-container {
+        padding-top: 50px;
+    }
+}
+
 
