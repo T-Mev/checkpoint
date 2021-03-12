@@ -1,11 +1,12 @@
 
 .card {
+    border-radius: 10px;
     cursor: default;
     width: 100%;
     max-width: 350px;
     margin: 0 auto;
     user-select: none;
-    background-image: linear-gradient(rgb(255, 255, 255), rgb(243, 243, 243));
+    /* background-image: linear-gradient(rgb(255, 255, 255), rgb(243, 243, 243)); */
     -webkit-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
     -moz-box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
     box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
@@ -25,13 +26,19 @@
 }
 
 .content h2 {
-    color: rgb(95, 95, 100);
+    color: rgb(102, 102, 107);
     font-family: 'Bebas Neue', cursive;
     letter-spacing: 1px;
+    padding-top: 8px;
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0, 0, 0, 0.253);
 }
 
+.content p {
+    padding-bottom: 10px;
+}
+
 .img {
+    border: 1px solid rgb(243, 243, 243);
     border-radius: 10px;
     width: 85%;
     transition: border .2s ease-in-out, transform .2s ease-in-out;
