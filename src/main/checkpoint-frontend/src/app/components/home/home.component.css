@@ -12,6 +12,10 @@
     box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.329);
 }
 
+.card p {
+    color: rgb(102, 102, 107);
+}
+
 .clickable {
     cursor: pointer;
 }
