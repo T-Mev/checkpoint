@@ -1,6 +1,5 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/T-Mev/checkpoint/master/src/main/checkpoint-frontend/src/assets/img/Logo.png">
-   <p align="center">Capstone project for LaunchCode's LiftOff program</p>
    <p align="center">https://app-checkpoint.herokuapp.com/</p>
 </p>
 
@@ -41,7 +40,7 @@ Video game library manager used to track a user's collection utilizing an API to
 * Angular Material
 * Bootstrap 4
 
-### What I'll Have to Learn
+### What I've learned:
 * Angular
 * Responsive design
 * Connecting Angular front-end to Java back-end
